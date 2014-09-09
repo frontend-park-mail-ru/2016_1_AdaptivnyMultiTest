@@ -11,8 +11,8 @@ module.exports = function (grunt) {
             },
             server: {
                 files: [
-                    'public/js/**/*.js',
-                    'public/css/**/*.css'
+                    'public_html/js/**/*.js',
+                    'public_html/css/**/*.css'
                 ],
                 options: {
                     interrupt: true,
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
                 options: {
                     livereload: true,
                     port: 8000,
-                    base: 'public'
+                    base: 'public_html'
                 }
             }
         },
@@ -35,7 +35,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: 'templates',
                     src: '*.xml',
-                    dest: 'public/js/tmpl'
+                    dest: 'public_html/js/tmpl'
                 }],
                 options: {
                     template: function (data) {
