@@ -20,13 +20,9 @@ module.exports = function (grunt) {
                 }
             }
         },
-        connect: {
+        shell: {
             server: {
-                options: {
-                    livereload: true,
-                    port: 8000,
-                    base: 'public_html'
-                }
+                command: 'java -cp L1.2-1.0-jar-with-dependencies.jar main.Main 8080'
             }
         },
         fest: {
@@ -46,13 +42,20 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+        concurrent: {
+            target: ['watch', 'shell'],
+            options: {
+                logConcurrentOutput: true
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-concurrent');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
 
-    grunt.registerTask('default', ['connect', 'watch']);
+    grunt.registerTask('default', ['concurrent']);
 
 };
