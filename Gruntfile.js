@@ -1,26 +1,11 @@
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        watch: {
-            fest: {
-                files: ['templates/*.xml'],
-                tasks: ['fest'],
-                options: {
-                    atBegin: true
-                }
-            },
-            server: {
-                files: [
-                    'public_html/js/**/*.js',
-                    'public_html/css/**/*.css'
-                ],
-                options: {
-                    interrupt: true,
-                    livereload: true
-                }
-            }
-        },
         shell: {
+            options: {
+                stdout: true,
+                stderr: true
+            },
             server: {
                 command: 'java -cp L1.2-1.0-jar-with-dependencies.jar main.Main 8080'
             }
@@ -40,6 +25,25 @@ module.exports = function (grunt) {
                             {data: data}
                         );
                     }
+                }
+            }
+        },
+        watch: {
+            fest: {
+                files: ['templates/*.xml'],
+                tasks: ['fest'],
+                options: {
+                    atBegin: true
+                }
+            },
+            server: {
+                files: [
+                    'public_html/js/**/*.js',
+                    'public_html/css/**/*.css'
+                ],
+                options: {
+                    interrupt: true,
+                    livereload: true
                 }
             }
         },
