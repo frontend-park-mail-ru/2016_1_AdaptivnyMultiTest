@@ -33,6 +33,7 @@ module.exports = function (grunt) {
                 files: ['templates/*.xml'],
                 tasks: ['fest'],
                 options: {
+                    interrupt: true,
                     atBegin: true
                 }
             },
@@ -42,7 +43,6 @@ module.exports = function (grunt) {
                     'public_html/css/**/*.css'
                 ],
                 options: {
-                    interrupt: true,
                     livereload: true
                 }
             }
