@@ -20,8 +20,6 @@ function hideLoginScreen() {
 }
 
 function showMainScreen() {
-	var html = window.mainTmpl()
-	$page.html(html);
 	// TODO
 }
 
