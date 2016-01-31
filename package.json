@@ -9,5 +9,8 @@
     "body-parser": "^1.14.2",
     "errorhandler": "^1.4.3",
     "express": "^4.13.4"
+  },
+  "scripts": {
+    "start": "node server"
   }
 }
