@@ -1,11 +1,13 @@
 {
   "name": "epicgame",
   "version": "0.1.0",
-  "description": "",
+  "description": "SSPA - Simple Single Page Application",
   "main": "index.js",
-  "author": "a.eprev@gmail.com",
+  "author": "a.mezin@corp.mail.ru",
   "license": "MIT",
   "devDependencies": {
+    "body-parser": "^1.14.2",
+    "errorhandler": "^1.4.3",
     "express": "^4.13.4"
   }
 }
