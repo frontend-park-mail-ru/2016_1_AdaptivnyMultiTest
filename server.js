@@ -15,10 +15,7 @@ app.use(function (req) {
 	// [время] [method] uri (* номер запроса по счету)
 });
 
-app.use(errorHandler({
-  dumpExceptions: true,
-  showStack: true
-}));
+app.use(errorHandler());
 
 app.listen(PORT, function (argument) {
 	console.log("Simple static server showing %s listening at http://%s:%s", PUBLIC_DIR, HOSTNAME, PORT);
