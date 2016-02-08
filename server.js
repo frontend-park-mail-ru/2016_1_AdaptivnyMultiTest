@@ -1,4 +1,4 @@
-var express = require("express"),
+var express = require('express'),
     errorHandler = require('errorhandler'),
     app = express();
 
@@ -9,7 +9,7 @@ var HOSTNAME = 'localhost',
 app.use(function (req) {
 	// Здесь нужно написать журналирование в формате
 	// (журналирование - вывод в консоль)
-	// [время] (*номер запроса по счету)
+	// [время] [номер запроса по счету]
 });
 
 app
