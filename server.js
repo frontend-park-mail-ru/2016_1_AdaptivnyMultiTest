@@ -10,6 +10,11 @@ var HOSTNAME = 'localhost',
 
 app.use('/', express.static(PUBLIC_DIR));
 
+app.use(function (req) {
+	// Здесь нужно написать журналирование в формате
+	// [время] [method] uri (* номер запроса по счету)
+});
+
 app.use(errorHandler({
   dumpExceptions: true,
   showStack: true
