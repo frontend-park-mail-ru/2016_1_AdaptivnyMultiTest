@@ -1,29 +1,6 @@
-function showScoreboardScreen() {
-	// TODO
-}
-function hideScoreboardScreen() {
-	// TODO
-}
-
-function showGameScreen() {
-	// TODO
-}
-function hideGameScreen() {
-	// TODO
-}
-
-function showLoginScreen() {
-	// TODO
-}
-function hideLoginScreen() {
-	// TODO
-}
-
-function showMainScreen() {
-	// TODO
-}
-
-function hideMainScreen() {
-	// TODO
-}
-
+define( //запускает контроль адресной строки для хеш-навигации
+    ['backbone', 'router'],
+    function (Backbone, router) {
+        Backbone.history.start();
+    }
+);
