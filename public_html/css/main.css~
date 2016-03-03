@@ -1,0 +1,199 @@
+@font-face {
+    font-family: Bangers;
+    src: url(bangers.ttf);
+}
+html, body {
+    padding: 0;
+    margin: 0;
+}
+* {
+    font-family: Bangers;
+    box-sizing: border-box;
+}
+
+#page {
+    width: 100%;
+    height: 100%;
+}
+.wrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.wrap__layout {
+    width: 450px;
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+/*Bomberman logo*/
+.logo {
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+    height: 150px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*Menu*/
+.menu {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.menu__title {
+    width: 100%;
+    font-size: 32px;
+    text-align: center;
+    height: 80px;
+    line-height: 80px;
+}
+.menu__btn {
+    width: 50%;
+    height: 60px;
+
+    background-color: #039BE5;
+    border: 0;
+    margin: 10px 10% 10px 26%;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 40px;
+    transition: all 0.3s;
+
+    box-shadow: 0 0 20px rgba(0,0.3,0,0.9);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.menu__btn:focus {
+    outline: none;
+}
+.menu__btn:hover {
+    background: #0277BD;
+}
+
+.menu__btn--back {
+    margin-top: 5px;
+    background: #D32F2F;
+    color: #fdf5fd;
+}
+.menu__btn--back:hover {
+    background-color: #B71C1C;
+}
+.menu_btn--primary {
+    background-color:#FF9800
+}
+.menu_btn--primary:hover{
+    background-color: #EF6C00;
+}
+
+.form {
+
+}
+
+#alert {
+    width: 80%;
+    margin: 10px 10% 10px 10%;
+    border: 0;
+    border-radius: 5px;
+    line-height: 40px;
+    font-size: 16px;
+    background: #F5696C;
+    color: #ffffff;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.open {
+    display: inline-block;
+}
+/*login and register input */
+.text_input {
+    width: 65%;
+    height: 40px;
+    margin: 10px 10% 10px 18%;
+    border: 0;
+    border-radius: 5px;
+    line-height: 40px;
+    font-size: 16px;
+    transition: all 0.3s;
+
+    background: #e9ecf0;
+    color: #5E6D82;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+.text_input:focus {
+    outline: none;
+    background-color: #F3F3F3;
+}
+
+/*Submit*/
+.submit_input {
+    width: 50%;
+    height: 60px;
+    margin: 5px 10% 10px 26%;
+    border: 0;
+    border-radius: 5px;
+    line-height: 40px;
+    font-size: 32px;
+    transition: all 0.3s;
+
+    background: #14B9D5;
+    color: #FFFFFF;
+    text-align: center;
+}
+.submit_input:focus {
+    outline: none;
+}
+.submit_input:hover {
+    background: #0E778A;
+}
+
+/*Rating*/
+.scoreboard {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.scoreboard__name {
+    width: 80%;
+}
+.scoreboard__rating {
+    width: 20%;
+    text-align: center;
+}
+.scoreboard__title {
+    font-weight: bold;
+}
+/*Chat*/
+.chat-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 450px;
+    background-color: #ecfff8;
+    right:0;
+}
+.chat__form {
+    background: #000;
+    padding: 3px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.chat__form--input {
+    /*width: 900%;*/
+    width: 25%;
+}

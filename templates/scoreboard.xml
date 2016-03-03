@@ -1,3 +1,26 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div id="scoreboard"></div>
+    <div id="scoreboard" align="center" class="panel"> 
+     <form class="menu">
+         <table border="1" width="100%" cellpadding="5">
+           	 <tr>
+           	 	 <th>№</th>
+           	 	 <th>Имя</th>
+           	 	 <th>Рейтинг</th>
+          	 </tr>
+
+             <fest:for from="1" to="10" index="i">
+            	 <tr>
+             	 	 <th><fest:value>i</fest:value></th>
+             	 	 <th>Мудрец <fest:space/> <fest:value>i</fest:value> </th>
+             	 	 <th><fest:value>200-i*10</fest:value></th>
+            	 </tr>
+             </fest:for>
+
+        </table>
+     </form>
+
+     <div align="center" class="menu">
+         <button class="menu__btn_short" id="main" >Back</button>
+     </div>
+   </div>
 </fest:template>
