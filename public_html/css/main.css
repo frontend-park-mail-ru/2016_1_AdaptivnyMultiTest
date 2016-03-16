@@ -125,7 +125,8 @@ h2 {
 
 
 }
-.form-login input[type="email"] , .form-signup input[type="login"]  .form-signup input[type="text"] , {
+.form-login input[type="login"] , .form-signup input[type="login"] ,
+ .form-signup input[type="email"], .form-login input[type="email"] {
   margin-left: auto;
   margin-right: auto;
 
