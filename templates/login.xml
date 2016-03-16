@@ -1,3 +1,35 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
-    <div id="login"></div>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="LoginErrors">
+
+   <div id="login" class="panel"> 
+
+     <form class="form-login" role="form">
+       <h2 class="form-login__heading">Login</h2>
+         <input class="form-login__control" placeholder="Login" required="" autofocus="" type="login" name="login"/>
+         <input class="form-login__control" placeholder="Password" required="" type="password"/>
+        <button class="form-login__btn" id="submitLogin"> Enter </button>
+
+<!--         <fest:if test="!SignupErrors.NoErrors">
+          <div class="form-login__validate-messages">
+                  <fest:if test="LoginErrors.LoginError">
+                      <p>Неверный логин</p>
+                  </fest:if>
+                  <fest:if test="LoginErrors.PasswordError">
+                      <p>Неверный пароль</p>
+                  </fest:if>
+          </div>
+        </fest:if> -->
+
+<!--          <fest:if test="SignupErrors.NoErrors"> -->
+          <div class="form-login__validate-messages_hide">
+          </div>
+<!--         </fest:if> -->
+
+        <button class="form-login__btn" id="loginTosignup"> Create New </button>
+     </form>
+
+     <div class="menu">
+       <button class="menu__btn_short" id="loginTomain">Back</button>
+     </div>
+
+    </div>
 </fest:template>

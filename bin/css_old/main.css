@@ -1,0 +1,163 @@
+@font-face {
+    font-family: Monospace;
+    src: url(FuturicaMedium.ttf);
+}
+
+html, body {
+    padding: 0px;
+    margin: 0;
+    font-family: Monospace, 'FuturicaMedium';
+
+}
+
+.panel {
+  padding-bottom: 40px;
+  margin: 0 auto;
+  margin-top: 20px;
+  max-width: 340px;
+  height: 400px;
+
+  border: 1px solid trasparent;
+  border-color: #65e2eb;
+  background-color: #e1eff0;
+  border-radius: 4px;
+  box-shadow: 0 8px 8px rgba(0,0,0,0.05);
+}
+
+.game-screen {
+  max-width: 1366px;
+  min-height: 300px;
+  margin: auto;
+}
+
+.game-screen__questions {
+  width: 46%;
+  padding-left: 10px;
+  min-height: 200px;
+  display: inline-block;
+  text-align: center;
+}
+
+.question__title {
+  margin: 10px;
+  display: inline-block;
+  text-align: center;
+}
+.question__text {
+  padding: 10px;
+  display: inline-block;
+  text-align: left;
+}
+
+.game-screen__progress-bar {
+  width: 5%;
+  height: 100px;
+  display: inline-block;
+  background-color: #65e2eb;
+}
+
+.game-screen__answers {
+  display: inline-block;
+  width: 43%;
+  min-height: 200px;
+  text-align: center;
+}
+
+ .player1, .player2, .player1__nickname, .player2__nickname, .player1__current-score, .player2__current-score {
+  width: 45%;
+  display: inline-block;
+  padding: 5px;
+  margin: 10px;
+  text-align: right;
+  background-color: #e1eff0;
+}
+
+.player1__nickname,  .player2__current-score {
+  width: 35%;
+  text-align: left;
+}
+
+.player2__nickname, .player1__current-score, {
+  width: 25%;
+
+}
+
+.form-login, .menu {
+  max-width: 340px;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.form-login__heading .menu-heading {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+ .form-login__control {
+  position: relative;
+  align-items: center;
+  height: auto;
+  margin: 10px 20% 20px 16%;
+  padding: 10px;
+  font-size: 16px;
+  display: block;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow:  inset 0 1px 1px rgba(0s,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+.form-login__control:focus {
+  z-index: 2;
+  border-color:  #630875;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(99, 8, 117, 1);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(99, 8, 117, 1);
+
+
+}
+.form-login input[type="email"] {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-login input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-login__btn, .menu__btn, .menu__btn_short, .game-screen__btn  {
+  width: 70%;
+  height: 40px;
+  text-align: center;
+  background-color: #630875;
+  border: 0;
+  margin: 10px 22px 10px 10px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 24px;
+  box-shadow: 0 0 10px rgba(68, 4, 196, 1);
+  font-family: Monospace, 'FuturicaMedium';
+}
+
+.menu__btn_short {
+  width: 40%;
+}
+
+.game-screen__btn{
+  display: inline-block;
+  width: 35%;
+}
+.form-login__btn:focus {
+  outline: none; 
+}
+
+.form-login__btn:hover, .menu__btn:hover, .menu__btn_short:hover {
+  background-color: #8a4299;
+}
+

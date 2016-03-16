@@ -1,0 +1,17 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+
+   <div id="login" align="center" class="panel"> 
+
+     <form class="form-login" style="margin-bottom: 119px" role="form">
+       <h2 class="form-login__heading">Login</h2>
+         <input class="form-login__control" placeholder="Email address" required="" autofocus="" type="text"/>
+         <input class="form-login__control" placeholder="Password" required="" type="password"/>
+        <button id="login-form" class="form-login__btn" type="submit"> Enter </button>
+     </form>
+
+     <div align="center" class="menu">
+       <button class="menu__btn_short" id="main">Back</button>
+     </div>
+
+    </div>
+</fest:template>

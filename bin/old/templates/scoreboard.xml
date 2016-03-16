@@ -1,0 +1,27 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="players">
+    <div id="scoreboard" align="center" class="panel"> 
+
+         <form class="menu">
+             <table border="1" width="100%" cellpadding="5">
+               	 <tr>
+               	 	 <th>№</th>
+               	 	 <th>Имя</th>
+               	 	 <th>Рейтинг</th>
+              	 </tr>
+                
+                 <fest:each iterate="players" index="i" value="player">
+                	 <tr>
+                 	 	 <th><fest:value>++i</fest:value></th>
+                 	 	 <th><fest:value>player.nickName</fest:value> </th>
+                 	 	 <th><fest:value>player.score</fest:value></th>
+                	 </tr>
+                 </fest:each> 
+            </table> 
+         </form>
+
+         <div align="center" class="menu">
+             <button class="menu__btn_short" id="main">Back</button>
+         </div>
+   </div>
+</fest:template>
+

@@ -1,0 +1,22 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+
+   <div id="signup" class="panel"> 
+
+     <form class="form-sigup" role="form">
+       <h2 class="form-signup__heading">Registration</h2>
+         <input class="form-signup__control" placeholder="Nickname" required="" autofocus="" type="text" id="nickname"/>
+         <input class="form-signup__control" placeholder="Email address" required="" autofocus="" type="email" id="e-mail"/>
+         <input class="form-signup__control" placeholder="Password" required="" type="password" id="password"/>
+        <button class="form-signup__btn" type="submit"> Create </button>
+        <div class="form-signup__validate-messages">
+            <p>Неверный e-mail</p>
+            <p>Неверный пароль</p>
+        </div>
+     </form>
+
+     <div class="menu">
+       <button class="menu__btn_short" id="login123">Back</button>
+     </div>
+
+    </div>
+</fest:template>

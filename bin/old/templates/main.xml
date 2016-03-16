@@ -1,0 +1,13 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+   <div id="main" align="center" class="panel"> 
+     <form class="menu">
+         <h2 class="menu__heading">Main menu</h2>
+         <button class="menu__btn" id="scoreboard">Score board</button>
+         <button class="menu__btn" id="game">Start Game</button> 
+         <button class="menu__btn" id="login">Login</button>
+     </form>
+   </div>
+      
+</fest:template> 
+
+menu__btn

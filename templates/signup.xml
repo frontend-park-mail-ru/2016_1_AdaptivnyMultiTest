@@ -1,0 +1,39 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="SignupErrors">
+
+   <div id="signup" class="panel"> 
+
+     <form class="form-signup" role="form">
+       <h2 class="form-signup__heading">Registration</h2>
+         <input class="form-signup__control" placeholder="Login" required="" autofocus="" type="login" name="login"/>
+         <input class="form-signup__control" placeholder="Email address" required="" autofocus="" type="email" name="email"/>
+         <input class="form-signup__control" placeholder="Password" required="" type="password" id="password"/>
+        <button class="form-signup__btn" type="submit" id="submitSignup"> Create </button>
+
+<!--         <fest:if test="!SignupErrors.NoErrors">
+            <div class="form-signup__validate-messages">
+                <fest:if test="SignupErrors.LoginError">
+                    <p>Логин уже занят!</p>
+                </fest:if>
+                <fest:if test="SignupErrors.EmailError">
+                    <p>Неверный e-mail</p>
+                </fest:if>
+                <fest:if test="SignupErrors.PasswordError">
+                    <p>Неверный пароль</p>
+                </fest:if>
+
+            </div>
+        </fest:if> -->
+
+<!--         <fest:if test="SignupErrors.NoErrors"> -->
+            <div class="form-signup__validate-messages_hide">
+            </div>
+<!--         </fest:if> -->
+
+     </form>
+
+     <div class="menu">
+       <button class="menu__btn_short" id="signupTologin">Back</button>
+     </div>
+
+    </div>
+</fest:template>

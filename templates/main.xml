@@ -1,3 +1,37 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
-    <div id="main"></div>
-</fest:template>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="user">
+   <div id="main" class="panel"> 
+     <form class="menu">
+         <h2 class="menu__heading">Main menu</h2>
+<!--          <fest:if test="user.IsAuthorized">
+             <div class="menu__login-status_authorized">
+                 <table class="menu__table" border="0" width="100%" cellpadding="0">
+                     <tr>
+                         <th class="table__name">Logged by:</th>
+                         <th><fest:value>user.login</fest:value> Рыбка-заглушка</th>
+                     </tr>
+
+                     <tr>
+                         <th class="table__name">Rating:</th>
+                         <th><fest:value>user.score</fest:value></th>
+                     </tr>
+                 </table>
+             </div>
+         </fest:if> -->
+         <button class="menu__btn" id="mainToscoreboard">Scoreboard</button>
+         <div class="bs-menu__btn_dropdown btn-group">
+             <button class="menu__btn" data-toggle="dropdown">Start Game <span class="caret"></span></button>
+             <ul class="dropdown-menu" role="menu">
+                  <li><a href="#game">Create New</a></li>
+                  <li> <a href="#login">Find and join</a></li>
+             </ul>
+         </div>
+<!--          <fest:if test="!user.IsAuthorized">  -->
+             <button class="menu__btn" id="mainTologin">Login</button>
+<!--          </fest:if>  -->
+<!--          <fest:if test="user.IsAuthorized"> 
+             <button class="menu__btn" id="logout">Logout</button>
+         </fest:if> -->
+     </form>
+   </div>
+      
+</fest:template> 
