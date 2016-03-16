@@ -1,0 +1,48 @@
+<fest:template xmlns:fest="http://fest.mail.ru">
+    <div id="game">
+		 <div class="game-screen"> 
+		     <div  class="game-screen__heading">
+		         <div class="player1">
+		         	 <div class="player1__nickname">
+		         	 	 Nick1
+		         	 </div>
+		         	 <div class="player1__current-score">
+		         	 	 Score1
+		         	 </div>
+		         </div>
+
+		         <div class="player2">
+		         	 <div class="player2__current-score">
+		         	 	 Score2
+		         	 </div>
+
+		         	 <div class="player2__nickname">
+		         	 	 Nick2
+		         	 </div>
+		         </div>
+		     </div>
+
+	     <div class="game-screen__questions">
+	    	 <div class="question__title">
+	    	 	 <text>Question Theme 14/20</text>
+	    	 </div>
+			 <div class="question__text">
+	    	 	 <p>Question text Question text Question textasddf Question text Question text Question text Question text</p>
+	    	 </div>
+		 </div>
+
+	     <div class="game-screen__progress-bar">
+	    	 TPB
+		 </div>
+
+	     <div class="game-screen__answers">
+	    	 <text>Answers 1</text>
+	    	 <text>Answers 2</text>
+	    	 <div align="center" class="anwers__btns">
+	    		 <button  class="game-screen__btn" id="settings">Settings</button>
+	    		 <button  class="game-screen__btn" id="next">Next</button>
+			 </div>
+		 </div>
+	 </div>
+    </div>
+</fest:template>
