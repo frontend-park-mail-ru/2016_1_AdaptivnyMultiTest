@@ -7,7 +7,8 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'java -cp L1.2-1.0-jar-with-dependencies.jar main.Main 8080'
+                //command: 'node server.js'
+		command: 'java -jar 2016-02-Adaptive-MultiTest-1.0.jar  8080'
             }
         },
         fest: {
@@ -21,7 +22,7 @@ module.exports = function (grunt) {
                 options: {
                     template: function (data) {
                         return grunt.template.process(
-                            'var <%= name %>Tmpl = <%= contents %> ;',
+                            'define(function () { return <%= contents %> ; });',
                             {data: data}
                         );
                     }

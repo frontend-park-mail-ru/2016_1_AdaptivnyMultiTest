@@ -1,0 +1,59 @@
+<!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="user"> -->
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+   <div class="bs-panel panel"> 
+     <form class="newgame">
+         <h2 class="newgame__heading">New Game</h2>
+         <div class="newgame__selector">
+             <h4 class="selector__title">Choose theme</h4>
+             <div class="selector__multiple-choiser">
+                 <select size="5" required="" name="theme" id="themes">
+                    <fest:for iterate="json.themes" index="i" value="v">
+                        <option>
+                            <fest:value output="text">
+                                v
+                            </fest:value> 
+                        </option>
+                    </fest:for>
+                </select>
+             </div>
+         </div>
+         <div class="newgame__selector">
+             <div class="selector__drop-down-choiser">
+                 <select required="" name="number-questions" id="questionsNum">
+                     <option selected="selected">Number of questions</option>
+                     <!-- <fest:for iterate="json.gameSession" index="i" value="v">
+                        <option>
+                            <fest:value >
+                                v.questionNum
+                            </fest:value> 
+                        </option>
+                    </fest:for> -->
+                    <option>2</option>
+                    <option>10</option>
+                    <option>15</option>
+                    <option>20</option>
+                 </select>
+             </div>
+         </div>
+         <div class="newgame__selector" style="visibility: hidden">
+             <div class="selector__drop-down-choiser">
+                 <select required="" name="total-duration">
+                     <option selected="selected">Total duration</option>
+                     <option>5 min</option>
+                     <option>10 min</option>
+                     <option>20 min</option>
+                     <option>30 min</option>
+                 </select>
+             </div>
+         </div>
+        <button class="newgame__btn" type="submit" id="createGame"> Create game </button>
+
+     </form>
+
+     <div class="menu menu_for-back">
+         <a href="#main"class="menu__btn_short"> Back</a>
+     </div>
+
+   </div>
+      
+</fest:template> 
