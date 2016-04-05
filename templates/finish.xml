@@ -1,95 +1,18 @@
-<!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="session"> -->
-<!-- <fest:template xmlns:fest="http://fest.mail.ru">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json"> 
     <div class="bs-panel panel"> 
         <form class="finish">
             <h2 class="finish__heading">Finish</h2>
             <div class="finish__body">
-                <fest:if test="session.IsOpen">
-                    <h4>waiting for opponent...</h4>
-                </fest:if> -->
-<!--                 <fest:if test="!session.IsOpen">
-                    <fest:if test="session.Isp1win"> -->
-
-                        
-<!--                         <h4 class="win">YOU WIN!!! :)</h4> -->
-
-
-<!--                     </fest:if> 
-                    <fest:if test="!session.Isp1win">
-                        <h4 class="lose">YOU LOSE! :(</h4>
-                    </fest:if>
-                </fest:if>  -->
-
-
-<!--                  <table class="finish__table" border="0" width="100%" cellpadding="0">
-                    <tr>
-                        <th class="table__name">Theme:</th>
-                        <th><fest:value>session.theme</fest:value> Прикладная некромантия</th>
-                    </tr>
-
-                    <tr>
-                        <th class="table__name">Questions:</th>
-                        <th><fest:value>session.p1.doneQuestions</fest:value>10 / <fest:value>session.numOfQuestions</fest:value><fest:space/> 15</th>
-                    </tr>
-
-                    <tr>
-                        <th class="table__name">Score:</th>
-                        <th><fest:value>session.p1.score</fest:value>16 / <fest:value>session.maxScore</fest:value><fest:space/> 21</th>
-                    </tr>
-
-                    <tr>
-                        <th class="table__name">Time:</th>
-                        <th><fest:value>session.p1.spentTime</fest:value>18:44 / <fest:value>session.totalTime</fest:value><fest:space/> 20 min</th>
-                    </tr>
-                </table>
-            </div>
-        </form>
-
-        <div class="menu menu_for-back">
-            <button class="menu__btn_short" id="finishTomain">To Main</button>
-        </div>
-    </div>
-      
-</fest:template>  -->
-
-
-
- <fest:template xmlns:fest="http://fest.mail.ru" context_name="json"> 
-    <div class="bs-panel panel"> 
-        <form class="finish">
-            <h2 class="finish__heading">Finish</h2>
-            <div class="finish__body">
-               <!--  <fest:if test="session.IsOpen">
-                    <h4>waiting for opponent...</h4>
-                </fest:if> -->
-<!--                 <fest:if test="!session.IsOpen">
-                    <fest:if test="session.Isp1win"> -->
-                        <h4 class="win">YOU WIN!!! :)</h4>
-<!--                     </fest:if> 
-                    <fest:if test="!session.Isp1win">
-                        <h4 class="lose">YOU LOSE! :(</h4>
-                    </fest:if>
-                </fest:if>  -->
+                <h4 class="win">YOU WIN!!! :)</h4>
                  <table class="finish__table" border="0" width="100%" cellpadding="0">
                     <tr>
                         <th class="table__name">Theme:</th>
                         <th><fest:value>json.theme</fest:value></th>
                     </tr>
-
-                   <!--  <tr>
-                        <th class="table__name">Questions:</th>
-                        <th><fest:value>session.p1.doneQuestions</fest:value>10 / <fest:value>session.numOfQuestions</fest:value><fest:space/> 15</th>
-                    </tr> -->
-
                     <tr>
                         <th class="table__name">Score:</th>
                         <th><fest:value>json.gameScore</fest:value> / <fest:value>json.questionsNum</fest:value></th>
                     </tr>
-
-                    <!-- <tr>
-                        <th class="table__name">Time:</th>
-                        <th><fest:value>session.p1.spentTime</fest:value>18:44 / <fest:value>session.totalTime</fest:value><fest:space/> 20 min</th>
-                    </tr> -->
                 </table>
             </div>
         </form>
@@ -98,5 +21,4 @@
             <button class="menu__btn_short" id="finishTomain">To Main</button>
         </div>
     </div>
-      
 </fest:template> 

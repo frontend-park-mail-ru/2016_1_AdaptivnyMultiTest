@@ -1,9 +1,7 @@
-<!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="user"> -->
 <fest:template xmlns:fest="http://fest.mail.ru" >
    <div class="bs-panel panel"> 
      <form class="menu">
          <h2 class="menu__heading">Main menu</h2>
-<!--          <fest:if test="user.IsAuthorized"> -->
              <div class="menu__login-status_authorized">
                  <table class="menu__table" border="0" width="100%" cellpadding="0">
                      <tr>
@@ -17,7 +15,7 @@
                      </tr>
                  </table>
              </div>
-<!--          </fest:if> -->
+
         
          <a href="#scoreboard" class="menu__btn">Scoreboard</a>
          
@@ -28,12 +26,8 @@
                   <li> <a href="#joingame">Find and join</a></li>
              </ul>
          </div>
-<!--          <fest:if test="!user.IsAuthorized">  -->
+
              <a href="#login" class="menu__btn">Login</a>
-<!--          </fest:if>  -->
-<!--          <fest:if test="user.IsAuthorized"> 
-             <button class="menu__btn" id="logout">Logout</button>
-         </fest:if> -->
      </form>
    </div>
       

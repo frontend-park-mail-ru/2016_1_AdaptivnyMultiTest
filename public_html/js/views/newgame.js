@@ -7,6 +7,8 @@ define(
         var gameSession = require('models/Game/GameSession');
 
         var View = Backbone.View.extend({
+            id : "newgame",
+
             model: new themes(),
             userSession: new userSession(),
             gameSession: new gameSession(),
@@ -21,7 +23,6 @@ define(
             },
 
             initialize: function() {
-                $(document.body).append(this.$el);
                 this.userSession.fetch({
                     success : function(model, response, options) {
                         //this.gameSession.set({'login' : response.login });//Раскомментить+++++++++++++++++++++
@@ -29,8 +30,6 @@ define(
                 });
                 this.model.bind('sync', this.render, this);
                 this.model.fetch();
-                //this.render();
-                this.hide(); 
             },
             render: function () {
                 this.$el.html(this.template(this.model.toJSON()));
@@ -58,7 +57,8 @@ define(
                 this.trigger("startGame");
             },
             show: function () {
-                this.trigger("show");
+                this.render();
+                this.trigger("show", this);
                 this.$el.show();
             },
             hide: function () {

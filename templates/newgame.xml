@@ -1,4 +1,3 @@
-<!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="user"> -->
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
    <div class="bs-panel panel"> 
      <form class="newgame">
@@ -21,13 +20,6 @@
              <div class="selector__drop-down-choiser">
                  <select required="" name="number-questions" id="questionsNum">
                      <option selected="selected">Number of questions</option>
-                     <!-- <fest:for iterate="json.gameSession" index="i" value="v">
-                        <option>
-                            <fest:value >
-                                v.questionNum
-                            </fest:value> 
-                        </option>
-                    </fest:for> -->
                     <option>2</option>
                     <option>10</option>
                     <option>15</option>
@@ -51,7 +43,7 @@
      </form>
 
      <div class="menu menu_for-back">
-         <a href="#main"class="menu__btn_short"> Back</a>
+         <a href="#main"class="menu__btn_short">Back</a>
      </div>
 
    </div>

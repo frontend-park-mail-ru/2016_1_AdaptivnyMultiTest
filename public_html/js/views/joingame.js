@@ -4,12 +4,10 @@ define(
         var tmpl = require('tmpl/joingame');
 
         var View = Backbone.View.extend({
+            id: "joingame",
             template: tmpl,
 
             initialize: function() {
-                $(document.body).append(this.$el); //обращемся к DOM-элементу тега body и добавляем к нему DOM - обертку нашей вьюхи
-                this.render();
-                this.hide();
             },
 
             render: function () {
@@ -18,7 +16,8 @@ define(
             },
 
             show: function () {
-                this.trigger("show");
+                this.render();
+                this.trigger("show", this);
                 this.$el.show();
             },
             

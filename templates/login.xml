@@ -6,22 +6,9 @@
          <input class="form-login__control" placeholder="Login" required="" autofocus="" type="login" name="login" id="loginError"  data-container="body" data-toggle="popover"/>
          <input class="form-login__control" id="passwordError" placeholder="Password" required="" type="password" />
         <button class="form-login__btn" id="submitLogin" type="submit">Enter</button>
-
-<!--         <fest:if test="!SignupErrors.NoErrors">
-          <div class="form-login__validate-messages">
-                  <fest:if test="LoginErrors.LoginError">
-                      <p>Неверный логин</p>
-                  </fest:if>
-                  <fest:if test="LoginErrors.PasswordError">
-                      <p>Неверный пароль</p>
-                  </fest:if>
-          </div>
-        </fest:if> -->
-
-<!--          <fest:if test="SignupErrors.NoErrors"> -->
           <div class="form-login__validate-messages_hide">
           </div>
-<!--         </fest:if> -->
+
         <a href="#signup" class="form-login__btn">Create new</a>
      </form>
 

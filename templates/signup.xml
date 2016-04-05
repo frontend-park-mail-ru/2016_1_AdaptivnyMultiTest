@@ -9,25 +9,8 @@
          <input class="form-signup__control" id="passwordError" placeholder="Password" required="" type="password" id="passwordError_signup" name="password"/>
         <button class="form-signup__btn" type="submit" id="submitSignup"> Create </button>
 
-<!--         <fest:if test="!SignupErrors.NoErrors">
-            <div class="form-signup__validate-messages">
-                <fest:if test="SignupErrors.LoginError">
-                    <p>Логин уже занят!</p>
-                </fest:if>
-                <fest:if test="SignupErrors.EmailError">
-                    <p>Неверный e-mail</p>
-                </fest:if>
-                <fest:if test="SignupErrors.PasswordError">
-                    <p>Неверный пароль</p>
-                </fest:if>
-
-            </div>
-        </fest:if> -->
-
-<!--         <fest:if test="SignupErrors.NoErrors"> -->
-            <div class="form-signup__validate-messages_hide">
-            </div>
-<!--         </fest:if> -->
+        <div class="form-signup__validate-messages_hide">
+        </div>
      </form>
      <div class="menu menu_for-back">
        <a href="#main"class="menu__btn_short"> Back</a>

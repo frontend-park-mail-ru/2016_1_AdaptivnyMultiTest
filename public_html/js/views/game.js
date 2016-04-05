@@ -7,6 +7,9 @@ define(
         var newgameView = require('views/newgame');/////?????????
 
         var View = Backbone.View.extend({
+
+            id: "game",
+
             template: tmpl,
             model: new gameSession(),
             playerAnswer : new playerAnswer(),
@@ -58,7 +61,6 @@ define(
             },
 
             initialize: function() {
-                $(document.body).append(this.$el); //обращемся к DOM-элементу тега body и добавляем к нему DOM - обертку нашей вьюхи
                 self = this;
                 newgameView.on("startGame", function() {
                     self.model.fetch({
@@ -93,7 +95,8 @@ define(
                 })
                 this.playerAnswer.save({
                     success : function() {
-                        window.location.hash = "#finish";
+                        window.location.hash = "finish";
+                        this.trigger("finishGame");
                     }
                 });
                 //this.hide();
@@ -104,7 +107,8 @@ define(
             },
 
             show: function () {
-                this.trigger("show");
+                this.render();
+                this.trigger("show", this);
                 this.$el.show();
             },
             

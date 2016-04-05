@@ -6,26 +6,27 @@ define(
         var BackboneValidation = require('backbone_validation');
 
         var View = Backbone.View.extend({
+            id: "signup",
+
             template: tmpl,
             model: new user(),
             events: {
                  'submit .form-signup': 'handleSubmit'
             },
             initialize: function() {
-                $(document.body).append(this.$el);
-                this.render();
                 Backbone.Validation.bind(this, {invalid: function(view, attr, error, selector) {
-                        alert(error);
+                        //alert(error);
                     }
                 });
-                this.hide();
+                
             },
             render: function () {
                 this.$el.html(this.template());
                 return this;
             },
             show: function () {
-                this.trigger("show");
+                this.render();
+                this.trigger("show", this);
                 this.$el.show();
             },
             hide: function () {
@@ -33,11 +34,11 @@ define(
             },
             handleSubmit: function(e) {
                 e.preventDefault();
-                e.stopPropagation();
+                
                 this.model.set({
-                    login : $( "input[type=login]" ).val(),
-                    email : $( "input[name='email']" ).val(),
-                    password : $( "input[name='password']" ).val()
+                    login : this.$el.find( "input[type=login]" ).val(),
+                    email : this.$el.find( "input[name='email']" ).val(),
+                    password : this.$el.find( "input[name='password']" ).val()
                 });
               
                 if( this.model.isValid(['login', 'password', 'email']) ) {

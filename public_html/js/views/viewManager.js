@@ -1,19 +1,31 @@
 define(
     function (require) {
         var Backbone = require('backbone');
-        
+      
         var View = Backbone.View.extend({
+            returnCurrentView: null,
+
             addViews: function(views) {
             	var self = this;
+
             	_.each(views, function(view) {
-            		self.listenTo(view, 'show', function() {
-            			_.each(views, function(view) {
-            				view.hide();
+                    $(document.body).append(view.el);
+
+            		self.listenTo(view, 'show', function(currentView) {
+                    
+                        idCurrentView = currentView.el.id;
+                        _.each(views, function(view) {
+                            if( idCurrentView != view.el.id ) {
+                                view.hide();
+                            } else {
+                                self.returnCurrentView = view;
+                            }  
             			})
             		});
             	})
-            }
-         
+            },
+
+
         });
         return new View();
     }

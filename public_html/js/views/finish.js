@@ -7,7 +7,7 @@ define(
 
         var View = Backbone.View.extend({
             //model: new gameSession(),
-
+            id : "finish",
 
             model : new gameSession(
         {
@@ -38,9 +38,6 @@ define(
             template: tmpl,
 
             initialize: function() {
-                $(document.body).append(this.$el); //обращемся к DOM-элементу тега body и добавляем к нему DOM - обертку нашей вьюхи
-                this.render();
-                this.hide();
                 // self = this;
                 // gameView.on("startGame", function() {
                 //     self.model.fetch({
@@ -57,7 +54,8 @@ define(
                 return this;
             },
             show: function () {
-                this.trigger("show");
+                this.render();
+                this.trigger("show", this);
                 this.$el.show();
             },
             hide: function () {

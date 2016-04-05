@@ -6,6 +6,8 @@ define(
         var BackboneValidation = require('backbone_validation');
 
         var View = Backbone.View.extend({
+            id : "login",
+
             template: tmpl,
             model: new session(),
             events: {
@@ -13,13 +15,10 @@ define(
             },
 
             initialize: function() {
-                $(document.body).append(this.$el);
-                this.render();
                 Backbone.Validation.bind(this, {invalid: function(view, attr, error, selector) {
-                        alert(error);
+                        //alert(error);
                     }
                 });
-                this.hide();
             },
 
             render: function () {
@@ -28,7 +27,8 @@ define(
             },
 
             show: function () {
-                this.trigger("show");
+                this.render();
+                this.trigger("show", this);
                 this.$el.show();
             },
 
@@ -40,8 +40,8 @@ define(
                 e.preventDefault();
                 e.stopPropagation();
                 this.model.set({
-                    login : $( "input[name='login']" ).val(),
-                    password : $( ":password" ).val(),
+                    login : this.$el.find( "input[name='login']" ).val(),
+                    password : this.$el.find( ":password" ).val(),
                 });
 
             
