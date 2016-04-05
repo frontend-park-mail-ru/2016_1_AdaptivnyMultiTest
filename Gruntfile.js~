@@ -8,7 +8,7 @@ module.exports = function (grunt) {
             },
             server: {
                 //command: 'node server.js'
-		command: 'java -jar 2016-02-Adaptive-MultiTest.jar-1.0  8080'
+		command: 'java -jar 2016-02-Adaptive-MultiTest-1.0.jar  8080'
             }
         },
         fest: {
@@ -53,14 +53,18 @@ module.exports = function (grunt) {
             options: {
                 logConcurrentOutput: true
             }
+        },
+        qunit: {
+            all: ['./public_html/tests/index.html']
         }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
-
+    grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
 
 };
