@@ -20,7 +20,7 @@ define(
             finish,
             joingame,
             newgame
-        ]);
+            ]);
 
         var Router = Backbone.Router.extend({
             routes: {

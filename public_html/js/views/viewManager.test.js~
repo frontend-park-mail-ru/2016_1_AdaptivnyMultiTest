@@ -10,8 +10,8 @@ define(function (require) {
                 login,
                 signup
             ]);
-	    signup.show();
-	    var currentView = viewManager.returnCurrentView;
-	    QUnit.ok(currentView.$el.css('display') === 'block' && login.$el.css('display') === 'none');
+		signup.show();
+		var currentView = viewManager.returnCurrentView;
+		QUnit.ok(currentView.$el.css('display') === 'block' && login.$el.css('display') === 'none');
 	});
 });

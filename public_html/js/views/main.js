@@ -6,7 +6,6 @@ define(
         var View = Backbone.View.extend({
             template: tmpl,
             id: "main",
-           
 
             initialize: function() {
             },

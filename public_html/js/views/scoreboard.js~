@@ -12,6 +12,7 @@ define(
 
             initialize: function() {
                 this.collection.bind('sync', this.render, this);
+                this.collection.fetch();
             },
             render: function () {
                 this.$el.html(this.template(this.collection.toJSON()));

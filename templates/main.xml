@@ -1,34 +1,16 @@
-<fest:template xmlns:fest="http://fest.mail.ru" >
+<fest:template xmlns:fest="http://fest.mail.ru">
    <div class="bs-panel panel"> 
      <form class="menu">
-         <h2 class="menu__heading">Main menu</h2>
-             <div class="menu__login-status_authorized">
-                 <table class="menu__table" border="0" width="100%" cellpadding="0">
-                     <tr>
-                         <th class="table__name">Logged by:</th>
-                         <th><fest:value>user.login</fest:value> Рыбка-заглушка</th>
-                     </tr>
-
-                     <tr>
-                         <th class="table__name">Rating:</th>
-                         <th><fest:value>user.score</fest:value>114</th>
-                     </tr>
-                 </table>
-             </div>
-
-        
-         <a href="#scoreboard" class="menu__btn">Scoreboard</a>
-         
-         <div class="menu__btn_start bs-menu__btn_dropdown btn-group">
-             <button class="menu__btn_start" data-toggle="dropdown">Start Game <span class="caret"></span></button>
+         <h2 class="menu__heading">Main menu</h2>    
+         <a href="#scoreboard" class="btn">Scoreboard</a>
+         <div class="btn btn_start bs-menu__btn_dropdown btn-group">
+             <button class="btn btn_start" data-toggle="dropdown">Start Game <span class="caret"></span></button>
              <ul class="bs-menu__dropdown-menu dropdown-menu" role="menu">
                   <li><a href="#newgame">Create New</a></li>
-                  <li> <a href="#joingame">Find and join</a></li>
+                  <li><a href="#joingame">Find and join</a></li>
              </ul>
          </div>
-
-             <a href="#login" class="menu__btn">Login</a>
+         <a href="#login" class="btn">Login</a>
      </form>
-   </div>
-      
+   </div>  
 </fest:template> 

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
   <div class="bs-panel panel">
      <div class="scoreboard">
@@ -18,12 +19,14 @@
                  </th>
              	 	 <th><fest:value>v.score</fest:value></th>
             	 </tr>
+
              </fest:for>
         </table>
      </div>
 
      <div class="menu menu_for-back">
-         <a href="#main"class="menu__btn_short"> Back</a>
+         <a href="#main" class="btn btn_short"> Back</a>
      </div>
+
   </div>
 </fest:template>

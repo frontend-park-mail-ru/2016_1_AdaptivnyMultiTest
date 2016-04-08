@@ -6,7 +6,7 @@
 }
 
 html, body {
-    padding: 0px;
+    padding: 0;
     margin: 0;
     font-family: Monospace, 'FuturicaMedium';
 
@@ -16,9 +16,8 @@ h2, h3, h4 {
   text-align: center;
   font-weight: bold;
 }
-a {
+a {}
 
-}
 a:hover {
   color: white;
   text-decoration: none;
@@ -39,15 +38,21 @@ a:hover {
   box-shadow: 0 8px 8px rgba(0,0,0,0.05);
 }
 
+.bs-body__panel_main-area {
+  height: 300px;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 0;
+
+  background-color: white;
+}
+
 .panel_wide {
   width: 800px;
 }
 
-
 .menu,
-.menu_for-back,
-.form-login,
-.form-signup, 
+.form,
 .scoreboard,
 .finish,
 .newgame {
@@ -67,8 +72,7 @@ a:hover {
   height: 60px;
 }
 
-.form-login__heading, 
-.form-signup__heading, 
+.form__heading, 
 .menu__heading, 
 .newgame__heading, 
 .joingame__heading {
@@ -77,8 +81,8 @@ a:hover {
   text-align: center;
 }
 
- .form-login__control, 
- .form-signup__control {
+ .form__control, 
+ .form__control {
   position: relative;
   height: auto;
   margin: 10px 20% 20px 16%;
@@ -96,8 +100,7 @@ a:hover {
   transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 
 }
-.form-login__control:focus, 
-.form-signup__control:focus {
+.form__control:focus,  {
   z-index: 2;
   border-color:  #630875;
   outline: 0;
@@ -106,18 +109,16 @@ a:hover {
 
 
 }
-.form-login input[type="email"],
-.form-login input[type="login"], 
-.form-signup input[type="login"], 
-.form-signup input[type="email"]  {
+.form input[type="email"],
+.form input[type="login"]  {
   margin-left: auto;
   margin-right: auto;
 
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form-login input[type="password"], 
-.form-signup input[type="password"] {
+.form input[type="password"], 
+.form input[type="password"] {
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -126,23 +127,20 @@ a:hover {
   border-top-right-radius: 0;
 }
 
-.form-login__validate-messages, 
-.form-signup__validate-messages, 
-.form-login__validate-messages_hide, 
-.form-signup__validate-messages_hide {
+.form__validate-messages,  
+.form__validate-messages_hide {
   text-align: center;
   color: red;
   margin: 10px;
   height: 70px;
 }
 
-.form-login__validate-messages_hide, 
-.form-signup__validate-messages_hide {
+.form__validate-messages_hide, 
+.form__validate-messages_hide {
   visibility: hidden;
 }
 
-.menu__login-status_authorized, 
-.menu__login-status_guest {
+.menu__login-status{
   height: 60px;
   margin: 10px;
   margin-bottom: 20px;
@@ -174,14 +172,7 @@ th {
   font-weight: bold;
 }
 
-.form-login__btn, 
-.form-signup__btn, 
-.menu__btn,
-.menu__btn_start,
-.menu__btn_short, 
-.game-screen__btn, 
-.newgame__btn,
-.joingame__btn  {
+.btn {
   display: block;
   width: 240px;
   height: 45px;
@@ -202,22 +193,26 @@ th {
   font-family: Monospace, 'FuturicaMedium';
 }
 
-.menu__btn_short {
+.btn_short {
   margin-top: auto;
   width: 40%;
 }
 
-.menu__btn_start {
+.btn_start {
   padding-top: 0;
 }
-.bs-menu__btn_dropdown {
+
+.btn_next {
+  float: right;
+}
+
+.bs-menu__btn_dropdown,
+.bs-menu__dropdown-menu {
   margin-left: auto;
   margin-right: auto;
 }
 
 .bs-menu__dropdown-menu {
-  margin-left: auto;
-  margin-right: auto;
   width: inherit;
 
   text-align: center;
@@ -226,19 +221,12 @@ th {
 .game-screen__btn {
   display: inline-block;
   width: 35%;
-}
-.form-login__btn:focus, 
-.form-signup__btn:focus {
+} 
+.btn:focus {
   outline: none; 
 }
 
-.form-login__btn:hover,
-.form-signup__btn:hover,
-.menu__btn:hover, 
-.menu__btn_short:hover, 
-.newgame__btn:hover,
-.joingame__btn_small-join:hover,
-.game-screen__btn:hover {
+.btn:hover {
   background-color: #8a4299;
 }
 
@@ -281,7 +269,7 @@ option:hover {
   font-size: 18px;
 }
 
-.joingame__btn_small-join {
+.btn_small-join {
   width: 85%;
   height: 50%;
   max-height: 35px;
@@ -319,7 +307,13 @@ option:hover {
   box-shadow: 
 }
 
-.header__player, .header__foe {
+.bs-game-screen__panel_body {
+  height: 400px;
+  box-shadow: 0 0 15px 3px #65e2eb;
+}
+
+.header__player,
+.header__foe {
   display: inline-block;
   width: 45%;
   margin-left: auto;
@@ -353,19 +347,6 @@ option:hover {
 
 .player__current-score, .foe__nickname {
   text-align: right;
-}
-
-.bs-game-screen__panel_body {
-  height: 400px;
-  box-shadow: 0 0 15px 3px #65e2eb;
-}
-.bs-body__panel_main-area {
-  height: 300px;
-  width: 100%;
-  margin: 0;
-  padding-bottom: 0;
-
-  background-color: white;
 }
 
 .main-area__question,
@@ -421,8 +402,8 @@ option:hover {
   margin: 8px !important;
 }
 
-.game-screen__btn#next,
-.game-screen__btn#finish {
+.btn#next,
+.btn#finish {
   float: right;
 }
 .body__progress-bars {
@@ -493,4 +474,14 @@ option:hover {
 
 .lose {
   color: red;
+}
+
+.game-screen__canvas {
+  width: 350px;
+  height: 350px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  z-index: 1050;
 }

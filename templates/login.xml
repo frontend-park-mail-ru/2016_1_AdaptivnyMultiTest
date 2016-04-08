@@ -1,20 +1,17 @@
 <!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="LoginErrors"> -->
 <fest:template xmlns:fest="http://fest.mail.ru" >
-   <div class="bs-panel panel"> 
-     <form class="form-login" role="form">
-       <h2 class="form-login__heading">Login</h2>
-         <input class="form-login__control" placeholder="Login" required="" autofocus="" type="login" name="login" id="loginError"  data-container="body" data-toggle="popover"/>
-         <input class="form-login__control" id="passwordError" placeholder="Password" required="" type="password" />
-        <button class="form-login__btn" id="submitLogin" type="submit">Enter</button>
-          <div class="form-login__validate-messages_hide">
-          </div>
-
-        <a href="#signup" class="form-login__btn">Create new</a>
-     </form>
-
-     <div class="menu menu_for-back">
-        <a href="#main"class="menu__btn_short"> Back</a>
+    <div class="bs-panel panel"> 
+        <form class="form" role="form">
+            <h2 class="form__heading">Login</h2>
+            <input class="form__control" placeholder="Login" required="" autofocus="" type="login" name="login" id="loginError"  data-container="body" data-toggle="popover"/>
+            <input class="form__control" id="passwordError" placeholder="Password" required="" type="password" />
+            <button class="btn" id="submitLogin" type="submit">Enter</button>
+            <div class="form-login__validate-messages_hide">
+              </div>
+            <a href="#signup" class="btn">Create new</a>
+        </form>
+        <div class="menu menu_for-back">
+            <a href="#main" class="btn btn_short"> Back</a>
+        </div>
      </div>
-
-    </div>
 </fest:template>

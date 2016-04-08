@@ -4,21 +4,21 @@
             <h2 class="finish__heading">Finish</h2>
             <div class="finish__body">
                 <h4 class="win">YOU WIN!!! :)</h4>
-                 <table class="finish__table" border="0" width="100%" cellpadding="0">
+                <table class="finish__table" border="0" width="100%" cellpadding="0">
                     <tr>
                         <th class="table__name">Theme:</th>
                         <th><fest:value>json.theme</fest:value></th>
                     </tr>
                     <tr>
                         <th class="table__name">Score:</th>
-                        <th><fest:value>json.gameScore</fest:value> / <fest:value>json.questionsNum</fest:value></th>
+                        <th><fest:value>json.gameScore</fest:value> / <fest:value>json.questionNum</fest:value></th>
                     </tr>
                 </table>
             </div>
         </form>
-
         <div class="menu menu_for-back">
-            <button class="menu__btn_short" id="finishTomain">To Main</button>
+            <a href="#main" class="btn btn_short"> Back</a>
         </div>
     </div>
+      
 </fest:template> 
