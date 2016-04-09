@@ -3,41 +3,50 @@ define(
         var Backbone = require('backbone');
         var viewManager = require('views/viewManager');
         var main = require('views/main');
-        var login = require('views/login');
         var scoreboard = require('views/scoreboard');
-        var signup = require('views/signup');
         var game = require('views/game');
-        var finish = require('views/finish');
-        var joingame = require('views/joingame');
-        var newgame = require('views/newgame');
+        
         
         viewManager.addViews([
             main,
-            login,
             scoreboard,
-            signup,
-            game,
-            finish,
-            joingame,
-            newgame
-        ]);
+            game
+            ]);
 
         var Router = Backbone.Router.extend({
             routes: {
                 'main': 'concreteAction', 
-                'login': 'concreteAction',
                 'scoreboard': 'concreteAction',
-                'signup': 'concreteAction',
                 'game': 'concreteAction',
-                'finish': 'concreteAction',
-                'joingame': 'concreteAction',
-                'newgame': 'concreteAction',
 
                 '*default': 'defaultAction'
             },
            
             initialize: function() {
                 Backbone.history.start();
+                self = this;
+                this.listenTo(game, 'finish', function() {
+                    this.navigate("main", {trigger: true});
+                });
+                this.listenTo(main, 'start', function() {
+                    game.connectToGame();
+                    this.navigate("game", {trigger: true});
+                });
+                
+                /*
+                this.listenTo(main, 'start', function() {
+                    game.connectToGame();
+                    //this.navigate("game", {trigger: true});
+                });
+                this.listenTo(game, 'Authorized user', function() {
+                    this.navigate("game", {trigger : true});
+                });
+
+                this.listenTo(game, "Unauthorized user", function() {
+                    alert("You need to authorize");
+                });*/
+                
+        
                 return this;
             },
             concreteAction: function() {

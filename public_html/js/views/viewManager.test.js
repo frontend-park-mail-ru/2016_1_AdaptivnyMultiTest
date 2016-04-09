@@ -1,17 +1,17 @@
 define(function (require) {
 	var viewManager = require('views/viewManager');
-	var signup = require('views/signup');
-	var login = require('views/login');
+	var main = require('views/main');
+	var game = require('views/game');
 
 	QUnit.module("views/viewManager");
 
 	QUnit.test("ViewManager works properly!", function () {
-	    viewManager.addViews([
-                login,
-                signup
+		 viewManager.addViews([
+            main,
+            game
             ]);
-	    signup.show();
-	    var currentView = viewManager.returnCurrentView;
-	    QUnit.ok(currentView.$el.css('display') === 'block' && login.$el.css('display') === 'none');
+		main.show();
+		var currentView = viewManager.returnCurrentView;
+		QUnit.ok(currentView.$el.css('display') === 'block' && game.$el.css('display') === 'none');
 	});
 });

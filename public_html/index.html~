@@ -5,12 +5,11 @@
 	    <title>Game of Brains</title>
 	    <link rel="stylesheet" href="/css/main.css">
 	</head>
+
 	<body>
-    	<div id="page">
-    	</div>
-		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
-		<script src="js/lib/jquery.min.js"></script>
-	    <script src="js/lib/bootstrap.min.js"></script>
+		<!-- <div style="display : none;">
+			<img id="gameField" src="public_html/static/field.jpg">
+		</div> -->
      	<script data-main="js/main" src="js/lib/require.js"></script>
 	</body>
 </html>

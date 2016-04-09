@@ -7,15 +7,15 @@ define(
 
             addViews: function(views) {
             	var self = this;
+
             	_.each(views, function(view) {
                     $(document.body).append(view.el);
-            	    self.listenTo(view, 'show', function(currentView) {
+            		self.listenTo(view, 'show', function(currentView) {
                         idCurrentView = currentView.el.id;
                         _.each(views, function(view) {
                             if( idCurrentView != view.el.id ) {
                                 view.hide();
-                            } 
-			    else {
+                            } else {
                                 self.returnCurrentView = view;
                             }  
             		})

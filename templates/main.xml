@@ -1,16 +1,66 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-   <div class="bs-panel panel"> 
-     <form class="menu">
-         <h2 class="menu__heading">Main menu</h2>    
-         <a href="#scoreboard" class="btn">Scoreboard</a>
-         <div class="btn btn_start bs-menu__btn_dropdown btn-group">
-             <button class="btn btn_start" data-toggle="dropdown">Start Game <span class="caret"></span></button>
-             <ul class="bs-menu__dropdown-menu dropdown-menu" role="menu">
-                  <li><a href="#newgame">Create New</a></li>
-                  <li><a href="#joingame">Find and join</a></li>
-             </ul>
-         </div>
-         <a href="#login" class="btn">Login</a>
-     </form>
-   </div>  
+  <div class="help"></div>
+      <div class="main">
+          <dl class="main__menu">
+            <dt class="main__stripe">Game</dt>
+            <dd class="main__field">
+              <button class="btn" id="start">Start</button>
+            </dd>
+            <dt class="main__stripe">Scoreboard</dt>
+            <dd style="display: none;">
+              <a href="#scoreboard" class="btn">Top scores</a>
+            </dd>
+            <dt class="main__stripe">Login</dt>
+            <dd class="main__field" style="display: none;">
+<!--               <fest:if test ="!authorized"> -->
+                  <form class="main__form">
+                      <div class="input-field">
+                         <label for="username" >Login</label>
+                         <div><input class="bs-main__input form-control" type="text" name="username" id="loginLogin" placeholder="Your login"/>
+                         </div>
+                      </div>
+                      <div class="input-field">
+                          <label for="password">Password</label>
+                          <div><input class="bs-main__input  form-control" type="password" name="password" id="loginPassword" placeholder="Your password"/>
+                          </div>
+                      </div>
+                      <div>
+                          <button class="btn" type="submit" id="login">Login!</button>
+                      </div>
+                  </form>
+<!--               </fest:if> -->
+<!--               <fest:if test ="authorized">
+                  <div>
+                      <button class="btn" name="logout">Logout</button>
+                  </div>
+              </fest:if> -->
+
+            </dd>
+<!--             <fest:if test ="authorized"> -->
+                <dt class="main__stripe">Sign up</dt>
+<!--             </fest:if> -->
+<!--              <fest:if test ="!authorized">
+                <dt class="main__stripe main__stripe_hidden">Register</dt>
+             </fest:if>  -->
+                <dd class="main__field" style="display: none;">
+                    <form class="main__form">
+                      <div class="input-field">
+                                  <label for="email" >Email</label>
+                                  <div><input class="bs-main__input form-control" type="text" name="signupEmail" id="signupEmail" placeholder="Your email"/></div>
+                              </div>
+                              <div class="input-field">
+                                  <label for="username" >Login</label>
+                                  <div><input class="bs-main__input form-control" type="text" name="signupLogin" id="signupLogin" placeholder="Your login"/></div>
+                              </div>
+                              <div class="input-field">
+                                  <label for="password">Password</label>
+                                  <div><input class="bs-main__input form-control" type="password" name="signupPassword" id="signupPassword" placeholder="Your password"/></div>
+                              </div>
+                              <div>
+                                  <button class="btn" type="submit" id="signup">Sign up!</button>
+                              </div>
+                        </form>
+            </dd>
+          </dl>
+      </div>
 </fest:template> 

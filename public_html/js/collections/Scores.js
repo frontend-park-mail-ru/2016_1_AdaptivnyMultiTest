@@ -25,51 +25,6 @@ define(
 
             
         });
-        /*
-        //рыба
-        var scoresCollection = new Collection([
-        {
-            login: "Мудрец",
-            score: 1
-        }, 
-        {
-            login: "Мудрец",
-            score: 2
-        },  
-        {
-            login: "Мудрец",
-            score: 3
-        }, 
-        {
-            login: "Мудрец",
-            score: 4
-        }, 
-        {
-            login: "Мудрец",
-            score: 5
-        }, 
-        {
-            login: "Мудрец",
-            score: 6
-        }, 
-        {
-            login: "Мудрец",
-            score: 7
-        }, 
-        {
-            login: "Мудрец 3",
-            score: 8
-        }, 
-        {
-            login: "Мудрец 2",
-            score: 9
-        }, 
-        {
-            login: "Мудрец 1",
-            score: 10
-        }])
-        return scoresCollection;*/ 
-
         return Collection;
 });
 

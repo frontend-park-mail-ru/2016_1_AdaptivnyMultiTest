@@ -1,53 +1,54 @@
 define(['backbone'], function(Backbone) {
     var Model = Backbone.Model.extend({
     	defaults: {
-    	    id: "",
 	    login: "",
 	    email: "",
 	    password: "",
 	},
-	urlRoot : "../api/user/",
+	urlRoot : "api/user/",
 	getCustomUrl: function (method) {
-	switch (method) {
-	    case 'read':
-	        return this.urlRoot + this.id;
-	    case 'update': //создание юзера в БД
-	        return this.urlRoot + this.id;
-	        break;
-	    case 'create':
-	        return this.urlRoot;
-	    case 'delete': //удаление юзера из БД
-	        return this.urlRoot + this.id;
-	        break;
+	    switch (method) {
+	        case 'update': 
+	            return this.urlRoot;
+	            break;
+	        case 'create':
+	            return this.urlRoot;
+	            break;
+	        case 'delete': 
+	            return this.urlRoot;
+	            break;
 	    }
     	},
     	sync: function (method, model, options) {
-    	    if (method == "update") 
-    	        method = "create"
+    	    if( method == "create") {
+    	        method = "update";
+    	    }
             options || (options = {});
             options.url = this.getCustomUrl(method.toLowerCase());
             return Backbone.sync.apply(this, arguments);
     	},
-	validation: {
-    	    login: function(value, attr, computedState) {
-	        if( /[^a-zA-Z0-9]/.test(value) ) {
-		    return 'Your login must consist of only letters and digits';
-		}
-		if( value.length === 0 ) {
-		    return 'Input your login';
-		}
-	    },
-	    email: {
-	        required: true,
-	        pattern: 'email',
-	        msg: 'Please enter a valid email'
-	    },
-	    password: {
-	        required: true,
-      	        minLength: 5,
-      	        msg: 'Your password must have more than 5 characters'
+	validate: function(attrs, options) {
+	    errors = [];
+	    if( /[^a-zA-Z0-9]/.test(attrs.login) ) {
+		errors.push('Your login must consist of only letters and digits');
 	    }
-        }
+	    if( !attrs.login ) {
+		errors.push("Please, input your login");
+	    }
+	    if( !attrs.email ) {
+		errors.push("Please, input your email");
+	    }
+	    if( !attrs.password ) {
+		errors.push("Please, input your password");
+	    }
+	    if( attrs.password.length < 5 ) {
+		errors.push('Your password must have more than 5 characters');
+	    }
+	    if( !attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i) ) {
+		errors.push("Please, input a valid email");
+	    }
+	    return errors.length > 0 ? errors : false;
+	}
     });
     return Model;
 });
