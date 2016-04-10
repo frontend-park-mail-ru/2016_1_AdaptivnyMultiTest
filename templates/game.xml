@@ -4,6 +4,7 @@
 		<div class="main main_game">
 		    <canvas class="canvas" id="gameCanvas" width="490px" height="490px"></canvas>
 		</div>
+		
 		<button class="btn" id="quit">Quit</button>
 	</div>
 </fest:template>

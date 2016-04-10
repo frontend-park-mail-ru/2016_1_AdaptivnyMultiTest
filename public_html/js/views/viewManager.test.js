@@ -7,7 +7,7 @@ define(function (require) {
 
 	QUnit.test("ViewManager works properly!", function () {
 		 viewManager.addViews([
-            main,
+           main,
             game
             ]);
 		main.show();
@@ -15,3 +15,4 @@ define(function (require) {
 		QUnit.ok(currentView.$el.css('display') === 'block' && game.$el.css('display') === 'none');
 	});
 });
+

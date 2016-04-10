@@ -1,9 +1,0 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
-	<div class="help"> </div>
-	<div class="frame">
-		<div class="main main_game">
-		    <canvas class="canvas" id="gameCanvas" width="490px" height="490px"></canvas>
-		</div>
-		<a href="#main" class="btn">Back</a>
-	</div>
-</fest:template>

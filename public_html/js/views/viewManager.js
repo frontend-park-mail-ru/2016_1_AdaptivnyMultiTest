@@ -10,7 +10,9 @@ define(
 
             	_.each(views, function(view) {
                     $(document.body).append(view.el);
+
             		self.listenTo(view, 'show', function(currentView) {
+            
                         idCurrentView = currentView.el.id;
                         _.each(views, function(view) {
                             if( idCurrentView != view.el.id ) {
@@ -18,11 +20,14 @@ define(
                             } else {
                                 self.returnCurrentView = view;
                             }  
-            		})
-            	    });
+            			})
+            		});
             	})
             },
+
+
         });
         return new View();
     }
 );
+

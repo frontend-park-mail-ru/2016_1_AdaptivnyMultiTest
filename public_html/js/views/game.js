@@ -8,6 +8,8 @@ define(
         var View = Backbone.View.extend({
             template: tmpl,
             id: "game",
+
+    
             model : new gameSession(),
 
             startForDraw :  {
@@ -34,6 +36,8 @@ define(
                 this.canvas.arc(this.model.get('bluex') * scaleCoeff, this.model.get('bluey') * scaleCoeff, 5, 0, Math.PI*2, false);
                 this.canvas.stroke(); 
             },
+
+
             handleQuit: function(e) {
                 console.log("finish");
                 e.preventDefault();
@@ -138,7 +142,7 @@ define(
             },
 
             isFinishGame: function() { 
-                for (var state on ['left', 'top', 'right', 'bottom']) {
+                for (var state in ['left', 'top', 'right', 'bottom']) {
                     if( this.model.get(state)["x"] !== -1 || this.model.get(state)["y"] !== -1 ) {
                         return false;
                     }
