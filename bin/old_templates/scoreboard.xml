@@ -1,0 +1,30 @@
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+  <div class="bs-panel panel">
+     <div class="scoreboard">
+         <table class="scoreboard__table" border="2" width="100%" cellpadding="5">
+           	 <tr class="table__header">
+           	 	 <th class="table__counter" >№</th>
+           	 	 <th>Имя</th>
+           	 	 <th>Рейтинг</th>
+          	 </tr>
+            
+             <fest:for iterate="json" index="i" value="v">
+            	 <tr>
+             	 	 <th><fest:value>i+1</fest:value></th> 
+                 <th class="table__name">
+                    <fest:value output="text">
+                        v.login
+                    </fest:value>
+                 </th>
+             	 	 <th><fest:value>v.score</fest:value></th>
+            	 </tr>
+             </fest:for>
+        </table>
+     </div>
+
+     <div class="menu menu_for-back">
+         <a href="#main"class="menu__btn_short"> Back</a>
+     </div>
+  </div>
+</fest:template>
+ 

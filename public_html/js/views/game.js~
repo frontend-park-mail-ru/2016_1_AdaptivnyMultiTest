@@ -8,8 +8,6 @@ define(
         var View = Backbone.View.extend({
             template: tmpl,
             id: "game",
-
-    
             model : new gameSession(),
 
             startForDraw :  {
@@ -36,8 +34,6 @@ define(
                 this.canvas.arc(this.model.get('bluex') * scaleCoeff, this.model.get('bluey') * scaleCoeff, 5, 0, Math.PI*2, false);
                 this.canvas.stroke(); 
             },
-
-
             handleQuit: function(e) {
                 console.log("finish");
                 e.preventDefault();

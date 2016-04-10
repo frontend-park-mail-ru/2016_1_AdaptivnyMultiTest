@@ -1,0 +1,103 @@
+<!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	<div class="game-screen"> 
+	     <div class="bs-game-screen__panel panel bs-game-screen__panel_header">
+	         <div class="header__player">
+	         	 <div class="player__nickname">
+	         	 	 	<fest:value output="text">
+                        	json.login
+                    	</fest:value>
+	         	 </div>
+	         </div>
+	         <div class="header__wall">
+	         </div>
+	         <div class="header__foe">
+	         </div>
+	     </div>
+
+	     <div class="bs-game-screen__panel panel bs-game-screen__panel_body">
+	     	<div class="bs-body__panel panel bs-body__panel_main-area row">
+	     		<div class="main-area__question col-md-5"> 
+			    	<div class="question__title">
+			    	 		<fest:value output="text">
+                        		json.theme
+                    		</fest:value>
+			    	</div>
+					<div class="question__text">
+			    	 	<fest:value output="text">
+                        	json.text
+                    	</fest:value>
+			    	</div>
+	     		</div>
+
+	     		<div class="main-area__wall col-md-1">	
+	     		</div>
+			    <div class="main-area__answer col-md-6">
+			    	<div class="answer__area">
+			    		<label>
+	   						<input class="answer__variants" type="radio" name="answer"/> 
+	   							<fest:value output="text">
+	                        		json.answer1
+	                    		</fest:value>
+                    	</label>
+   						<br/>
+
+   						<label>
+	   						<input class="answer__variants" type="radio" name="answer" /> 
+	   							<fest:value output="text">
+	                        		json.answer2
+	                    		</fest:value>
+                    	</label>
+                    	<br/>
+						
+						<label>
+	   						<input class="answer__variants" type="radio" name="answer" value="var3"/> 	  <fest:value output="text">
+	                        		json.answer3
+	                    		</fest:value>
+						</label>
+	                    <br/>
+
+	                    <label>
+	   						<input class="answer__variants" type="radio" name="answer" value="var4"/> 	  <fest:value output="text">
+	                        		json.answer4
+	                    		</fest:value>
+	                    </label>
+	                    <br/>
+				    </div>
+			    	<div class="answer__btns-area">
+			    		<fest:if test="json.questionCounter === json.questionsNum - 1">
+			    			<a href="" class="game-screen__btn" id="finish">Finish</a>
+			    		</fest:if>
+
+			    		<fest:if test="json.questionCounter !== json.questionsNum - 1">
+			    			<button class="game-screen__btn" id="next">Next</button>
+			    		</fest:if>
+								
+					</div>
+				</div>
+	     	</div>
+
+	     			
+
+	     	<div class="body__progress-bars">
+	     		<div class="progress">
+					<style type="text/css">
+						.bar_success {
+							width: <fest:value>json.questionCounter * 100 / json.questionsNum</fest:value>%;
+						}
+					</style>
+				<div class="bar bar_success">
+			</div>	
+				
+		</div>
+
+
+	     </div>
+		 </div>
+ 	</div> 
+</fest:template> -->
+
+
+ <fest:template xmlns:fest="http://fest.mail.ru">
+ 	<h1>Hello</h1>
+	<canvas  height="1000px" width="1000px" id="gameCanvas">Canvas not supported</canvas>
+</fest:template>

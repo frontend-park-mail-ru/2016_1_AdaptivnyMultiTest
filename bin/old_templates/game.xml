@@ -1,0 +1,12 @@
+<!-- <fest:template xmlns:fest="http://fest.mail.ru" context_name="json"> -->
+<fest:template xmlns:fest="http://fest.mail.ru">
+	<div class="help"> </div>
+	<div class="frame">
+		<div class="main main_game">
+		    <!-- <div class="canvas" id="DrawingGame"></div> -->
+		    <canvas  width="490px" height="490px" class="canvas" id="gameCanvas">Canvas not supported</canvas>
+		</div>
+		<button class= "btn">Quit</button>
+	</div>
+	
+</fest:template>

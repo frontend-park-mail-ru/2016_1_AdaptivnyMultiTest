@@ -138,7 +138,7 @@ define(
             },
 
             isFinishGame: function() { 
-                for (var state of ['left', 'top', 'right', 'bottom']) {
+                for (var state on ['left', 'top', 'right', 'bottom']) {
                     if( this.model.get(state)["x"] !== -1 || this.model.get(state)["y"] !== -1 ) {
                         return false;
                     }

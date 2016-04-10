@@ -1,0 +1,39 @@
+<fest:template xmlns:fest="http://fest.mail.ru" >
+   <div class="bs-panel panel"> 
+     <form class="form-login" role="form">
+       <h2 class="form-login__heading">Login</h2>
+         <input class="form-login__control" placeholder="Login" required="" autofocus="" type="login" name="login" id="loginError"  data-container="body" data-toggle="popover"/>
+         <input class="form-login__control" id="passwordError" placeholder="Password" required="" type="password" />
+        <button class="form-login__btn" id="submitLogin" type="submit">Enter</button>
+          <div class="form-login__validate-messages_hide">
+          </div>
+
+        <a href="#signup" class="form-login__btn">Create new</a>
+     </form>
+
+     <div class="menu menu_for-back">
+        <a href="#main"class="menu__btn_short"> Back</a>
+     </div>
+
+    </div>
+</fest:template>
+
+<!--  <fest:template xmlns:fest="http://fest.mail.ru" >
+<dt>Login</dt>
+    <dd>
+      <form class="contact_form" method="POST">
+                <div class="input-field">
+                  <label for="username" >Login</label>
+                  <div><input type="text" name="username" id="username" placeholder="Your login"></div>
+                </div>
+                <div class="input-field">
+                  <label for="pass">Password</label>
+                  <div><input type="password" name="password" id="password" class="in" placeholder="Your password"></div>
+                </div>
+                <div>
+                  <button class="btn btn-info pull-right" type="submit">Login!</button>
+                </div>
+            </form>
+    </dd>
+</fest:template>
+ -->
