@@ -1,10 +1,8 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-	<div class="help"> </div>
-	<div class="frame">
-		<div class="main main_game">
-		    <canvas class="canvas" id="gameCanvas" width="490px" height="490px"></canvas>
-		</div>
-		
-		<button class="btn" id="quit">Quit</button>
-	</div>
+    <div class="main-game">
+        <div class="main-game__main-area main main_game">
+            <canvas class="main-game__canvas" id="gameCanvas" width="490px" height="490px"></canvas>
+        </div>
+        <button class="main-game__btn btn" id="quit">Quit</button>
+    </div>
 </fest:template>

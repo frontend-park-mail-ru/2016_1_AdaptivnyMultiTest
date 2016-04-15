@@ -8,55 +8,19 @@
 body {
     background-image: url("../static/snakes.jpg") ;
 }
-.help {
-    margin-top: 15px;
-}
 
-a {
-    color: white;
-}
-
-a:hover {
-    color: white;
-}
+/*MAIN_SCREEN//////////////////////*/
 
 .main {
     background-color: white;
     width: 600px;
-	
-    margin: auto;
-    text-align: center;
-    border: 1px solid #000;
-    border-radius: 25px;
-}
-
-.main_game {
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.frame {
-    background-color: #FFFFE0;
-    width: 650px;
-    height: 620px;
     
     margin: auto;
+    margin-top: 15px;
 
     text-align: center;
     border: 1px solid #000;
     border-radius: 25px;
-}
-
-.canvas {
-
-    height: 490px;
-    width: 490px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-
-    box-shadow: 0 0 10px 5px #cf9c55;
 }
 
 .main__menu {
@@ -64,30 +28,17 @@ a:hover {
 }
 
 .main__stripe {
+    border-bottom: 2px solid #c5c5c5;
+    border-top: 2px solid white;
 
-}
-
-.main__stripe_hidden {
-    display: none;
-}
-
-dd {
-    margin: 0;
-    padding: 1em 0;
-}
-
-dt {
     transition: 0.25s;
     cursor: pointer;
-	
+    
     color: #CD853F;
     font-weight: bold;
     font-size : 1.5em;
     line-height: 2em;
     background: #FFFFE0;
-    border-bottom: 2px solid #c5c5c5;
-    border-top: 2px solid white;
-
 
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
@@ -97,16 +48,23 @@ dt {
     background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
     background-image: linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
-
 }
 
-dt:hover {
+.main__stripe:hover {
       background: #FFE4B5;
 }
 
-dt:first-child { border-top: none; }
-dt:nth-last-child(2) { border-bottom: none; }
+.main__stripe:first-child { border-top: none; }
+.main__stripe:nth-last-child(2) { border-bottom: none; }
 
+.main__field {
+    margin: 0;
+    padding: 1em 0;
+}
+
+.main__btn {
+    vertical-align: middle;
+}
 
 .btn {
     -moz-box-shadow: 0px 10px 14px -7px #7cbf69;
@@ -129,6 +87,7 @@ dt:nth-last-child(2) { border-bottom: none; }
     text-decoration:none;
     text-shadow:0px 1px 0px #9edb95;
 }
+
 .btn:hover {
     color: white;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #acd695), color-stop(1, #a8de7c));
@@ -141,34 +100,50 @@ dt:nth-last-child(2) { border-bottom: none; }
     background-color:#acd695;
 }
 
-
-/*.main__form input {
-    height: 30px;
-    width: 250px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border:1px solid #aaa;
-    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
-    border-radius:2px;
-    font-size: 15px;
-}
-
-.main__form input:focus {
-    background: #fff;
-    border:1px solid #555;
-    box-shadow: 0 0 3px #aaa;
-}*/
-
-.main__form input {
+.bs-form__input {
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 15px;
 }
 
-.main__form label {
+.bs-form__label {
     font-size: 18px;
 }
+
+/*GAME_SCREEN//////////////////////*/
+
+.main-game {
+    width: 650px;
+    height: 620px;
+    
+    margin: auto;
+
+    background-color: #FFFFE0;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 25px;
+}
+
+.main-game__main-area {
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+.main-game__canvas {
+
+    height: 490px;
+    width: 490px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 0 10px 5px #cf9c55;
+}
+
+
+/*SCOREBOARD_SCREEN//////////////////////*/
 
 .main__scores {
     list-style: none;
@@ -177,28 +152,25 @@ dt:nth-last-child(2) { border-bottom: none; }
     margin: auto;
     padding-bottom: 10px;
 }
-.main__scores li {
+
+.list__row {
     overflow: hidden;
     padding: 2px;
     font-size: 20px;
 }
 
-.main__scores span {
+.list__user-login {
     float: left;
     width: 50%;
     color: #7C7D7F;
 }
-.main__scores em {
+.list__user-score {
     float: center;
     color: #9c836e;
     font-weight: bold;
 }
 
-.bs-main__input {
-    
-}
-
-hr {
+.list__border-line {
     border: 0;
     height: 1px;
     background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
@@ -207,5 +179,7 @@ hr {
     background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
 }
 
-
-.hide { display: none;}
+.main__stripe_hidden,
+.main__field_hidden { 
+    display: none;
+}

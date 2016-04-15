@@ -3,7 +3,8 @@ define(
         var Backbone = require('backbone');
         var tmpl = require('tmpl/main');
         var user = require('models/User');
-        var session = require('models/Session')
+        var session = require('models/Session');
+        var BackboneValidation = require('backbone_validation');
 
         var View = Backbone.View.extend({
             template: tmpl,
@@ -34,6 +35,27 @@ define(
             },
 
             render: function () {
+                // Backbone.Validation.bind(this, {
+                //     invalid: function(view, attr, error, selector) {
+                //         console.log(error);
+                //         console.log(attr);
+                //         //если поповер существует от предыдущей ошибки
+                //         // if( typeof( view.$('#' + attr + 'Error').popover() ) != 'underfined' ) { 
+                //         //     view.$('#' + attr + 'Error').popover('destroy'); //рушим его
+                //         // }
+                //         // view.$('#' + attr + 'Error').popover({
+                //         //     content: error,
+                //         //     trigger: "manual"
+                //         // });
+                //         // view.$('#' + attr + 'Error').popover('show');
+
+                //     },
+                //     // valid: function(view, attr, error, selector) {
+                //     //     //alert('valid');
+                //     //     view.$('#' + attr + 'Error').popover('hide');
+                //     // } 
+                // });
+
                 this.$el.html(this.template());
                 
                 $('dl').on('mouseenter', 'dt', function() {
@@ -43,6 +65,9 @@ define(
                             .siblings('dd')
                             .slideUp(200);
                 });
+                $( ".main__field" ).filter(function(index) {
+                    return index !== 0;
+                }).addClass( "main__field_hidden" );
                 return this;
             },
 

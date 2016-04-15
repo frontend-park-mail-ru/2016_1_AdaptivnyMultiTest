@@ -60,3 +60,23 @@ define(['backbone'], function(Backbone) {
 
 
 
+		// validation: {
+  //   		login: function(value, attr, computedState) {
+		//       	if( /[^a-zA-Z0-9]/.test(value) ) {
+		//         	return 'Your login must consist of only letters and digits';
+		//         }
+		//         if( value.length === 0 ) {
+		//         	return 'Input your login';
+		//         }
+		//     },
+		//     email: {
+		//       	required: true,
+		//       	pattern: 'email',
+		//       	msg: 'Please enter a valid email'
+		//     },
+		//     password: {
+		//     	required: true,
+  //     			minLength: 5,
+  //     			msg: 'Your password must have more than 5 characters'
+		//     }
+		// }
