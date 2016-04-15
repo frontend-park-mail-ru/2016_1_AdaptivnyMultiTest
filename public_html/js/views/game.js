@@ -9,8 +9,9 @@ define(
             template: tmpl,
             id: "game",
 
-    
             model : new gameSession(),
+            session : new session(),
+                       
 
             startForDraw :  {
                 x : null,
@@ -18,7 +19,6 @@ define(
             },
 
             events : {
-                "click #quit" : 'handleQuit',
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
 
@@ -37,56 +37,46 @@ define(
                 this.canvas.stroke(); 
             },
 
-
-            handleQuit: function(e) {
-                console.log("finish");
-                e.preventDefault();
-                this.model.destroy();//fix
-                $(document).unbind('keydown', this.keyAction);
-                this.trigger("finish");
-            },
-
             connectToGame: function() {
                 self = this;
-                new session().fetch({
-                    success: function(response) {
-                        //self.trigger("Authorized user");
-                        data = {login : response.toJSON().login};        
-                        self.model.save({}, {
-                            type : "put",
-                            data: JSON.stringify(data),
-                            contentType: "application/json",
-                            success: function() {
-                                redData = {
-                                    x : self.model.get("redx"),
-                                    y : self.model.get("redy")
-                                };
+                data = {login : this.session.toJSON()["login"]};        
+                this.model.save({}, {
+                    type : "put",
+                    data: JSON.stringify(data),
+                    contentType: "application/json",
+                    success: function() {
+                        redData = {
+                            x : self.model.get("redx"),
+                            y : self.model.get("redy")
+                        };
 
-                                self.startForDraw.x =  self.model.get("bluex");
-                                self.startForDraw.y =  self.model.get("bluey");
+                        self.startForDraw.x =  self.model.get("bluex");
+                        self.startForDraw.y =  self.model.get("bluey");
 
-                                //получение соседних точек для синего игрока (bluex, bluey) 
-                                self.model.save(redData, { patch : true });
-                                console.log(self.model.toJSON());
-                            },
-                            error: function() {
-                                console.log("You didn't get the neighbour points for your initial point");
-                            }              
-                        });
+                        //получение соседних точек для синего игрока (bluex, bluey) 
+                        self.model.save(redData, { patch : true });
                     },
                     error: function() {
-                        //self.trigger("Unauthorized user");
-                        console.log("You need authorize to start game");
-                        return false;
-                    }
-                });
+                        console.log("You didn't get the neighbour points for your initial point");
+                    }              
+                });           
             },
+
+            isAuth: function() {
+                jqXHR = this.session.fetch({async : false})
+               
+                if( jqXHR.status === 200 ) {
+                    return true;
+                } else {
+                    this.trigger("Unauthorized user");
+                    return false;
+                }
+            },            
 
             initialize: function() {
                 _.bindAll(this, 
-                    'keyAction'
+                      'keyAction'
                 );
-                $(document).bind('keydown', this.keyAction);
             },
 
             render: function () {   
@@ -122,15 +112,9 @@ define(
                     this.canvas.lineTo(490, 70 * i);
                 }
                 this.canvas.stroke();
-                /*
-                //вместо того, чтобы рисовать сетку по линиям, хотим загрузить картинку
-                img = document.getElementById("gameField");
-                img.onload = function () {
-                    this.canvas.drawImage(img, 490, 490);// this is line 14
-                }*/
             },
 
- 
+    
 
             drawLine: function(xStart, yStart, xEnd, yEnd, color) {
                 this.canvas.beginPath();
@@ -141,12 +125,13 @@ define(
                 this.canvas.stroke();
             },
 
-            isFinishGame: function() { 
-                for (var state in ['left', 'top', 'right', 'bottom']) {
-                    if( this.model.get(state)["x"] !== -1 || this.model.get(state)["y"] !== -1 ) {
-                        return false;
+            isFinishGame: function() {
+                states = ['left', 'top', 'right', 'bottom']
+                for( var i = 0; i < states.length; i++ ) {
+                    if( self.model.get(states[i])["x"] !== -1 || self.model.get(states[i])["y"] !== -1 ) {
+                            return false;
                     }
-                } 
+                }
                 return true;
             },
 
@@ -223,14 +208,18 @@ define(
                         break;                     
                 }
             },
-    
+        
             show: function () {
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+                this.connectToGame();
+                $(document).bind('keydown', this.keyAction);
             },
             
             hide: function () {
+                $(document).unbind('keydown', this.keyAction);
+                this.model.destroy(); // удаление игровой сессии
                 this.$el.hide();
             }
         });

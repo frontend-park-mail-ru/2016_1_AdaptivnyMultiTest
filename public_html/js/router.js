@@ -17,42 +17,29 @@ define(
             routes: {
                 'main': 'concreteAction', 
                 'scoreboard': 'concreteAction',
-                'game': 'concreteAction',
+                'game': 'gameAction',
 
                 '*default': 'defaultAction'
             },
            
             initialize: function() {
                 Backbone.history.start();
-                self = this;
-                this.listenTo(game, 'finish', function() {
-                    this.navigate("main", {trigger: true});
-                });
-                this.listenTo(main, 'start', function() {
-                    game.connectToGame();
-                    this.navigate("game", {trigger: true});
-                });
-                
-                /*
-                this.listenTo(main, 'start', function() {
-                    game.connectToGame();
-                    //this.navigate("game", {trigger: true});
-                });
-                this.listenTo(game, 'Authorized user', function() {
-                    this.navigate("game", {trigger : true});
-                });
-
-                this.listenTo(game, "Unauthorized user", function() {
-                    alert("You need to authorize");
-                });*/
-                
-        
                 return this;
             },
+
+            gameAction: function() {
+                if( !game.isAuth() ) {
+                    this.navigate("main", {trigger : true});
+                } else {
+                    game.show();
+                }
+            },
+
             concreteAction: function() {
                 var view = require('views/'+ Backbone.history.getFragment());
                 view.show();
             },
+
             defaultAction: function() { 
                main.show();
             },

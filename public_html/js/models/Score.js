@@ -4,7 +4,7 @@ define(
         
         var Model = Backbone.Model.extend({
             defaults: {
-            	id: '',
+                id: '',
                 login: '',
                 score: 0
             },

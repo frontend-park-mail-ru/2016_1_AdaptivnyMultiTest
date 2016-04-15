@@ -5,9 +5,9 @@
                 Game
             </dt>
             <dd class="main__field">
-                <button class="main__btn btn" id="start">
+                <a class="main__btn btn" href="#game">
                     Start
-                </button>
+                </a>
             </dd>
             <dt class="main__stripe">
                 Scoreboard

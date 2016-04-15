@@ -3,6 +3,8 @@
         <div class="main-game__main-area main main_game">
             <canvas class="main-game__canvas" id="gameCanvas" width="490px" height="490px"></canvas>
         </div>
-        <button class="main-game__btn btn" id="quit">Quit</button>
+        <a class="main-game__btn btn" href="#main">
+        	Quit
+        </a>
     </div>
 </fest:template>

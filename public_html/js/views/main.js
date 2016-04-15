@@ -4,7 +4,7 @@ define(
         var tmpl = require('tmpl/main');
         var user = require('models/User');
         var session = require('models/Session');
-        var BackboneValidation = require('backbone_validation');
+        var game = require('views/game');
 
         var View = Backbone.View.extend({
             template: tmpl,
@@ -14,17 +14,12 @@ define(
             session : new session(),
 
             events: {
-                 'click #signup': 'handleSignup',
-                 'click #login' : 'handleLogin',
-                 'click #start' : 'handleStart'
-            },
-
-            handleStart: function(e) {
-                e.preventDefault();
-                this.trigger("start");
+                 'submit button#signup': 'handleSignup',
+                 'submit button#login' : 'handleLogin'
             },
 
             initialize: function() {
+                self = this;
                 this.user.on('invalid', function (model, error) {
                     alert(error);
                 });
@@ -32,30 +27,13 @@ define(
                 this.session.on('invalid', function (model, error) {
                     alert(error);
                 });
+
+                this.listenTo(game, 'Unauthorized user', function() {
+                    alert("Вам нужно авторизоваться"); //будет заменен на всплывающее окно с сообщением
+                });
             },
 
             render: function () {
-                // Backbone.Validation.bind(this, {
-                //     invalid: function(view, attr, error, selector) {
-                //         console.log(error);
-                //         console.log(attr);
-                //         //если поповер существует от предыдущей ошибки
-                //         // if( typeof( view.$('#' + attr + 'Error').popover() ) != 'underfined' ) { 
-                //         //     view.$('#' + attr + 'Error').popover('destroy'); //рушим его
-                //         // }
-                //         // view.$('#' + attr + 'Error').popover({
-                //         //     content: error,
-                //         //     trigger: "manual"
-                //         // });
-                //         // view.$('#' + attr + 'Error').popover('show');
-
-                //     },
-                //     // valid: function(view, attr, error, selector) {
-                //     //     //alert('valid');
-                //     //     view.$('#' + attr + 'Error').popover('hide');
-                //     // } 
-                // });
-
                 this.$el.html(this.template());
                 
                 $('dl').on('mouseenter', 'dt', function() {
