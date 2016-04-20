@@ -63,7 +63,7 @@ define(
             },
 
             isAuth: function() {
-                jqXHR = this.session.fetch({async : false})
+                jqXHR = this.session.fetch()
                
                 if( jqXHR.status === 200 ) {
                     return true;

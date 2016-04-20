@@ -1,23 +1,23 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="main">
         <dl class="main__menu">
-            <dt class="main__stripe">
+            <dt class="js-main__stripe">
                 Game
             </dt>
             <dd class="main__field">
-                <a class="main__btn btn" href="#game">
+                <a class="main__btn js-btn" href="#game">
                     Start
                 </a>
             </dd>
-            <dt class="main__stripe">
+            <dt class="js-main__stripe">
                 Scoreboard
             </dt>
             <dd class="main__field">
-                <a class="main__btn btn" href="#scoreboard" >
+                <a class="main__btn js-btn" href="#scoreboard" >
                     Top scores
                 </a>
             </dd>
-            <dt class="main__stripe">
+            <dt class="js-main__stripe">
                 Login
             </dt>
             <dd class="main__field">
@@ -39,13 +39,13 @@
                         </div>
                     </div>
                     <div>
-                        <button class="main__btn btn" type="submit" id="login">
+                        <button class="main__btn js-btn" type="submit" id="login">
                             Login!
                         </button>
                     </div>
                 </form>
             </dd>
-            <dt class="main__stripe">
+            <dt class="js-main__stripe">
                 Sign up
             </dt>
             <dd class="main__field">
@@ -75,7 +75,7 @@
                         </div>
                           </div>
                     <div>
-                        <button class="btn" type="submit" id="signup">
+                        <button class="js-btn" type="submit" id="signup">
                             Sign up!
                         </button>
                     </div>

@@ -14,8 +14,8 @@ define(
             session : new session(),
 
             events: {
-                 'submit button#signup': 'handleSignup',
-                 'submit button#login' : 'handleLogin'
+                 'click button#signup': 'handleSignup',
+                 'click button#login' : 'handleLogin'
             },
 
             initialize: function() {
@@ -35,7 +35,7 @@ define(
 
             render: function () {
                 this.$el.html(this.template());
-                
+
                 $('dl').on('mouseenter', 'dt', function() {
                     $(this)
                         .next()
@@ -43,9 +43,29 @@ define(
                             .siblings('dd')
                             .slideUp(200);
                 });
-                $( ".main__field" ).filter(function(index) {
+                
+                $( ".js-main__field" ).filter(function(index) {
                     return index !== 0;
-                }).addClass( "main__field_hidden" );
+                }).addClass( "js-main__field_hidden" );
+
+                $( ".js-main__stripe" ).hover(
+                    function() {
+                        $( this ).addClass( "js-main__stripe_hover" );
+                    }, 
+                    function() {
+                        $( this ).removeClass( "js-main__stripe_hover" );
+                    }
+                );
+
+                $( ".js-btn" ).hover(
+                    function() {
+                        $( this ).addClass( "js-btn_hover" );
+                    }, 
+                    function() {
+                        $( this ).removeClass( "js-btn_hover" );
+                    }
+                );
+
                 return this;
             },
 
