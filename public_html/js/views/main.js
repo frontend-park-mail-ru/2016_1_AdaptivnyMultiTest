@@ -31,19 +31,20 @@ define(
                 this.listenTo(game, 'Unauthorized user', function() {
                     alert("Вам нужно авторизоваться"); //будет заменен на всплывающее окно с сообщением
                 });
+                this.$el.html(this.template());
             },
 
             render: function () {
                 this.$el.html(this.template());
 
-                $('dl').on('mouseenter', 'dt', function() {
+                $('.main__menu').on('mouseenter', '.js-main__stripe', function() {
                     $(this)
                         .next()
                             .slideDown(200)
-                            .siblings('dd')
+                            .siblings('.js-main__field')
                             .slideUp(200);
                 });
-                
+
                 $( ".js-main__field" ).filter(function(index) {
                     return index !== 0;
                 }).addClass( "js-main__field_hidden" );
@@ -65,7 +66,6 @@ define(
                         $( this ).removeClass( "js-btn_hover" );
                     }
                 );
-
                 return this;
             },
 

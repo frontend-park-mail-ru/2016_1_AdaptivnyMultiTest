@@ -63,14 +63,17 @@ define(
             },
 
             isAuth: function() {
-                jqXHR = this.session.fetch()
-               
-                if( jqXHR.status === 200 ) {
-                    return true;
-                } else {
-                    this.trigger("Unauthorized user");
-                    return false;
-                }
+                self = this;
+                this.session.fetch().done(function() {
+                    result = true; 
+                })
+                .fail(function() {
+                    self.trigger("Unauthorized user");
+                    result = false;
+                })
+                .then(function() {
+                    return result;
+                });
             },            
 
             initialize: function() {

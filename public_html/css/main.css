@@ -54,7 +54,7 @@ body {
       background: #FFE4B5;
 }
 
-.main__field {
+.js-main__field {
     margin: 0;
     padding: 1em 0;
 }

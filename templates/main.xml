@@ -4,7 +4,7 @@
             <dt class="js-main__stripe">
                 Game
             </dt>
-            <dd class="main__field">
+            <dd class="js-main__field">
                 <a class="main__btn js-btn" href="#game">
                     Start
                 </a>
@@ -12,7 +12,7 @@
             <dt class="js-main__stripe">
                 Scoreboard
             </dt>
-            <dd class="main__field">
+            <dd class="js-main__field">
                 <a class="main__btn js-btn" href="#scoreboard" >
                     Top scores
                 </a>
@@ -20,7 +20,7 @@
             <dt class="js-main__stripe">
                 Login
             </dt>
-            <dd class="main__field">
+            <dd class="js-main__field">
                 <form class="main__form">
                     <div class="input-field">
                         <label class="bs-form__label" for="username">
@@ -48,7 +48,7 @@
             <dt class="js-main__stripe">
                 Sign up
             </dt>
-            <dd class="main__field">
+            <dd class="js-main__field">
                 <form class="main__form">
                     <div class="input-field">
                         <label class="bs-form__label" for="email">
