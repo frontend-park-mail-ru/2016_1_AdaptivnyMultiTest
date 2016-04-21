@@ -38,11 +38,10 @@ define(
             },
 
             connectToGame: function() {
-                self = this;
-                data = {login : this.session.toJSON()["login"]};        
+                self = this;       
                 this.model.save({}, {
                     type : "put",
-                    data: JSON.stringify(data),
+                    data: JSON.stringify({ login : this.session.toJSON()["login"]} ),
                     contentType: "application/json",
                     success: function() {
                         redData = {
@@ -62,18 +61,18 @@ define(
                 });           
             },
 
-            isAuth: function() {
+            isAuth : function() {
+                deferred = $.Deferred();
                 self = this;
-                this.session.fetch().done(function() {
-                    result = true; 
+                this.session.fetch({
+                    success : function() {
+                        deferred.resolve();
+                    }, error : function() {
+                        self.trigger("Unauthorized user");
+                        deferred.reject();
+                    }
                 })
-                .fail(function() {
-                    self.trigger("Unauthorized user");
-                    result = false;
-                })
-                .then(function() {
-                    return result;
-                });
+                return deferred.promise();
             },            
 
             initialize: function() {
@@ -82,7 +81,18 @@ define(
                 );
             },
 
-            render: function () {   
+            render: function () {  
+                $(".js-btn").hover(
+                    function() {
+                        $(this).addClass("js-btn_hover");
+                    }, 
+                    function() {
+                        $(this).removeClass("js-btn_hover");
+                    }
+                );
+
+
+
                 this.$el.html(this.template());
                 this.canvas = this.$el.find("#gameCanvas")[0].getContext("2d");
              
@@ -223,6 +233,7 @@ define(
             hide: function () {
                 $(document).unbind('keydown', this.keyAction);
                 this.model.destroy(); // удаление игровой сессии
+                $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }
         });

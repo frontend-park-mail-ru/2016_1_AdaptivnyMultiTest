@@ -14,8 +14,8 @@ define(
             session : new session(),
 
             events: {
-                 'click button#signup': 'handleSignup',
-                 'click button#login' : 'handleLogin'
+                 'submit button#signup': 'handleSignup',
+                 'submit button#login' : 'handleLogin'
             },
 
             initialize: function() {
@@ -37,7 +37,7 @@ define(
             render: function () {
                 this.$el.html(this.template());
 
-                $('.main__menu').on('mouseenter', '.js-main__stripe', function() {
+                $('.js-main__menu').on('mouseenter', '.js-main__stripe', function() {
                     $(this)
                         .next()
                             .slideDown(200)
@@ -45,25 +45,25 @@ define(
                             .slideUp(200);
                 });
 
-                $( ".js-main__field" ).filter(function(index) {
+                $(".js-main__field").filter(function(index) {
                     return index !== 0;
-                }).addClass( "js-main__field_hidden" );
+                }).addClass("js-main__field_hidden");
 
                 $( ".js-main__stripe" ).hover(
                     function() {
-                        $( this ).addClass( "js-main__stripe_hover" );
+                        $(this).addClass("js-main__stripe_hover");
                     }, 
                     function() {
-                        $( this ).removeClass( "js-main__stripe_hover" );
+                        $(this).removeClass("js-main__stripe_hover");
                     }
                 );
 
-                $( ".js-btn" ).hover(
+                $(".js-btn").hover(
                     function() {
-                        $( this ).addClass( "js-btn_hover" );
+                        $(this).addClass("js-btn_hover");
                     }, 
                     function() {
-                        $( this ).removeClass( "js-btn_hover" );
+                        $(this).removeClass("js-btn_hover");
                     }
                 );
                 return this;
@@ -72,13 +72,12 @@ define(
             handleSignup: function(e) {
                 e.preventDefault();
 
-                data = {
-                    "login" : this.$el.find( "#signupLogin" ).val(),
-                    "email" : this.$el.find( "#signupEmail" ).val(),
-                    "password" : this.$el.find( "#signupPassword" ).val()
-                };
-
-                this.user.save(data, {
+                this.user.save(
+                    {
+                        "login" : this.$el.find( "#signupLogin" ).val(),
+                        "email" : this.$el.find( "#signupEmail" ).val(),
+                        "password" : this.$el.find( "#signupPassword" ).val()
+                    }, {
                     success : function() {
                         alert('success signup');
                     },
@@ -91,12 +90,11 @@ define(
             handleLogin: function(e) {
                 e.preventDefault();
 
-                data = {
-                    "login" : this.$el.find( "#loginLogin" ).val(),
-                    "password" : this.$el.find( "#loginPassword" ).val()
-                };
-
-                this.session.save(data, {
+                this.session.save(
+                    {
+                        "login" : this.$el.find( "#loginLogin" ).val(),
+                        "password" : this.$el.find( "#loginPassword" ).val()
+                    }, {
                     success : function() {
                         alert('success login');
                     },
@@ -113,6 +111,9 @@ define(
             },
             hide: function () {
                 this.$el.hide();
+                $(".js-main__menu").off("mouseenter");
+                $(".js-main__stripe").off("mouseenter mouseleave");
+                $(".js-btn").off("mouseenter mouseleave");
             }
         });
         return new View();

@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="main">
-        <dl class="main__menu">
+        <dl class="js-main__menu">
             <dt class="js-main__stripe">
                 Game
             </dt>

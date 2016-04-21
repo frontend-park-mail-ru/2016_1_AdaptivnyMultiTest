@@ -28,11 +28,12 @@ define(
             },
 
             gameAction: function() {
-                if( !game.isAuth() ) {
-                    this.navigate("main", {trigger : true});
-                } else {
+                var self = this;
+                game.isAuth().done(function() {
                     game.show();
-                }
+                }).fail(function() {
+                    self.navigate("main", {trigger : true});
+                });
             },
 
             concreteAction: function() {

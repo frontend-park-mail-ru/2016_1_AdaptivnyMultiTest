@@ -16,6 +16,15 @@ define(
             },
             render: function () {
                 this.$el.html(this.template(this.collection.toJSON()));
+                $(".js-btn").hover(
+                    function() {
+                        $(this).addClass("js-btn_hover");
+                    }, 
+                    function() {
+                        $(this).removeClass("js-btn_hover");
+                    }
+                );
+                
                 return this;
             },
             show: function () {
@@ -24,6 +33,7 @@ define(
                 this.$el.show();
             },
             hide: function () {
+                $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }
         });
