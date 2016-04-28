@@ -5,32 +5,18 @@ define(['backbone'], function(Backbone) {
             email: "",
             password: "",
         },
-        
-        urlRoot : "api/user/",
-        
-        getCustomUrl: function (method) {
-            switch (method) {
-                case 'update': 
-                    return this.urlRoot;
-                    break;
-                case 'create':
-                    return this.urlRoot;
-                    break;
-                case 'delete': 
-                    return this.urlRoot;
-                    break;
-            }
-        },
-
+       
+        urlRoot : "api/user",
+       
         sync: function (method, model, options) {
-            if( method == "create") {
+            if( method === "create" ) {
                 method = "update";
             }
             options || (options = {});
-            options.url = this.getCustomUrl(method.toLowerCase());
+            options.url = this.urlRoot;
             return Backbone.sync.apply(this, arguments);
         },
-    
+   
         validate: function(attrs, options) {
             errors = [];
             if( /[^a-zA-Z0-9]/.test(attrs.login) ) {
@@ -48,7 +34,7 @@ define(['backbone'], function(Backbone) {
             if( attrs.password.length < 5 ) {
                 errors.push('Your password must have more than 5 characters');
             }
-
+ 
             if( !attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i) ) {
                 errors.push("Please, input a valid email");
             }
@@ -57,6 +43,3 @@ define(['backbone'], function(Backbone) {
     });
     return Model;
 });
-
-
-

@@ -5,30 +5,18 @@ define(['backbone'], function(Backbone) {
             login: "",
             password: "",
         },
-
+       
         urlRoot : "api/session",
-        
-        getCustomUrl: function (method) {
-            switch (method) {
-                case 'read':
-                    return this.urlRoot;
-                case 'update': //login
-                    return this.urlRoot;
-                    break;
-                case 'read':
-                    return this.urlRoot;
-                    break;
-            }
-        },
-        
+       
         sync: function (method, model, options) {
-            if( method == "create" )
-                method = "update"
+            if( method === "create" ) {
+                method = "update";
+            }
             options || (options = {});
-            options.url = this.getCustomUrl(method.toLowerCase());
+            options.url = this.urlRoot;
             return Backbone.sync.apply(this, arguments);
         },
-
+ 
         validate: function(attrs, options) {
             errors = [];
             if( /[^a-zA-Z0-9]/.test(attrs.login) ) {
