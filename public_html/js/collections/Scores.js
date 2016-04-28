@@ -23,8 +23,7 @@ define(
                 return Backbone.sync.apply(this, arguments);
             },      
         });
-        var collection = new Collection();
-        collection.fetch();
-        return collection;
-});
+    return Collection;
+    }
+);
 

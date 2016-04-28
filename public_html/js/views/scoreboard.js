@@ -6,7 +6,7 @@ define(
         var View = Backbone.View.extend({
             id: "scoreboard",
 
-            collection: scores,
+            collection: new scores(),
             template: tmpl,
 
             initialize: function() {
@@ -27,6 +27,7 @@ define(
             },
 
             show: function () {
+                this.collection.fetch();
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
