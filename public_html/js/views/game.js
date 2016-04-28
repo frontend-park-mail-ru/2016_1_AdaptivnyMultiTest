@@ -4,14 +4,12 @@ define(
         var tmpl = require('tmpl/game');
         var gameSession = require('models/Game/GameSession');
         var session = require('models/Session');
-
         var View = Backbone.View.extend({
             template: tmpl,
             id: "game",
 
             model : new gameSession(),
             session : new session(),
-                       
 
             startForDraw :  {
                 x : null,
@@ -43,6 +41,7 @@ define(
                     type : "put",
                     data: JSON.stringify({ login : this.session.toJSON()["login"]} ),
                     contentType: "application/json",
+
                     success: function() {
                         redData = {
                             x : self.model.get("redx"),
@@ -52,9 +51,9 @@ define(
                         self.startForDraw.x =  self.model.get("bluex");
                         self.startForDraw.y =  self.model.get("bluey");
 
-                        //получение соседних точек для синего игрока (bluex, bluey) 
                         self.model.save(redData, { patch : true });
                     },
+
                     error: function() {
                         console.log("You didn't get the neighbour points for your initial point");
                     }              
@@ -67,7 +66,9 @@ define(
                 this.session.fetch({
                     success : function() {
                         deferred.resolve();
-                    }, error : function() {
+                    },
+
+                    error : function() {
                         self.trigger("Unauthorized user");
                         deferred.reject();
                     }
@@ -77,7 +78,7 @@ define(
 
             initialize: function() {
                 _.bindAll(this, 
-                      'keyAction'
+                    'keyAction'
                 );
             },
 
@@ -91,12 +92,9 @@ define(
                     }
                 );
 
-
-
                 this.$el.html(this.template());
                 this.canvas = this.$el.find("#gameCanvas")[0].getContext("2d");
              
-                //строим красные границы - левая и верхняя стороны
                 this.canvas.beginPath();
                 this.canvas.lineWidth = 4;
                 this.canvas.strokeStyle = "#FF0000";
@@ -105,7 +103,6 @@ define(
                 this.canvas.lineTo(490, 0);
                 this.canvas.stroke();
                 
-                //строим синие границы - правая и нижняя стороны
                 this.canvas.beginPath();
                 this.canvas.lineWidth = 4;
                 this.canvas.strokeStyle ="#004DFF";
@@ -114,7 +111,6 @@ define(
                 this.canvas.lineTo(0, 490);
                 this.canvas.stroke();
 
-                //сетка
                 this.canvas.beginPath();
                 this.canvas.lineWidth = 1;
                 this.canvas.strokeStyle = "#000000";
@@ -126,8 +122,6 @@ define(
                 }
                 this.canvas.stroke();
             },
-
-    
 
             drawLine: function(xStart, yStart, xEnd, yEnd, color) {
                 this.canvas.beginPath();
@@ -149,7 +143,6 @@ define(
             },
 
             renderPath: function(state, isBluePlayer) {
-                //нарисовать линию между текущей точкой и точкой, определяемой нажатой клавишей
                 console.log("отсчет для рисования", this.startForDraw.x, this.startForDraw.y);
 
                 scaleCoeff = 490 / 7;
@@ -170,14 +163,11 @@ define(
                             x : this.model.get(state)["x"],
                             y : this.model.get(state)["y"]
                         };
-                        //отправляем пост запрос
                         this.model.save(data, {patch : true});
                     } else {
                         alert("Вы не можете так идти");
-                    }
-                    
+                    }  
                 } else {
-                    //временная реализация на alert-ах, необходимо сделать в дальнейшем дополнительную вьюху finish.js
                     if( isBluePlayer == true ) {
                         alert("Победа красного игрока")
                     } else {
@@ -186,13 +176,9 @@ define(
                 }
             },
 
-            
-           
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                
                 switch (code) {
-                    //blue player
                     case 37:
                         this.renderPath("left", true);           
                         break;
@@ -206,7 +192,6 @@ define(
                         this.renderPath("bottom", true);
                         break;
 
-                    //red player
                     case 65:
                         this.renderPath("left",  false);
                         break;
@@ -232,7 +217,7 @@ define(
             
             hide: function () {
                 $(document).unbind('keydown', this.keyAction);
-                this.model.destroy(); // удаление игровой сессии
+                this.model.destroy();
                 $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }

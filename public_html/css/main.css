@@ -9,15 +9,11 @@ body {
     background-image: url("../static/snakes.jpg") ;
 }
 
-/*MAIN_SCREEN//////////////////////*/
-
 .main {
     background-color: white;
     width: 600px;
-    
     margin: auto;
     margin-top: 15px;
-
     text-align: center;
     border: 1px solid #000;
     border-radius: 25px;
@@ -30,16 +26,13 @@ body {
 .js-main__stripe {
     border-bottom: 2px solid #c5c5c5;
     border-top: 2px solid white;
-
     transition: 0.25s;
     cursor: pointer;
-    
     color: #CD853F;
     font-weight: bold;
     font-size : 1.5em;
     line-height: 2em;
     background: #FFFFE0;
-
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
@@ -108,14 +101,10 @@ body {
     font-size: 18px;
 }
 
-/*GAME_SCREEN//////////////////////*/
-
 .main-game {
     width: 650px;
     height: 620px;
-    
     margin: auto;
-
     background-color: #FFFFE0;
     text-align: center;
     border: 1px solid #000;
@@ -135,12 +124,8 @@ body {
     margin-left: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-
     box-shadow: 0 0 10px 5px #cf9c55;
 }
-
-
-/*SCOREBOARD_SCREEN//////////////////////*/
 
 .main__scores {
     list-style: none;

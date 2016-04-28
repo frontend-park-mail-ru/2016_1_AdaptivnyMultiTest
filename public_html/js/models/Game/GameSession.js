@@ -1,9 +1,7 @@
 define(
     function (require) {
         var Backbone = require('backbone');
-        
         var Model = Backbone.Model.extend({
-            
             defaults: {
                 left : {
                     x : null,
@@ -35,16 +33,17 @@ define(
             
             getCustomUrl: function (method) {
                 switch (method) {
-                    case 'create': //POST -> 
+                    case 'create':
                         return this.urlRoot;
-                    case 'update': //PUT -> POST
+                    case 'update':
                         return this.urlRoot;
-                    case 'delete': //DELETE
+                    case 'delete':
                         return this.urlRoot;
                     case 'patch':
                         return this.urlRoot;
                 }
             },
+            
             sync: function (method, model, options) {
                 if( method == 'patch' ) {
                     method = "create";

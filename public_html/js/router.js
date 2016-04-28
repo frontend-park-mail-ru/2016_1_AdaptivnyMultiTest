@@ -6,19 +6,17 @@ define(
         var scoreboard = require('views/scoreboard');
         var game = require('views/game');
         
-        
         viewManager.addViews([
             main,
             scoreboard,
             game
-            ]);
+        ]);
 
         var Router = Backbone.Router.extend({
             routes: {
                 'main': 'concreteAction', 
                 'scoreboard': 'concreteAction',
                 'game': 'gameAction',
-
                 '*default': 'defaultAction'
             },
            
@@ -44,7 +42,6 @@ define(
             defaultAction: function() { 
                main.show();
             },
-            
         });
         return new Router();
     }

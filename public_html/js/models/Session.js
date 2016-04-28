@@ -20,6 +20,7 @@ define(['backbone'], function(Backbone) {
                     break;
             }
         },
+        
         sync: function (method, model, options) {
             if( method == "create" )
                 method = "update"

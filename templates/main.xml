@@ -73,7 +73,7 @@
                         <div>
                             <input class="bs-form__input form-control" type="password" name="signupPassword" id="signupPassword" placeholder="Your password"/>
                         </div>
-                          </div>
+                    </div>
                     <div>
                         <button class="js-btn" type="submit" id="signup">
                             Sign up!
