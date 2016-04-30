@@ -7,8 +7,8 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'node server.js',
-                command: 'java -jar 2016-02-Adaptive-MultiTest-1.0.jar  8080'
+                //command: 'node server.js',
+                command: 'java -jar 2016-02-Adaptive-MultiTest-1.0.jar'
             }
         },
         fest: {

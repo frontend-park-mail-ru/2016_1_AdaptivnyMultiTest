@@ -12,9 +12,10 @@ define(
 
             initialize: function() {
                 this.collection.bind('sync', this.render, this);
-                this.collection.fetch();
+                //this.collection.fetch();
             },
             render: function () {
+                console.log("render");
                 this.$el.html(this.template(this.collection.toJSON()));
                 $(".js-btn").hover(
                     function() {
@@ -28,6 +29,7 @@ define(
                 return this;
             },
             show: function () {
+                this.collection.fetch();
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();

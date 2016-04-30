@@ -6,28 +6,14 @@ define(['backbone'], function(Backbone) {
             password: "",
         },
         
-        urlRoot : "api/user/",
-        
-        getCustomUrl: function (method) {
-            switch (method) {
-                case 'update': 
-                    return this.urlRoot;
-                    break;
-                case 'create':
-                    return this.urlRoot;
-                    break;
-                case 'delete': 
-                    return this.urlRoot;
-                    break;
-            }
-        },
-
+        urlRoot : "api/user",
+       
         sync: function (method, model, options) {
-            if( method == "create") {
+            if( method === "create" ) {
                 method = "update";
             }
             options || (options = {});
-            options.url = this.getCustomUrl(method.toLowerCase());
+            options.url = this.urlRoot;
             return Backbone.sync.apply(this, arguments);
         },
     

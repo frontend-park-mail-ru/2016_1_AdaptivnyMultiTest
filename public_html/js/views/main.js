@@ -14,8 +14,8 @@ define(
             session : new session(),
 
             events: {
-                 'submit button#signup': 'handleSignup',
-                 'submit button#login' : 'handleLogin'
+                 'click button#signup': 'handleSignup',
+                 'click button#login' : 'handleLogin'
             },
 
             initialize: function() {
@@ -31,7 +31,6 @@ define(
                 this.listenTo(game, 'Unauthorized user', function() {
                     alert("Вам нужно авторизоваться"); //будет заменен на всплывающее окно с сообщением
                 });
-                this.$el.html(this.template());
             },
 
             render: function () {
@@ -89,7 +88,7 @@ define(
 
             handleLogin: function(e) {
                 e.preventDefault();
-
+                console.log('in the handleLogin');
                 this.session.save(
                     {
                         "login" : this.$el.find( "#loginLogin" ).val(),

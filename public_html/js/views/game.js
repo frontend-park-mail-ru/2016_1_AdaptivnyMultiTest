@@ -3,7 +3,9 @@ define(
         var Backbone = require('backbone');
         var tmpl = require('tmpl/game');
         var gameSession = require('models/Game/GameSession');
-        var session = require('models/Session');
+        var session = require('models/Session'); 
+        var api = require('api/apiWS');
+
 
         var View = Backbone.View.extend({
             template: tmpl,
@@ -11,54 +13,31 @@ define(
 
             model : new gameSession(),
             session : new session(),
-                       
-
-            startForDraw :  {
-                x : null,
-                y : null
-            },
 
             events : {
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
-
+            
+            //рисуем первые точки
             handleDrawInitialPoints: function(e) {
                 e.preventDefault();
                 this.canvas.beginPath(); 
                 this.canvas.strokeStyle = "#FF0000";
                 this.canvas.lineWidth = 5;
                 scaleCoeff = 490  / 7;
-                this.canvas.arc(this.model.get('redx') * scaleCoeff, this.model.get('redy') * scaleCoeff, 5, 0, Math.PI*2, false);
+                this.canvas.arc(this.model.get("firstRed")["x"] * scaleCoeff, this.model.get("firstRed")["y"] * scaleCoeff, 5, 0, Math.PI*2, false);
                 this.canvas.stroke(); 
                 this.canvas.closePath();
                 this.canvas.beginPath();
                 this.canvas.strokeStyle = "#004DFF";
-                this.canvas.arc(this.model.get('bluex') * scaleCoeff, this.model.get('bluey') * scaleCoeff, 5, 0, Math.PI*2, false);
-                this.canvas.stroke(); 
+                this.canvas.arc(this.model.get("firstBlue")["x"] * scaleCoeff, this.model.get("firstBlue")["y"] * scaleCoeff, 5, 0, Math.PI*2, false);
+                this.canvas.stroke();
+                this.delete_event("click canvas#gameCanvas");
             },
 
-            connectToGame: function() {
-                self = this;       
-                this.model.save({}, {
-                    type : "put",
-                    data: JSON.stringify({ login : this.session.toJSON()["login"]} ),
-                    contentType: "application/json",
-                    success: function() {
-                        redData = {
-                            x : self.model.get("redx"),
-                            y : self.model.get("redy")
-                        };
-
-                        self.startForDraw.x =  self.model.get("bluex");
-                        self.startForDraw.y =  self.model.get("bluey");
-
-                        //получение соседних точек для синего игрока (bluex, bluey) 
-                        self.model.save(redData, { patch : true });
-                    },
-                    error: function() {
-                        console.log("You didn't get the neighbour points for your initial point");
-                    }              
-                });           
+            delete_event: function(e_name) {
+                delete this.events[e_name];
+                this.delegateEvents();
             },
 
             isAuth : function() {
@@ -71,14 +50,35 @@ define(
                         self.trigger("Unauthorized user");
                         deferred.reject();
                     }
-                })
+                });
                 return deferred.promise();
             },            
 
             initialize: function() {
-                _.bindAll(this, 
-                      'keyAction'
-                );
+                _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
+
+                self = this;
+                this.listenTo(this.model, 'turnOnKeyboard', function() {
+                    self.drawEnemyPath();
+                    $(document).bind('keydown', self.keyAction);
+                });
+
+                this.listenTo(this.model, 'turnOffKeyboard', function() {
+                    $(document).unbind('keydown', self.keyAction);
+                });
+
+                this.listenTo(this.model, "EnemyExit", function() {
+                    alert("Ваш противник вышел из игры");
+                });
+
+                this.listenTo(this.model, "Winner was determined", function() {
+                    if( self.model.get("win") === true ) {
+                        alert("Вы выиграли!");
+                    } else if( self.model.get("win") === false ) {
+                        alert("Вы проиграли!");
+                    }
+                });
+
             },
 
             render: function () {  
@@ -90,8 +90,6 @@ define(
                         $(this).removeClass("js-btn_hover");
                     }
                 );
-
-
 
                 this.$el.html(this.template());
                 this.canvas = this.$el.find("#gameCanvas")[0].getContext("2d");
@@ -108,7 +106,7 @@ define(
                 //строим синие границы - правая и нижняя стороны
                 this.canvas.beginPath();
                 this.canvas.lineWidth = 4;
-                this.canvas.strokeStyle ="#004DFF";
+                this.canvas.strokeStyle = "#004DFF";
                 this.canvas.moveTo(490, 0);
                 this.canvas.lineTo(490, 490);
                 this.canvas.lineTo(0, 490);
@@ -138,87 +136,69 @@ define(
                 this.canvas.stroke();
             },
 
-            isFinishGame: function() {
-                states = ['left', 'top', 'right', 'bottom']
-                for( var i = 0; i < states.length; i++ ) {
-                    if( self.model.get(states[i])["x"] !== -1 || self.model.get(states[i])["y"] !== -1 ) {
-                            return false;
-                    }
-                }
-                return true;
-            },
-
-            renderPath: function(state, isBluePlayer) {
-                //нарисовать линию между текущей точкой и точкой, определяемой нажатой клавишей
-                console.log("отсчет для рисования", this.startForDraw.x, this.startForDraw.y);
-
+            drawEnemyPath: function() {
                 scaleCoeff = 490 / 7;
-                if( isBluePlayer ) {
-                    color = "#004DFF";
-                } else {
-                    color = "#FF0000";
+                console.log(this.model.get("color"));
+                if( this.model.get("color") === "#FF0000" ) {
+                    this.drawLine(this.model.get("firstBlue")["x"] * scaleCoeff, this.model.get("firstBlue")["y"] * scaleCoeff, this.model.get("enemyMove")["x"] * scaleCoeff, this.model.get("enemyMove")["y"] * scaleCoeff, "#004DFF");
+                    //устанавливаем новые текущие координаты оппонента
+                    this.model.get("firstBlue")["x"] = this.model.get("enemyMove")["x"];
+                    this.model.get("firstBlue")["y"] = this.model.get("enemyMove")["y"];
+                } else if( this.model.get("color") === "#004DFF" ) {
+                    this.drawLine(this.model.get("firstRed")["x"] * scaleCoeff, this.model.get("firstRed")["y"] * scaleCoeff, this.model.get("enemyMove")["x"] * scaleCoeff, this.model.get("enemyMove")["y"] * scaleCoeff, "#FF0000");
+                    //устанавливаем новые текущие координаты оппонента
+                    this.model.get("firstRed")["x"] = this.model.get("enemyMove")["x"];
+                    this.model.get("firstRed")["y"] = this.model.get("enemyMove")["y"]; 
                 }
-               
-                if( !this.isFinishGame() ) {
+            },
+            
+            renderPath: function(state) {
+                scaleCoeff = 490 / 7;
+                
+                if( this.model.get("win") === null ) {
                     if( this.model.get(state)["x"] !== -1 && this.model.get(state)["y"] !== -1 ) {
-                        this.drawLine(this.startForDraw.x * scaleCoeff, this.startForDraw.y * scaleCoeff, this.model.get(state)["x"] * scaleCoeff,  this.model.get(state)["y"] * scaleCoeff, color);
-                    
-                        this.startForDraw.x = this.model.get("x");
-                        this.startForDraw.y = this.model.get("y");
-
-                        data = {
-                            x : this.model.get(state)["x"],
-                            y : this.model.get(state)["y"]
-                        };
-                        //отправляем пост запрос
-                        this.model.save(data, {patch : true});
+                        if( this.model.get("color") === "#FF0000" ) { 
+                            this.drawLine(this.model.get("firstRed")["x"] * scaleCoeff, this.model.get("firstRed")["y"] * scaleCoeff, this.model.get(state)["x"] * scaleCoeff, this.model.get(state)["y"] * scaleCoeff, "#FF0000");
+                            //установка координат новой текущей точки
+                            this.model.get("firstRed")["x"] = this.model.get(state)["x"];
+                            this.model.get("firstRed")["y"] = this.model.get(state)["y"];
+                            //отправляем на сервер новые координаты текущей точки
+                            this.model.sendCoord(this.model.get("firstRed")["x"], this.model.get("firstRed")["y"]);
+                        } else if( this.model.get("color") === "#004DFF" ) {
+                            this.drawLine(this.model.get("firstBlue")["x"] * scaleCoeff, this.model.get("firstBlue")["y"] * scaleCoeff, this.model.get(state)["x"] * scaleCoeff, this.model.get(state)["y"] * scaleCoeff, "#004DFF");
+                            //установка координат новой текущей точки
+                            this.model.get("firstBlue")["x"] = this.model.get(state)["x"];
+                            this.model.get("firstBlue")["y"] = this.model.get(state)["y"];
+                            //отправляем на сервер новые координаты текущей точки
+                            this.model.sendCoord(this.model.get("firstBlue")["x"], this.model.get("firstBlue")["y"]);
+                        }
                     } else {
-                        alert("Вы не можете так идти");
+                        alert("Вы так не может идти!");
                     }
-                    
-                } else {
-                    //временная реализация на alert-ах, необходимо сделать в дальнейшем дополнительную вьюху finish.js
-                    if( isBluePlayer == true ) {
-                        alert("Победа красного игрока")
-                    } else {
-                        alert("Победа синего игрока");
-                    }
-                }
+                } 
+                // else if( this.model.get("win") === true ) {
+                //     alert("Вы выиграли!");
+                // } else if( this.model.get("win") === false ) {
+                //     alert("Вы проиграли!");
+                // }
             },
 
             
-           
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                
                 switch (code) {
-                    //blue player
                     case 37:
-                        this.renderPath("left", true);           
+                        this.renderPath("left");          
                         break;
                     case 38:
-                        this.renderPath("top", true);
+                        this.renderPath("top");
                         break;
                     case 39:
-                        this.renderPath("right", true);
+                        this.renderPath("right");
                         break;
                     case 40:
-                        this.renderPath("bottom", true);
-                        break;
-
-                    //red player
-                    case 65:
-                        this.renderPath("left",  false);
-                        break;
-                    case 87:
-                        this.renderPath("top", false);
-                        break;
-                    case 68:
-                        this.renderPath("right", false);
-                        break;
-                    case 83:
-                        this.renderPath("bottom", false);      
-                        break;                     
+                        this.renderPath("bottom");
+                        break;                   
                 }
             },
         
@@ -226,13 +206,12 @@ define(
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
-                this.connectToGame();
-                $(document).bind('keydown', this.keyAction);
+                api.initConnection();
             },
             
             hide: function () {
                 $(document).unbind('keydown', this.keyAction);
-                this.model.destroy(); // удаление игровой сессии
+                api.close();// закрываем сокет
                 $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }
@@ -240,4 +219,6 @@ define(
         return new View();
     }
 );
+
+
 
