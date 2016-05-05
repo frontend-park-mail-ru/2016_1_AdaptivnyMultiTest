@@ -3,7 +3,7 @@
     </div>
     <div class="main">
         <dl class="main__menu">
-            <dt class="js-main__stripe">
+            <dt class="main__stripe js-main__stripe">
                 ScoreBoard
             </dt>
             <dd class="main__field">
@@ -24,7 +24,7 @@
                         <hr class="list__border-line" />
                     </fest:for>
                 </ul>
-                <a href="#main" class="main-game__btn js-btn">Back</a>
+                <a href="#main" class="main-game__btn btn">Back</a>
             </dd>
         </dl>
     </div>

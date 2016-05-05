@@ -19,11 +19,11 @@ body {
     border-radius: 25px;
 }
 
-.js-main__menu {
+.main__menu {
     margin-top: 20px;
 }
 
-.js-main__stripe {
+.main__stripe {
     border-bottom: 2px solid #c5c5c5;
     border-top: 2px solid white;
     transition: 0.25s;
@@ -43,11 +43,11 @@ body {
     background-image: linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
 }
 
-.js-main__stripe_hover {
-      background: #FFE4B5;
+.main__stripe:hover {
+    background: #FFE4B5;
 }
 
-.js-main__field {
+.main__field {
     margin: 0;
     padding: 1em 0;
 }
@@ -56,7 +56,7 @@ body {
     vertical-align: middle;
 }
 
-.js-btn {
+.btn {
     -moz-box-shadow: 0px 10px 14px -7px #7cbf69;
     -webkit-box-shadow: 0px 10px 14px -7px #7cbf69;
     box-shadow: 0px 10px 14px -7px #7cbf69;
@@ -78,7 +78,7 @@ body {
     text-shadow:0px 1px 0px #9edb95;
 }
 
-.js-btn_hover {
+.btn:hover {
     color: white;
     background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #acd695), color-stop(1, #a8de7c));
     background:-moz-linear-gradient(top, #acd695 5%, #a8de7c 100%);
@@ -117,7 +117,6 @@ body {
 }
 
 .main-game__canvas {
-
     height: 490px;
     width: 490px;
     margin-right: auto;
@@ -165,7 +164,7 @@ body {
     background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
 }
 
-.js-main__stripe_hidden,
-.js-main__field_hidden { 
+.main__stripe_hidden,
+.main__field_hidden { 
     display: none;
 }

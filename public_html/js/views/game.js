@@ -83,15 +83,6 @@ define(
             },
 
             render: function () {  
-                $(".js-btn").hover(
-                    function() {
-                        $(this).addClass("js-btn_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-btn_hover");
-                    }
-                );
-
                 this.$el.html(this.template());
                 this.canvas = this.$el.find("#gameCanvas")[0].getContext("2d");
              
@@ -216,9 +207,8 @@ define(
             },
             
             hide: function () {
-                $(document).unbind('keydown', this.keyAction);
+                this.$el.unbind('keydown', this.keyAction);
                 this.model.destroy();
-                $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }
         });

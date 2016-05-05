@@ -13,8 +13,8 @@ define(
             session : new session(),
 
             events: {
-                 'click button#signup': 'handleSignup',
-                 'click button#login' : 'handleLogin'
+                 'submit button#signup': 'handleSignup',
+                 'submit button#login' : 'handleLogin'
             },
 
             initialize: function() {
@@ -36,7 +36,7 @@ define(
             render: function () {
                 this.$el.html(this.template());
 
-                $('.js-main__menu').on('mouseenter', '.js-main__stripe', function() {
+                this.$('.js-main__menu').on('mouseenter', '.js-main__stripe', function() {
                     $(this)
                         .next()
                             .slideDown(200)
@@ -44,27 +44,10 @@ define(
                             .slideUp(200);
                 });
 
-                $(".js-main__field").filter(function(index) {
+                this.$(".js-main__field").filter(function(index) {
                     return index !== 0;
-                }).addClass("js-main__field_hidden");
+                }).addClass("main__field_hidden");
 
-                $( ".js-main__stripe" ).hover(
-                    function() {
-                        $(this).addClass("js-main__stripe_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-main__stripe_hover");
-                    }
-                );
-
-                $(".js-btn").hover(
-                    function() {
-                        $(this).addClass("js-btn_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-btn_hover");
-                    }
-                );
                 return this;
             },
 
@@ -110,9 +93,7 @@ define(
             
             hide: function () {
                 this.$el.hide();
-                $(".js-main__menu").off("mouseenter");
-                $(".js-main__stripe").off("mouseenter mouseleave");
-                $(".js-btn").off("mouseenter mouseleave");
+                this.$(".js-main__menu").off("mouseenter");
             }
         });
         return new View();
