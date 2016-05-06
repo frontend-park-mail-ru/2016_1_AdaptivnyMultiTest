@@ -1,3 +1,31 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
-    <div id="scoreboard"></div>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="help"> 
+    </div>
+    <div class="main">
+        <dl class="main__menu">
+            <dt class="main__stripe js-main__stripe">
+                ScoreBoard
+            </dt>
+            <dd class="main__field">
+                <ul class="main__scores list">
+                    <fest:for iterate="json" index="i" value="v">
+                        <li class="list__row">
+                            <span class="list__user-login">
+                                <fest:value output="text">
+                                    v.login
+                                </fest:value>
+                            </span>
+                            <em class="list__user-score">
+                                <fest:value>
+                                    v.score
+                                </fest:value>
+                            </em>
+                        </li>
+                        <hr class="list__border-line" />
+                    </fest:for>
+                </ul>
+                <a href="#main" class="main-game__btn btn">Back</a>
+            </dd>
+        </dl>
+    </div>
 </fest:template>

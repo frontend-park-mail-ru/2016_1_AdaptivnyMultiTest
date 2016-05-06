@@ -1,3 +1,10 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-    <div id="game"></div>
+    <div class="main-game">
+        <div class="main-game__main-area main">
+            <canvas class="main-game__canvas" id="gameCanvas" width="490px" height="490px"></canvas>
+        </div>
+        <a class="main-game__btn btn" href="#main">
+            Quit
+        </a>
+    </div>
 </fest:template>
