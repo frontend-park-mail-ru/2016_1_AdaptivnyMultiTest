@@ -203,7 +203,7 @@ define(
                 this.trigger("show", this);
                 this.$el.show();
                 this.connectToGame();
-                $(document).bind('keydown', this.keyAction);
+                this.$el.bind('keydown', this.keyAction);
             },
             
             hide: function () {
