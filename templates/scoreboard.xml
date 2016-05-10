@@ -7,21 +7,21 @@
                 ScoreBoard
             </dt>
             <dd class="main__field">
-                <ul class="main__scores list">
+                <ul class="scoreboard">
                     <fest:for iterate="json" index="i" value="v">
-                        <li class="list__row">
-                            <span class="list__user-login">
+                        <li class="scoreboard__row">
+                            <span class="scoreboard__user-login">
                                 <fest:value output="text">
                                     v.login
                                 </fest:value>
                             </span>
-                            <em class="list__user-score">
+                            <em class="scoreboard__user-score">
                                 <fest:value>
                                     v.score
                                 </fest:value>
                             </em>
                         </li>
-                        <hr class="list__border-line" />
+                        <hr class="scoreboard__border-line" />
                     </fest:for>
                 </ul>
                 <a href="#main" class="main-game__btn btn">Back</a>

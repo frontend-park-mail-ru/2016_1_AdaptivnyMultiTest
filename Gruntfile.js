@@ -1,6 +1,19 @@
 module.exports = function (grunt) {
-
     grunt.initConfig({
+        sass: {
+            options: {
+                update: true
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'public_html/css/blocks',
+                    src: ['*.scss'],
+                    dest: 'public_html/css',
+                    ext: '.css'
+                }]
+            }
+        },
         shell: {
             options: {
                 stdout: true,
@@ -38,14 +51,18 @@ module.exports = function (grunt) {
                     atBegin: true
                 }
             },
+            sass: {
+                files: ['public_html/css/blocks/**/*.scss'],
+                tasks: ['sass'],
+                options: {
+                    atBegin: true
+                }
+            },
             server: {
                 files: [
                     'public_html/js/**/*.js',
                     'public_html/css/**/*.css'
                 ],
-                options: {
-                    livereload: true
-                }
             }
         },
         concurrent: {
@@ -64,7 +81,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
+    grunt.loadNpmTasks('grunt-sass');
+    
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
-
+    grunt.registerTask('compile', ['sass']);
 };
