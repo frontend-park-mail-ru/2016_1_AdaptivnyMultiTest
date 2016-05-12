@@ -2,15 +2,18 @@ define(
     function (require) {
         var Backbone = require('backbone');
         var viewManager = require('views/viewManager');
+        
         var main = require('views/main');
         var scoreboard = require('views/scoreboard');
         var game = require('views/game');
-        
+        var main = require('views/main');
+        var singleGame = require('views/singleGame');
         
         viewManager.addViews([
             main,
             scoreboard,
-            game
+            game,
+            singleGame
             ]);
 
         var Router = Backbone.Router.extend({
@@ -18,6 +21,7 @@ define(
                 'main': 'concreteAction', 
                 'scoreboard': 'concreteAction',
                 'game': 'gameAction',
+                'singleGame' : 'concreteAction',
 
                 '*default': 'defaultAction'
             },
@@ -29,11 +33,15 @@ define(
 
             gameAction: function() {
                 var self = this;
-                game.isAuth().done(function() {
-                    game.show();
+                game.isAuth().done(function(isOffline) {
+                    if( isOffline === false ) {
+                        game.show();
+                    } else if( isOffline === true ) {
+                        self.navigate("main", {trigger : true});
+                    }     
                 }).fail(function() {
                     self.navigate("main", {trigger : true});
-                });
+                }); 
             },
 
             concreteAction: function() {
@@ -49,3 +57,8 @@ define(
         return new Router();
     }
 );
+
+
+
+
+

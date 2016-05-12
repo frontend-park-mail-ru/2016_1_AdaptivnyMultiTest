@@ -9,17 +9,18 @@ define(
         var View = Backbone.View.extend({
             template: tmpl,
             id: "main",
-            
+                
             user : new user(),
             session : new session(),
 
             events: {
-                 'click button#signup': 'handleSignup',
-                 'click button#login' : 'handleLogin'
+                 'submit button#signup': 'handleSignup',
+                 'submit button#login' : 'handleLogin'
             },
 
             initialize: function() {
                 self = this;
+                
                 this.user.on('invalid', function (model, error) {
                     alert(error);
                 });
@@ -29,14 +30,17 @@ define(
                 });
 
                 this.listenTo(game, 'Unauthorized user', function() {
-                    alert("Вам нужно авторизоваться"); //будет заменен на всплывающее окно с сообщением
+                    alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
+                });
+
+                $(document).on("suggestionToPlay", function (evt) {
+                    alert(evt.message);
                 });
             },
 
             render: function () {
                 this.$el.html(this.template());
-
-                $('.js-main__menu').on('mouseenter', '.js-main__stripe', function() {
+                this.$('.js-main__menu').on('mouseenter', '.js-main__stripe', function() {
                     $(this)
                         .next()
                             .slideDown(200)
@@ -44,33 +48,15 @@ define(
                             .slideUp(200);
                 });
 
-                $(".js-main__field").filter(function(index) {
+                this.$(".js-main__field").filter(function(index) {
                     return index !== 0;
-                }).addClass("js-main__field_hidden");
+                }).addClass("main__field_hidden");
 
-                $( ".js-main__stripe" ).hover(
-                    function() {
-                        $(this).addClass("js-main__stripe_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-main__stripe_hover");
-                    }
-                );
-
-                $(".js-btn").hover(
-                    function() {
-                        $(this).addClass("js-btn_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-btn_hover");
-                    }
-                );
                 return this;
             },
 
             handleSignup: function(e) {
                 e.preventDefault();
-
                 this.user.save(
                     {
                         "login" : this.$el.find( "#signupLogin" ).val(),
@@ -88,7 +74,6 @@ define(
 
             handleLogin: function(e) {
                 e.preventDefault();
-                console.log('in the handleLogin');
                 this.session.save(
                     {
                         "login" : this.$el.find( "#loginLogin" ).val(),
@@ -108,14 +93,15 @@ define(
                 this.trigger("show", this);
                 this.$el.show();
             },
+
             hide: function () {
                 this.$el.hide();
-                $(".js-main__menu").off("mouseenter");
-                $(".js-main__stripe").off("mouseenter mouseleave");
-                $(".js-btn").off("mouseenter mouseleave");
+                this.$(".js-main__menu").off("mouseenter");
             }
         });
         return new View();
     }
 );
+
+
 

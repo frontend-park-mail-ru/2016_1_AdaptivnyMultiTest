@@ -45,9 +45,11 @@ define(
                 self = this;
                 this.session.fetch({
                     success : function() {
-                        deferred.resolve();
-                    }, error : function() {
-                        self.trigger("Unauthorized user");
+                        deferred.resolve(self.isOffline);
+                    }, error : function(model, xhr, options) {
+                        if( xhr.status === 401 ) {
+                            self.trigger("Unauthorized user");
+                        } 
                         deferred.reject();
                     }
                 });
@@ -60,11 +62,13 @@ define(
                 self = this;
                 this.listenTo(this.model, 'turnOnKeyboard', function() {
                     self.drawEnemyPath();
-                    $(document).bind('keydown', self.keyAction);
+                    //$(document).bind('keydown', self.keyAction);
+                    this.$el.bind('keydown', this.keyAction);
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
-                    $(document).unbind('keydown', self.keyAction);
+                    //$(document).unbind('keydown', self.keyAction);
+                    this.$el.unbind('keydown', this.keyAction);
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
@@ -79,18 +83,13 @@ define(
                     }
                 });
 
+                this.isOffline = false;
+                $(document).on("suggestionToPlay", function (evt) {
+                    self.isOffline = true;
+                });
             },
 
             render: function () {  
-                $(".js-btn").hover(
-                    function() {
-                        $(this).addClass("js-btn_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-btn_hover");
-                    }
-                );
-
                 this.$el.html(this.template());
                 this.canvas = this.$el.find("#gameCanvas")[0].getContext("2d");
              
@@ -176,11 +175,6 @@ define(
                         alert("Вы так не может идти!");
                     }
                 } 
-                // else if( this.model.get("win") === true ) {
-                //     alert("Вы выиграли!");
-                // } else if( this.model.get("win") === false ) {
-                //     alert("Вы проиграли!");
-                // }
             },
 
             
@@ -210,15 +204,18 @@ define(
             },
             
             hide: function () {
-                $(document).unbind('keydown', this.keyAction);
+                //$(document).unbind('keydown', this.keyAction);
+                this.$el.unbind('keydown', this.keyAction);
                 api.close();// закрываем сокет
-                $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }
         });
         return new View();
     }
 );
+
+
+
 
 
 

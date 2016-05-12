@@ -12,28 +12,20 @@ define(
 
             initialize: function() {
                 this.collection.bind('sync', this.render, this);
-                //this.collection.fetch();
             },
+            
             render: function () {
-                console.log("render");
-                this.$el.html(this.template(this.collection.toJSON()));
-                $(".js-btn").hover(
-                    function() {
-                        $(this).addClass("js-btn_hover");
-                    }, 
-                    function() {
-                        $(this).removeClass("js-btn_hover");
-                    }
-                );
-                
+                this.$el.html(this.template(this.collection.toJSON()));  
                 return this;
             },
+
             show: function () {
                 this.collection.fetch();
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
             },
+            
             hide: function () {
                 $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
@@ -42,4 +34,6 @@ define(
         return new View();
     }
 );
+
+
 

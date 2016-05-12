@@ -1,0 +1,16 @@
+@import "lib/bootstrap/bootstrap.min.css";
+
+@font-face {
+    font-family: monospace;
+    src: url(FuturicaMedium.ttf);
+}
+
+body {
+    background-image: url("../static/snakes.jpg") ;
+}
+
+@import "main/main";
+@import "main/btn";
+@import "main/input-field";
+@import "game/main-game";
+@import "scoreboard/scoreboard";

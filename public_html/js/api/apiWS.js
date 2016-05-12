@@ -9,7 +9,6 @@ define(
                 initConnection : function() {
                     var webSocket = new WebSocket('ws://127.0.0.1:8080/api/gameplay');
                     this.socket = webSocket;
-                    //console.log(this.socket, "is out socket");
                     this.bindEvents();
                 },
 
@@ -35,9 +34,9 @@ define(
                     console.log("Socket has some problems");
                 },
 
-                onMessage: function(event) {
+                /*onMessage: function(event) {
                     console.log(event.data);
-                },
+                },*/
 
                 isOpen: function() {
                     return (this.socket !== null);
@@ -57,5 +56,7 @@ define(
             }
         })();
 });
+
+
 
 

@@ -1,0 +1,62 @@
+$stripe_color_bottom: rgba(0, 0, 0, 0.2);
+$stripe_color_top: rgba(0.1, 0.1, 0.1, 0.1);
+
+@mixin stripe_gradient ($stripe_color_bottom, $stripe_color_top) {
+    background:-moz-linear-gradient(top, $stripe_color_bottom, $stripe_color_top);
+    background:-webkit-linear-gradient(top, $stripe_color_bottom, $stripe_color_top);
+    background:-o-linear-gradient(top, $stripe_color_bottom, $stripe_color_top);
+    background:-ms-linear-gradient(top, $stripe_color_bottom, $stripe_color_top);
+    background:linear-gradient(to bottom, $stripe_color_bottom, $stripe_color_top);
+}
+
+.main {
+    background-color: white;
+    width: 600px;
+    margin: auto;
+    margin-top: 15px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 25px;
+
+    &__menu {
+        margin-top: 20px;
+    }
+    
+    &__stripe {
+        border-bottom: 2px solid #c5c5c5;
+        border-top: 2px solid white;
+        transition: 0.25s;
+        cursor: pointer;
+        color: #CD853F;
+        font-weight: bold;
+        font-size : 1.5em;
+        line-height: 2em;
+        background: #FFFFE0;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        @include stripe_gradient($stripe_color_bottom, $stripe_color_top);
+        
+        &:hover {
+            background: #FFE4B5;
+        }
+        
+        &_hidden {
+            display: none;
+        }
+    }
+
+    &__field {
+        margin: 0;
+        padding: 1em 0;
+
+        &_hidden {
+            display: none;
+        }
+    }
+
+    &__btn {
+        vertical-align: middle;
+    }
+
+}
