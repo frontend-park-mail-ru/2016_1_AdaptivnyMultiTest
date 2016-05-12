@@ -4,7 +4,7 @@ define(
         
         var Model = Backbone.Model.extend({
             defaults: {
-                playerColor : null,
+                playerColor : "red", //цвет игрока, кто начинает
 
                 current: {
                     red : {
@@ -64,7 +64,7 @@ define(
             initialize: function() {
                 this.common = [];
                 this.border = {"blue" : [], "red" : []}
-               
+                
                 //заполнение точек границ
                 for( i = 0; i <= 7; i++ ) {
                     this.border["red"].push({"x" : i, "y" : 7});
@@ -111,21 +111,44 @@ define(
                 }
             },
 
-
-            getPossibleMove: function(current, color) {
-                this.set({"playerColor" : color});
-                states = ["left", "top", "right", "bottom"]
-                for( i = 0; i < states.length; i++ ) {
-                    next = this.getNextPoint(states[i], current);
-                    if( 0 <= next["x"] <= 7 &&
-                        0 <= next["y"] <= 7 &&
-                        this.common.indexOf(next) === -1 && 
-                        this.border[this.playerColor].indexOf(next) === -1 ) {
-                        this.possibilities[this.playerColor][states[i]] = next; 
-                    } else {
-                        this.possibilities[this.playerColor][states[i]] = {"x" : -1, "y" : -1}; 
+            isElemInArray: function(array, elem) {
+                for( i = 0; i < array.length; i++ ) {
+                    if( elem["x"] === array[i]["x"] && elem["y"] === array[i]["y"]  ) {
+                        return true;
                     }
                 }
+                return false;
+            },
+
+            getBorder: function() {
+                if( this.get("playerColor") === "red" ) {
+                    return this.border["blue"];
+                } else if( this.get("playerColor") === "blue" ) {
+                    return this.border["red"];
+                }
+            },
+ 
+            getPossibleMove: function(current) {
+                states = ["left", "top", "right", "bottom"];
+
+                for( j = 0; j < states.length; j++ ) {
+                    next = this.getNextPoint(states[j], current);
+                    if( 0 <= next["x"] <= 7 &&
+                        0 <= next["y"] <= 7 &&
+                        this.isElemInArray(this.common, next) !== true &&
+                        this.isElemInArray(this.getBorder(), next) !== true) {
+                        this.get("possibilities")[this.get("playerColor")][states[j]] = next; 
+                    } else {
+                        this.get("possibilities")[this.get("playerColor")][states[j]] = {"x" : -1, "y" : -1}; 
+                    }
+                }
+
+
+                console.log(this.get("possibilities")[this.get("playerColor")]["left"]);
+                console.log(this.get("possibilities")[this.get("playerColor")]["top"]);
+                console.log(this.get("possibilities")[this.get("playerColor")]["right"]);
+                console.log(this.get("possibilities")[this.get("playerColor")]["bottom"]);
+                console.log("____________");
             }
         });
 

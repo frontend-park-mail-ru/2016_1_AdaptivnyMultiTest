@@ -62,13 +62,13 @@ define(
                 self = this;
                 this.listenTo(this.model, 'turnOnKeyboard', function() {
                     self.drawEnemyPath();
-                    //$(document).bind('keydown', self.keyAction);
-                    this.$el.bind('keydown', this.keyAction);
+                    $(document).bind('keydown', self.keyAction);
+                    //this.$el.bind('keydown', this.keyAction);
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
-                    //$(document).unbind('keydown', self.keyAction);
-                    this.$el.unbind('keydown', this.keyAction);
+                    $(document).unbind('keydown', self.keyAction);
+                    //this.$el.unbind('keydown', this.keyAction);
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
@@ -204,8 +204,8 @@ define(
             },
             
             hide: function () {
-                //$(document).unbind('keydown', this.keyAction);
-                this.$el.unbind('keydown', this.keyAction);
+                $(document).unbind('keydown', this.keyAction);
+                //this.$el.unbind('keydown', this.keyAction);
                 api.close();// закрываем сокет
                 this.$el.hide();
             }

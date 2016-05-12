@@ -14,8 +14,8 @@ define(
             session : new session(),
 
             events: {
-                 'submit button#signup': 'handleSignup',
-                 'submit button#login' : 'handleLogin'
+                 'click button#signup': 'handleSignup',
+                 'click button#login' : 'handleLogin'
             },
 
             initialize: function() {

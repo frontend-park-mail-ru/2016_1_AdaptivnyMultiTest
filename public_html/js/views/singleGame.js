@@ -43,8 +43,6 @@ define(
                 this.delegateEvents();
             },
 
-                    
-
             initialize: function() {
                 _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
 
@@ -79,10 +77,6 @@ define(
                 //записали текущие точки в контейнер
                 this.model.pushPointInContainer(this.model.get("current")["red"]);
                 this.model.pushPointInContainer(this.model.get("current")["blue"]);
-
-                //включаем клавиатуру для человека
-                //$(document).bind('keydown', this.keyAction);
-                this.$el.bind('keydown', this.keyAction);
             },
 
             render: function () {  
@@ -131,13 +125,52 @@ define(
                 this.canvas.stroke();
             },
 
+            determinePossibleEnemyState: function() {
+                states = ["left", "top", "right", "bottom"];
+                possibleStates = [];
+                for( j = 0; j < states.length; j++ ) {
+                    if( this.model.get("possibilities")["blue"][states[j]]["x"] !== -1 && 
+                        this.model.get("possibilities")["blue"][states[j]]["y"] !== -1 ) {
+                        possibleStates.push(states[j]);
+                    }
+                }
+
+                if( possibleStates.length === 0 ) {
+                    return "game finished for bot";
+                } else if( possibleStates.length > 0 ) {
+                    return this.getRandomValueFromArray(possibleStates); //случайно определяем направление хода бота
+                }
+
+            },
+
             drawEnemyPath: function() {
-               
+                scaleCoeff = 490 / 7;
+                this.model.set({"playerColor" : "blue"});
+                this.model.getPossibleMove(this.model.get("current")["blue"]);
+
+                state = this.determinePossibleEnemyState();
+
+                if( state === "game finished for bot" ) {
+                    alert("Вы выиграли!");
+                } else {
+                    this.drawLine(  this.model.get("current")["blue"]["x"] * scaleCoeff, 
+                                    this.model.get("current")["blue"]["y"] * scaleCoeff,
+                                    this.model.get("possibilities")["blue"][state]["x"] * scaleCoeff,
+                                    this.model.get("possibilities")["blue"][state]["y"] * scaleCoeff,
+                                    "#004DFF");
+
+                    this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
+                    this.model.pushPointInContainer(this.model.get("current")["blue"]);
+                }
+                //включаем клаву для человека
+                $(document).bind('keydown', this.keyAction);
             },
 
             isFinishGame: function(color) {
-                for( state in ["left", "top", "right", "bottom"] ) {
-                    if( this.model.get("possibilities")[color][state] !== {"x" : -1, "y" : -1} ) {
+                states = ["left", "top", "right", "bottom"];
+                for( j = 0; j < states.length; j++ ) {
+                    if( this.model.get("possibilities")[color][states[j]]["x"] !== -1 &&
+                        this.model.get("possibilities")[color][states[j]]["y"] !== -1 ) {
                         return false;
                     }
                 }
@@ -145,23 +178,31 @@ define(
             },
             
             renderPath: function(state) {
-
                 scaleCoeff = 490 / 7;
+                this.model.set({"playerColor" : "red"});
                 this.model.getPossibleMove(this.model.get("current")["red"]);
 
                 if( this.isFinishGame("red") !== true ) {
-                    if( this.model.get("possibilities")["red"][state] !== {"x" : -1, "y" : -1} ) {
-                    this.drawLine( this.model.get("current")["red"]["x"] * scaleCoeff, 
-                                   this.model.get("current")["red"]["y"] * scaleCoeff,
-                                   this.model.get("possibilities")["red"][state]["x"] * scaleCoeff,
-                                   this.model.get("possibilities")["red"][state]["y"] * scaleCoeff );
-                    this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
+                    if( this.model.get("possibilities")["red"][state]["x"] !== -1 && 
+                        this.model.get("possibilities")["red"][state]["y"] !== -1) {
+                        this.drawLine( this.model.get("current")["red"]["x"] * scaleCoeff, 
+                                       this.model.get("current")["red"]["y"] * scaleCoeff,
+                                       this.model.get("possibilities")["red"][state]["x"] * scaleCoeff,
+                                       this.model.get("possibilities")["red"][state]["y"] * scaleCoeff,
+                                       "#FF0000");
+                        
+                        
+                        this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
+                        this.model.pushPointInContainer(this.model.get("current")["red"]);
                     } else {
                         alert("Вы не можете так идти!");
                     }
                 } else if( this.isFinishGame("red") !== false ) {
                     alert("Вы проиграли");
                 }
+                //отключаем клаву для человека
+                $(document).unbind('keydown', this.keyAction);
+                this.drawEnemyPath();
             },
 
             
@@ -187,11 +228,12 @@ define(
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+                $(document).bind('keydown', this.keyAction);
             },
             
             hide: function () {
-                // $(document).unbind('keydown', this.keyAction);
-                this.$el.unbind('keydown', this.keyAction);
+                $(document).unbind('keydown', this.keyAction);
+                //this.$el.unbind('keydown', this.keyAction);
                 this.$el.hide();
             }
         });
