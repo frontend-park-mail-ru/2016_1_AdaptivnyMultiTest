@@ -1,11 +1,19 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
+ <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="main">
         <dl class="main__menu js-main__menu">
             <dt class="main__stripe js-main__stripe">
-                Game
+                Multi Game
             </dt>
             <dd class="main__field js-main__field">
                 <a class="main__btn btn" href="#game">
+                    Start
+                </a>
+            </dd>
+            <dt class="main__stripe js-main__stripe">
+                Single Game
+            </dt>
+            <dd class="main__field js-main__field">
+                <a class="main__btn btn" href="#singleGame">
                     Start
                 </a>
             </dd>
@@ -84,3 +92,4 @@
         </dl>
     </div>
 </fest:template> 
+

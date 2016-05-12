@@ -1,4 +1,4 @@
-requirejs.config({ 
+require.config({ 
     baseUrl: "js",
     paths: {
         jquery: "lib/jquery",
@@ -25,5 +25,6 @@ requirejs.config({
     }
 });
 
-requirejs([ 'bootstrap','router']);
+require([ 'bootstrap','router', 'app']);
+
 

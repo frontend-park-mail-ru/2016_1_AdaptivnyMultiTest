@@ -1,0 +1,27 @@
+.main-game {
+    width: 650px;
+    height: 620px;
+    margin: auto;
+    background-color: #FFFFE0;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 25px;
+
+    &__main-area {
+        margin-top: 20px;
+        margin-bottom: 6px;
+    }
+
+    &__canvas {
+        height: 490px;
+        width: 490px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px 5px #cf9c55;
+    }
+    &__btn {
+        vertical-align: middle;
+    }
+}

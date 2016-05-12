@@ -5,9 +5,9 @@ define(['backbone'], function(Backbone) {
             login: "",
             password: "",
         },
-       
+        
         urlRoot : "api/session",
-       
+        
         sync: function (method, model, options) {
             if( method === "create" ) {
                 method = "update";
@@ -16,7 +16,7 @@ define(['backbone'], function(Backbone) {
             options.url = this.urlRoot;
             return Backbone.sync.apply(this, arguments);
         },
- 
+
         validate: function(attrs, options) {
             errors = [];
             if( /[^a-zA-Z0-9]/.test(attrs.login) ) {

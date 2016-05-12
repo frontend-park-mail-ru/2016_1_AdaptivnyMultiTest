@@ -5,10 +5,11 @@ define(
         var user = require('models/User');
         var session = require('models/Session');
         var game = require('views/game');
+
         var View = Backbone.View.extend({
             template: tmpl,
             id: "main",
-            
+                
             user : new user(),
             session : new session(),
 
@@ -19,6 +20,7 @@ define(
 
             initialize: function() {
                 self = this;
+                
                 this.user.on('invalid', function (model, error) {
                     alert(error);
                 });
@@ -28,14 +30,16 @@ define(
                 });
 
                 this.listenTo(game, 'Unauthorized user', function() {
-                    alert("Вам нужно авторизоваться");
+                    alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
                 });
-                this.$el.html(this.template());
+
+                $(document).on("suggestionToPlay", function (evt) {
+                    alert(evt.message);
+                });
             },
 
             render: function () {
                 this.$el.html(this.template());
-
                 this.$('.js-main__menu').on('mouseenter', '.js-main__stripe', function() {
                     $(this)
                         .next()
@@ -62,7 +66,6 @@ define(
                     success : function() {
                         alert('success signup');
                     },
-
                     error : function() {
                         alert('this user already exists');
                     }
@@ -90,7 +93,7 @@ define(
                 this.trigger("show", this);
                 this.$el.show();
             },
-            
+
             hide: function () {
                 this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
@@ -99,4 +102,6 @@ define(
         return new View();
     }
 );
+
+
 

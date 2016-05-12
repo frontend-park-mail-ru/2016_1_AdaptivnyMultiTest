@@ -1,8 +1,4 @@
 @import url(lib/bootstrap/bootstrap.min.css);
-@font-face {
-  font-family: monospace;
-  src: url(FuturicaMedium.ttf); }
-
 body {
   background-image: url("../static/snakes.jpg"); }
 
@@ -106,6 +102,8 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     box-shadow: 0 0 10px 5px #cf9c55; }
+  .main-game__btn {
+    vertical-align: middle; }
 
 .scoreboard {
   list-style: none;
