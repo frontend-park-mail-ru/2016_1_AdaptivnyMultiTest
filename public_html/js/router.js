@@ -14,7 +14,7 @@ define(
             scoreboard,
             game,
             singleGame
-            ]);
+        ]);
 
         var Router = Backbone.Router.extend({
             routes: {
@@ -52,7 +52,6 @@ define(
             defaultAction: function() { 
                main.show();
             },
-            
         });
         return new Router();
     }

@@ -1,4 +1,4 @@
-$stripe_color_bottom: rgba(255, 218, 185, 0.2);
+$stripe_color_bottom: rgba(255, 218, 185, 0.4);
 $stripe_color_top: rgba(255, 255, 224, 1);
 
 @mixin stripe_gradient ($stripe_color_bottom, $stripe_color_top) {
