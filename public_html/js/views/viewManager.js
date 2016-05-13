@@ -24,3 +24,4 @@ define(
         return new View();
     }
 );
+

@@ -1,0 +1,37 @@
+$edge_color: rgba(0,0,0,0);
+$center_color: rgba(0,0,0,0.75);
+
+.scoreboard {
+    list-style: none;
+    padding: 0;
+    width: 500px;
+    margin: auto;
+    padding-bottom: 10px;
+
+    &__row {
+        overflow: hidden;
+        padding: 2px;
+        font-size: 20px;
+    }
+
+    &__user-login {
+        float: left;
+        width: 50%;
+        color: #7C7D7F;
+    }
+
+    &__user-score {
+        float: center;
+        color: #9c836e;
+        font-weight: bold;
+    }
+
+    &__border-line {
+        border: 0;
+        height: 1px;
+        background-image: -webkit-linear-gradient(left, $edge_color, $center_color, $edge_color); 
+        background-image:    -moz-linear-gradient(left, $edge_color, $center_color, $edge_color); 
+        background-image:     -ms-linear-gradient(left, $edge_color, $center_color, $edge_color); 
+        background-image:      -o-linear-gradient(left, $edge_color, $center_color, $edge_color); 
+    }
+}

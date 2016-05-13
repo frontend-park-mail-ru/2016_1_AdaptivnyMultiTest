@@ -5,7 +5,7 @@ define(['backbone'], function(Backbone) {
             email: "",
             password: "",
         },
-       
+        
         urlRoot : "api/user",
        
         sync: function (method, model, options) {
@@ -16,7 +16,7 @@ define(['backbone'], function(Backbone) {
             options.url = this.urlRoot;
             return Backbone.sync.apply(this, arguments);
         },
-   
+    
         validate: function(attrs, options) {
             errors = [];
             if( /[^a-zA-Z0-9]/.test(attrs.login) ) {
@@ -34,7 +34,7 @@ define(['backbone'], function(Backbone) {
             if( attrs.password.length < 5 ) {
                 errors.push('Your password must have more than 5 characters');
             }
- 
+
             if( !attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i) ) {
                 errors.push("Please, input a valid email");
             }
@@ -43,3 +43,6 @@ define(['backbone'], function(Backbone) {
     });
     return Model;
 });
+
+
+

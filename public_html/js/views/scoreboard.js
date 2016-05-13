@@ -3,6 +3,7 @@ define(
         var Backbone = require('backbone');
         var tmpl = require('tmpl/scoreboard');
         var scores = require('collections/Scores');
+
         var View = Backbone.View.extend({
             id: "scoreboard",
 
@@ -12,9 +13,9 @@ define(
             initialize: function() {
                 this.collection.bind('sync', this.render, this);
             },
-
+            
             render: function () {
-                this.$el.html(this.template(this.collection.toJSON()));
+                this.$el.html(this.template(this.collection.toJSON()));  
                 return this;
             },
 
@@ -26,10 +27,13 @@ define(
             },
             
             hide: function () {
+                $( ".js-btn" ).off("mouseenter mouseleave");
                 this.$el.hide();
             }
         });
         return new View();
     }
 );
+
+
 
