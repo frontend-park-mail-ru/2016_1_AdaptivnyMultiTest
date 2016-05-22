@@ -1,5 +1,11 @@
 (function() {
+    //!!var self;
+    //поднимать вверх
 
+
+    // //function onInstall = {
+    //     содержимое
+    // }
     this.addEventListener('install', function(event) {
         console.log("install event");
         event.waitUntil(

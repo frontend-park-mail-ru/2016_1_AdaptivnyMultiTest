@@ -1,11 +1,9 @@
 define(
     function (require) {
-        
-        var apiStatus = require("api/apiGameStatus");
-        return( function() {
-                    
+        'use strict';    
+        var apiStatus = require("api/gameStatus");
+        return( function() {       
             return {
-
                 initConnection : function() {
                     var webSocket = new WebSocket('ws://127.0.0.1:8080/api/gameplay');
                     this.socket = webSocket;
@@ -14,10 +12,9 @@ define(
 
                 bindEvents: function() {
                     this.currentStatus = apiStatus;
-
+                    console.log(apiStatus);
                     this.socket.onopen = this.onOpen;
                     this.socket.onmessage = this.currentStatus.onMessage; 
-                    //this.socket.onmessage = this.onMessage;
                     this.socket.onclose = this.onClose;
                     this.socket.onerror = this.onError;
                 },
@@ -34,10 +31,6 @@ define(
                     console.log("Socket has some problems");
                 },
 
-                /*onMessage: function(event) {
-                    console.log(event.data);
-                },*/
-
                 isOpen: function() {
                     return (this.socket !== null);
                 },
@@ -49,7 +42,7 @@ define(
                 close: function() {
                     try {
                         this.socket.close();
-                    } catch(error) {
+                    } catch (error) {
                         console.log(error.message);
                     } 
                 }

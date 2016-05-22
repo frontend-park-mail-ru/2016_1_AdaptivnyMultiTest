@@ -5,7 +5,7 @@ define(
         var scores = require('collections/Scores');
 
         var View = Backbone.View.extend({
-            id: "scoreboard",
+       
 
             collection: new scores(),
             template: tmpl,

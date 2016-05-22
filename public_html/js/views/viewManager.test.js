@@ -6,12 +6,14 @@ define(function (require) {
     QUnit.module("views/viewManager");
 
     QUnit.test("ViewManager works properly!", function () {
-         viewManager.addViews([
+        var currentView = main;
+
+        viewManager.addViews([
            main,
-            game
-            ]);
+           game
+        ]);
         main.show();
-        var currentView = viewManager.returnCurrentView;
+
         QUnit.ok(currentView.$el.css('display') === 'block' && game.$el.css('display') === 'none');
     });
 });

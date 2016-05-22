@@ -25,15 +25,15 @@ body {
     font-weight: bold;
     font-size: 1.5em;
     line-height: 2em;
-    background: #FFFFE0;
+    background: #FFFFE0 !important;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
-    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-    background: -o-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)); }
+    background: -moz-linear-gradient(top, rgba(255, 218, 185, 0.2), rgba(255, 218, 224, 0.2));
+    background: -webkit-linear-gradient(top, rgba(255, 218, 185, 0.2), rgba(255, 218, 224, 0.2));
+    background: -o-linear-gradient(top, rgba(255, 218, 185, 0.2), rgba(255, 218, 224, 0.2));
+    background: -ms-linear-gradient(top, rgba(255, 218, 185, 0.2), rgba(255, 218, 224, 0.2));
+    background: linear-gradient(to bottom, rgba(255, 218, 185, 0.2), rgba(255, 218, 224, 0.2)); }
     .main__stripe:hover {
       background: #FFE4B5; }
     .main__stripe_hidden {

@@ -8,14 +8,14 @@ define(
 
         var View = Backbone.View.extend({
             template: tmpl,
-            id: "main",
+      
                 
             user : new user(),
             session : new session(),
 
             events: {
-                 'click button#signup': 'handleSignup',
-                 'click button#login' : 'handleLogin'
+                 'submit form#signup': 'handleSignup',
+                 'submit form#login' : 'handleLogin'
             },
 
             initialize: function() {
@@ -66,8 +66,10 @@ define(
                     success : function() {
                         alert('success signup');
                     },
-                    error : function() {
-                        alert('this user already exists');
+                    error : function(model, xhr, options) {
+                        if (xhr.status === 403) {
+                            alert('this user already exists');
+                        }
                     }
                 });
             },
@@ -82,8 +84,10 @@ define(
                     success : function() {
                         alert('success login');
                     },
-                    error : function() {
-                        alert("this user doesn't exists");
+                    error : function(model, xhr, options) {
+                        if (xhr.status === 400) {
+                            alert("this user doesn't exists");
+                        }
                     }
                 });
             },

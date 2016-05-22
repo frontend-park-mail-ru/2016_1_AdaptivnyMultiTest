@@ -1,5 +1,5 @@
-$stripe_color_bottom: rgba(0, 0, 0, 0.2);
-$stripe_color_top: rgba(0.1, 0.1, 0.1, 0.1);
+$stripe_color_bottom: rgba(255, 218, 185, 0.2);
+$stripe_color_top: rgba(255, 218, 224, 0.2);
 
 @mixin stripe_gradient ($stripe_color_bottom, $stripe_color_top) {
     background:-moz-linear-gradient(top, $stripe_color_bottom, $stripe_color_top);
@@ -31,7 +31,7 @@ $stripe_color_top: rgba(0.1, 0.1, 0.1, 0.1);
         font-weight: bold;
         font-size : 1.5em;
         line-height: 2em;
-        background: #FFFFE0;
+        background: #FFFFE0 !important;
         -webkit-border-radius: 15px;
         -moz-border-radius: 15px;
         border-radius: 15px;

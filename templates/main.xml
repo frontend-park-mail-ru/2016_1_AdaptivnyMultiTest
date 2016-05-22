@@ -29,7 +29,7 @@
                 Login
             </dt>
             <dd class="main__field js-main__field">
-                <form class="main__form">
+                <form class="main__form" id="login">
                     <div class="input-field">
                         <label class="input-field__label" for="username">
                             Login
@@ -57,7 +57,7 @@
                 Sign up
             </dt>
             <dd class="main__field js-main__field">
-                <form class="main__form">
+                <form class="main__form" id="signup">
                     <div class="input-field">
                         <label class="input-field__label" for="email">
                             Email

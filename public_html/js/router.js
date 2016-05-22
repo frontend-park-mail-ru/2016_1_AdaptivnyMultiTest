@@ -1,5 +1,6 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var viewManager = require('views/viewManager');
         
@@ -14,7 +15,7 @@ define(
             scoreboard,
             game,
             singleGame
-            ]);
+        ]);
 
         var Router = Backbone.Router.extend({
             routes: {
@@ -34,9 +35,9 @@ define(
             gameAction: function() {
                 var self = this;
                 game.isAuth().done(function(isOffline) {
-                    if( isOffline === false ) {
+                    if (!isOffline) {
                         game.show();
-                    } else if( isOffline === true ) {
+                    } else {
                         self.navigate("main", {trigger : true});
                     }     
                 }).fail(function() {

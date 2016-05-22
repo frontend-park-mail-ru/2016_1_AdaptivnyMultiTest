@@ -1,15 +1,17 @@
 define(
+
     function (require) {
+        //'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/game');
         var gameSession = require('models/Game/GameSession');
         var session = require('models/Session'); 
-        var api = require('api/apiWS');
-
+        var api = require('api/web-sockets');
+        //var scaleCoeff
 
         var View = Backbone.View.extend({
             template: tmpl,
-            id: "game",
+
 
             model : new gameSession(),
             session : new session(),

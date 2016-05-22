@@ -6,7 +6,7 @@ define(
 
         var View = Backbone.View.extend({
             template: tmpl,
-            id: "game",
+       
 
             model : new container(),
 
