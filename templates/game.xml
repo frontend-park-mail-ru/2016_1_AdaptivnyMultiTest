@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
     <div class="main-game">
         <div class="main-game__main-area main main_game">
-            <canvas class="main-game__canvas" id="gameCanvas" width="490px" height="490px"></canvas>
+            <canvas class="main-game__canvas" id="gameCanvas" width='490' height='490'></canvas>
         </div>
         <a class="main-game__btn btn  js-btn" href="#main">
             Quit

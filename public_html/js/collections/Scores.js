@@ -1,5 +1,6 @@
 define(
     function (require) {
+        'use srtict';
         var Backbone = require('backbone');
         var score = require('models/Score');
 
@@ -12,6 +13,7 @@ define(
                 return -score.get('score');
             }
         });
+
         return Collection;
 });
 

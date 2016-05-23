@@ -1,12 +1,17 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var api = require('api/web-sockets');
         var apiStatus = require('api/gameStatus');
         var wsEvents = require('api/eventDispatcher');
 
+        var colorMap = {
+            "red" : "#FF0000",
+            "blue" : "#004DFF"
+        };
+
         var Model = Backbone.Model.extend({
-            
             defaults: {
                 myName : null,
                 enemyName : null,
@@ -60,19 +65,13 @@ define(
             },
 
             getInitDataForGame: function(data) {
-               
                 console.log("GameStart!");
-                
                 this.set({"myName" : data.myName, 
                           "enemyName" : data.enemyName,
                           "firstBlue" : data.firstBlue,
-                          "firstRed" : data.firstRed
+                          "firstRed" : data.firstRed,
+                          "color" : colorMap[data.color]
                         });
-                if (data.color === "red") {
-                    this.set({"color" : "#FF0000"});
-                } else if(data.color == "blue") {
-                    this.set({"color" : "#004DFF"});
-                }
             },
            
             sendCoord: function(x, y) {
@@ -107,8 +106,8 @@ define(
                 this.set({"isEnemyExit" : true});
                 this.trigger("isEnemyExit");
             }
-
         });
+
         return Model;  
 });
 

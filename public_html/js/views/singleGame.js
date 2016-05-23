@@ -1,227 +1,193 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/game');
-        var container = require('models/Game/SingleGame')
+        var singleGameSession = require('models/Game/SingleGame')
+        var scaleCoeff;
+        var playerLineWidth = 6;
+    
+        var colorMap = {
+            "red" : "#FF0000",
+            "blue" : "#004DFF",
+            "black" : "#000000"
+        };
+
+        var keyCodeMap = {
+            "37" : "left",
+            "38" : "top",
+            "39" : "right",
+            "40" : "bottom"
+        };
 
         var View = Backbone.View.extend({
             template: tmpl,
        
-
-            model : new container(),
+            model : new singleGameSession(),
 
             events : {
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
             
-
-            getRandomValueFromArray: function(array) {
-                rand = 0 - 0.5 + Math.random() * ((array.length - 1) - 0 + 1)
-                rand = Math.round(rand);
-                return array[rand];
-            },
-
             //рисуем первые точки
             handleDrawInitialPoints: function(e) {
                 e.preventDefault();
-                this.canvas.beginPath(); 
-                this.canvas.strokeStyle = "#FF0000";
-                this.canvas.lineWidth = 5;
-                scaleCoeff = 490  / 7;
-                this.canvas.arc(this.model.get("current")["red"]["x"] * scaleCoeff, this.model.get("current")["red"]["y"] * scaleCoeff, 5, 0, Math.PI*2, false);
-                this.canvas.stroke(); 
-                this.canvas.closePath();
-                this.canvas.beginPath();
-                this.canvas.strokeStyle = "#004DFF";
-                this.canvas.arc(this.model.get("current")["blue"]["x"] * scaleCoeff, this.model.get("current")["blue"]["y"] * scaleCoeff, 5, 0, Math.PI*2, false);
-                this.canvas.stroke();
+                var radius = 5 / scaleCoeff;
+                var circleLineWidth = 5;
+                var xRed = this.model.get("current")["red"]["x"];
+                var yRed = this.model.get("current")["red"]["y"];
+                var xBlue = this.model.get("current")["blue"]["x"];
+                var yBlue = this.model.get("current")["blue"]["y"];              
+
+                drawCircle(this.canvas, scaleCoeff, xRed, yRed, radius, colorMap["red"], circleLineWidth);
+                drawCircle(this.canvas, scaleCoeff, xBlue, yBlue, radius, colorMap["blue"], circleLineWidth);
+
                 this.delete_event("click canvas#gameCanvas");
             },
 
-            delete_event: function(e_name) {
-                delete this.events[e_name];
+            delete_event: function(eventName) {
+                delete this.events[eventName];
                 this.delegateEvents();
+            },
+
+            defineRandomInitialPoints: function() {
+                //select from max size rectangle which not contains the borders
+                var gameFieldSize = this.model.get("gameFieldSize");
+                var firstRed = {
+                    "x" : getRandomIntValueInRange(1, gameFieldSize - 1), 
+                    "y" : getRandomIntValueInRange(1, gameFieldSize - 1)
+                };
+
+                var firstBlue = {
+                    "x" : getRandomIntValueInRange(1, gameFieldSize - 1, firstRed["x"]),
+                    "y" : getRandomIntValueInRange(1, gameFieldSize - 1, firstRed["y"])
+                };
+
+                var firstPoints = {
+                    "red" : firstRed,
+                    "blue" : firstBlue
+                };
+
+                return firstPoints;
             },
 
             initialize: function() {
                 _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
-
+                
                 //определение значение первоначальных точек
-                redx = this.getRandomValueFromArray([1, 2, 3, 4, 5, 6]);
-                redy = this.getRandomValueFromArray([1, 2, 3, 4, 5, 6]);
-                firstRed = {
-                    "x" : redx,
-                    "y" : redy
-                }
-
-                bluex = redx;
-                while( bluex === redx ) {
-                    bluex = this.getRandomValueFromArray([1, 2, 3, 4, 5, 6]);
-                }
-                bluey = redy;
-                while( bluey === redy ) {
-                    bluey = this.getRandomValueFromArray([1, 2, 3, 4, 5, 6]);
-                }
-                firstBlue = {
-                    "x" : bluex,
-                    "y" : bluey
-                }
-
-                current = {
-                    "red" : firstRed,
-                    "blue" : firstBlue
-                }
-
-                this.model.set({"current" : current});
+                this.model.set({"current" : this.defineRandomInitialPoints()});
                 
                 //записали текущие точки в контейнер
-                this.model.pushPointInContainer(this.model.get("current")["red"]);
-                this.model.pushPointInContainer(this.model.get("current")["blue"]);
+                this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
+                this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
             },
 
             render: function () {  
                 this.$el.html(this.template());
-                this.canvas = this.$el.find("#gameCanvas")[0].getContext("2d");
-             
-                //строим красные границы - левая и верхняя стороны
-                this.canvas.beginPath();
-                this.canvas.lineWidth = 4;
-                this.canvas.strokeStyle = "#FF0000";
-                this.canvas.moveTo(0, 490);
-                this.canvas.lineTo(0, 0);
-                this.canvas.lineTo(490, 0);
-                this.canvas.stroke();
+                var borderLineWidth = 5;
+                var meshesLineWidth = 1;
+                var canvasTag = this.$el.find("#gameCanvas")[0];
+                var canvasSize = canvasTag.width;
                 
-                //строим синие границы - правая и нижняя стороны
-                this.canvas.beginPath();
-                this.canvas.lineWidth = 4;
-                this.canvas.strokeStyle = "#004DFF";
-                this.canvas.moveTo(490, 0);
-                this.canvas.lineTo(490, 490);
-                this.canvas.lineTo(0, 490);
-                this.canvas.stroke();
-
+                scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
+                this.canvas = canvasTag.getContext("2d");
+                
+                //строим красные границы - левая и верхняя стороны
+                //строим синие границы - нижняя и правая сторона
+                drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
+                drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
+                drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
+                drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
+             
                 //сетка
-                this.canvas.beginPath();
-                this.canvas.lineWidth = 1;
-                this.canvas.strokeStyle = "#000000";
-                for( var i = 0; i < 8; i++ ) {
-                    this.canvas.moveTo(70 * i, 0);
-                    this.canvas.lineTo(70 * i, 490);
-                    this.canvas.moveTo(0, 70 * i);
-                    this.canvas.lineTo(490, 70 * i);
+                for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
+                    drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
+                    drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
                 }
-                this.canvas.stroke();
             },
-
     
 
-            drawLine: function(xStart, yStart, xEnd, yEnd, color) {
-                this.canvas.beginPath();
-                this.canvas.lineWidth = 6;
-                this.canvas.strokeStyle = color;
-                this.canvas.moveTo(xStart, yStart);
-                this.canvas.lineTo(xEnd, yEnd);
-                this.canvas.stroke();
-            },
-
             determinePossibleEnemyState: function() {
-                states = ["left", "top", "right", "bottom"];
-                possibleStates = [];
-                for( j = 0; j < states.length; j++ ) {
-                    if( this.model.get("possibilities")["blue"][states[j]]["x"] !== -1 && 
-                        this.model.get("possibilities")["blue"][states[j]]["y"] !== -1 ) {
+                var states = ["left", "top", "right", "bottom"];
+                var possibleStates = [];
+                for( var j = 0; j < states.length; j++ ) {
+                    if (this.isPossibleToMove(states[j], "blue")) {
                         possibleStates.push(states[j]);
                     }
                 }
 
                 if( possibleStates.length === 0 ) {
-                    return "game finished for bot";
-                } else if( possibleStates.length > 0 ) {
-                    return this.getRandomValueFromArray(possibleStates); //случайно определяем направление хода бота
+                    return null;
+                } else {
+                    var randomIndex = getRandomIntValueInRange(0, possibleStates.length - 1)
+                    return possibleStates[randomIndex];
                 }
-
             },
 
             drawEnemyPath: function() {
-                scaleCoeff = 490 / 7;
                 this.model.set({"playerColor" : "blue"});
                 this.model.getPossibleMove(this.model.get("current")["blue"]);
 
-                state = this.determinePossibleEnemyState();
+                var state = this.determinePossibleEnemyState();
 
-                if( state === "game finished for bot" ) {
+                if( state === null ) {
                     alert("Вы выиграли!");
                 } else {
-                    this.drawLine(  this.model.get("current")["blue"]["x"] * scaleCoeff, 
-                                    this.model.get("current")["blue"]["y"] * scaleCoeff,
-                                    this.model.get("possibilities")["blue"][state]["x"] * scaleCoeff,
-                                    this.model.get("possibilities")["blue"][state]["y"] * scaleCoeff,
-                                    "#004DFF");
-
+                    var startX = this.model.get("current")["blue"]["x"];
+                    var startY = this.model.get("current")["blue"]["y"];
+                    var endX = this.model.get("possibilities")["blue"][state]["x"];
+                    var endY = this.model.get("possibilities")["blue"][state]["y"];
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], playerLineWidth);
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
-                    this.model.pushPointInContainer(this.model.get("current")["blue"]);
+                    this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
                 //включаем клаву для человека
                 $(document).bind('keydown', this.keyAction);
             },
 
-            isFinishGame: function(color) {
-                states = ["left", "top", "right", "bottom"];
-                for( j = 0; j < states.length; j++ ) {
-                    if( this.model.get("possibilities")[color][states[j]]["x"] !== -1 &&
-                        this.model.get("possibilities")[color][states[j]]["y"] !== -1 ) {
+            isFinishGame: function(playerColor) {
+                var states = ["left", "top", "right", "bottom"];
+                for( var j = 0; j < states.length; j++ ) {
+                    if( this.isPossibleToMove(states[j], playerColor) ) {
                         return false;
                     }
                 }
                 return true;
             },
             
+            isPossibleToMove: function(state, playerColor) {
+              return this.model.get("possibilities")[playerColor][state]["x"] !== -1 && 
+                     this.model.get("possibilities")[playerColor][state]["y"] !== -1  
+            },
+
             renderPath: function(state) {
-                scaleCoeff = 490 / 7;
                 this.model.set({"playerColor" : "red"});
                 this.model.getPossibleMove(this.model.get("current")["red"]);
 
-                if( this.isFinishGame("red") !== true ) {
-                    if( this.model.get("possibilities")["red"][state]["x"] !== -1 && 
-                        this.model.get("possibilities")["red"][state]["y"] !== -1) {
-                        this.drawLine( this.model.get("current")["red"]["x"] * scaleCoeff, 
-                                       this.model.get("current")["red"]["y"] * scaleCoeff,
-                                       this.model.get("possibilities")["red"][state]["x"] * scaleCoeff,
-                                       this.model.get("possibilities")["red"][state]["y"] * scaleCoeff,
-                                       "#FF0000");
-                        
-                        
+                if (!this.isFinishGame("red")) {
+                    if (this.isPossibleToMove(state, "red")) {
+                        var startX = this.model.get("current")["red"]["x"];
+                        var startY = this.model.get("current")["red"]["y"];
+                        var endX = this.model.get("possibilities")["red"][state]["x"];
+                        var endY = this.model.get("possibilities")["red"][state]["y"];
+                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
-                        this.model.pushPointInContainer(this.model.get("current")["red"]);
+                        this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
+                        //отключаем клаву для человека
+                        $(document).unbind('keydown', this.keyAction);
+                        this.drawEnemyPath();
                     } else {
                         alert("Вы не можете так идти!");
                     }
-                } else if( this.isFinishGame("red") !== false ) {
+                } else {
                     alert("Вы проиграли");
                 }
-                //отключаем клаву для человека
-                $(document).unbind('keydown', this.keyAction);
-                this.drawEnemyPath();
             },
 
             
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                switch (code) {
-                    case 37:
-                        this.renderPath("left");          
-                        break;
-                    case 38:
-                        this.renderPath("top");
-                        break;
-                    case 39:
-                        this.renderPath("right");
-                        break;
-                    case 40:
-                        this.renderPath("bottom");
-                        break;                   
-                }
+                this.renderPath(keyCodeMap[String(code)])
             },
         
             show: function () {
@@ -237,9 +203,40 @@ define(
                 this.$el.hide();
             }
         });
+
+        function getRandomIntValueInRange(min, max, except) {
+            var randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+            if (except) {
+                while (randomValue === except) {
+                    randomValue = Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                return randomValue;
+            }
+            return randomValue;
+        }
+
+        function drawLine(canvas, scaleCoeff, xStart, yStart, xEnd, yEnd, color, lineWidth) {
+            canvas.beginPath();
+            canvas.lineWidth = lineWidth;
+            canvas.strokeStyle = color;
+            canvas.moveTo(scaleCoeff * xStart, scaleCoeff * yStart);
+            canvas.lineTo(scaleCoeff * xEnd, scaleCoeff * yEnd);
+            canvas.stroke();
+        }
+
+        function drawCircle(canvas, scaleCoeff, xCenter, yCenter, radius, color, lineWidth) {
+            canvas.beginPath();
+            canvas.lineWidth = lineWidth;
+            canvas.strokeStyle = color;
+            canvas.arc(xCenter * scaleCoeff, yCenter * scaleCoeff, radius * scaleCoeff, 0, Math.PI*2)
+            canvas.stroke();
+        }
+
         return new View();
     }
 );
+
+
 
 
 

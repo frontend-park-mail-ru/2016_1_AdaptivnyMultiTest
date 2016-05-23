@@ -15,6 +15,7 @@ define(
                 ]);
                 this.list = testData;
             },
+            
             teardown: function () {
                 //здесь описыватся callback, который запуститься после выполнения теста
             }
