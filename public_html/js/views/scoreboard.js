@@ -1,5 +1,6 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/scoreboard');
         var scores = require('collections/Scores');

@@ -1,5 +1,6 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/main');
         var user = require('models/User');
@@ -9,7 +10,6 @@ define(
         var View = Backbone.View.extend({
             template: tmpl,
       
-                
             user : new user(),
             session : new session(),
 
