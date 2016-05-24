@@ -6,11 +6,6 @@ define(
         var apiStatus = require('api/gameStatus');
         var wsEvents = require('api/eventDispatcher');
 
-        // var colorMap = {
-        //     "red" : "#FF0000",
-        //     "blue" : "#004DFF"
-        // };
-
         var Model = Backbone.Model.extend({
             defaults: {
                 gameFieldSize : 7,
@@ -107,7 +102,7 @@ define(
             notifyEnemyExit: function(data) {
                 this.set({"isEnemyExit" : true});
                 this.trigger("isEnemyExit");
-            }
+            },
         });
 
         return Model;  

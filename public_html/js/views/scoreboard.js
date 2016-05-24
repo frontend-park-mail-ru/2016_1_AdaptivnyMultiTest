@@ -6,7 +6,6 @@ define(
         var scores = require('collections/Scores');
 
         var View = Backbone.View.extend({
-       
 
             collection: new scores(),
             template: tmpl,

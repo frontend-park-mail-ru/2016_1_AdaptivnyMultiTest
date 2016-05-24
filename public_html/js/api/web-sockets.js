@@ -2,6 +2,7 @@ define(
     function (require) {
         'use strict';    
         var apiStatus = require("api/gameStatus");
+        var wsEvents = require('api/eventDispatcher');//**//
         return( function() {       
             return {
                 initConnection : function() {
@@ -26,8 +27,9 @@ define(
                 onClose: function() {
                     console.log("Socket is closed");
                 },
-
+                //**//
                 onError:function() {
+                    wsEvents.trigger("ConnectionFailed");
                     console.log("Socket has some problems");
                 },
 

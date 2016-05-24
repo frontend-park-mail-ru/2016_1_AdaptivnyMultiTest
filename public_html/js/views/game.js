@@ -6,6 +6,7 @@ define(
         var gameSession = require('models/Game/GameSession');
         var session = require('models/Session'); 
         var api = require('api/web-sockets');
+        var wsEvents = require('api/eventDispatcher'); //**//
         var scaleCoeff;
         var playerLineWidth = 6;
 
@@ -58,12 +59,14 @@ define(
                 var self = this;
                 this.session.fetch({
                     success : function() {
-                        deferred.resolve(self.isOffline);
+                        deferred.resolve();
                     }, error : function(model, xhr, options) {
                         if( xhr.status === 401 ) {
-                            self.trigger("Unauthorized user");
-                        } 
-                        deferred.reject();
+                            self.trigger("UnauthorizedUser");
+                            deferred.reject();
+                        } else {
+                            deferred.resolve();
+                        }
                     }
                 });
                 return deferred.promise();
@@ -96,13 +99,14 @@ define(
                     }
                 });
 
-                this.isOffline = false;
-                $(document).on("suggestionToPlay", function (event) {
-                    self.isOffline = true;
+                //**//
+                this.listenTo(wsEvents, "ConnectionFailed", function() {
+                    alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
                 });
             },
 
-            render: function () {  
+            render: function () {
+
                 this.$el.html(this.template());
                 var borderLineWidth = 5;
                 var meshesLineWidth = 1;

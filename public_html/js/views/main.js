@@ -29,12 +29,8 @@ define(
                     alert(error);
                 });
 
-                this.listenTo(game, 'Unauthorized user', function() {
+                this.listenTo(game, 'UnauthorizedUser', function() {
                     alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
-                });
-
-                $(document).on("suggestionToPlay", function (evt) {
-                    alert(evt.message);
                 });
             },
 

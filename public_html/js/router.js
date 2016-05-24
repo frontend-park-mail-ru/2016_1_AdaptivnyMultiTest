@@ -34,14 +34,10 @@ define(
 
             gameAction: function() {
                 var self = this;
-                game.isAuth().done(function(isOffline) {
-                    if (!isOffline) {
-                        game.show();
-                    } else {
-                        self.navigate("main", {trigger : true});
-                    }     
+                game.isAuth().done(function() {  
+                    game.show();
                 }).fail(function() {
-                    self.navigate("main", {trigger : true});
+                    self.navigate("main");
                 }); 
             },
 

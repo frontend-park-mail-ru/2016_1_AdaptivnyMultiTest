@@ -3,7 +3,7 @@ define(
         'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/game');
-        var singleGameSession = require('models/Game/SingleGame')
+        var singleGameSession = require('models/Game/SingleGame');
         var scaleCoeff;
         var playerLineWidth = 6;
     
@@ -82,7 +82,7 @@ define(
                 this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
             },
 
-            render: function () {  
+            render: function() {  
                 this.$el.html(this.template());
                 var borderLineWidth = 5;
                 var meshesLineWidth = 1;
@@ -119,7 +119,7 @@ define(
                 if( possibleStates.length === 0 ) {
                     return null;
                 } else {
-                    var randomIndex = getRandomIntValueInRange(0, possibleStates.length - 1)
+                    var randomIndex = getRandomIntValueInRange(0, possibleStates.length - 1);
                     return possibleStates[randomIndex];
                 }
             },
@@ -187,7 +187,7 @@ define(
             
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                this.renderPath(keyCodeMap[String(code)])
+                this.renderPath(keyCodeMap[String(code)]);
             },
         
             show: function () {
@@ -228,7 +228,7 @@ define(
             canvas.beginPath();
             canvas.lineWidth = lineWidth;
             canvas.strokeStyle = color;
-            canvas.arc(xCenter * scaleCoeff, yCenter * scaleCoeff, radius * scaleCoeff, 0, Math.PI*2)
+            canvas.arc(xCenter * scaleCoeff, yCenter * scaleCoeff, radius * scaleCoeff, 0, Math.PI*2);
             canvas.stroke();
         }
 
