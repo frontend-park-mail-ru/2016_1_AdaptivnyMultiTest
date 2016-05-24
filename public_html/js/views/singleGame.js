@@ -2,7 +2,7 @@ define(
     function (require) {
         'use strict';
         var Backbone = require('backbone');
-        var tmpl = require('tmpl/game');
+        var tmpl = require('tmpl/singleGame');
         var singleGameSession = require('models/Game/SingleGame');
         var scaleCoeff;
         var playerLineWidth = 6;
@@ -26,28 +26,24 @@ define(
             model : new singleGameSession(),
 
             events : {
-                'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
+                'click #Quit' : 'handleQuit'
             },
-            
-            //рисуем первые точки
-            handleDrawInitialPoints: function(e) {
-                e.preventDefault();
+
+            handleQuit: function() {
+                this.model.clearLocalStorage();
+                this.trigger("QuitTheSingleGame");
+            },
+
+            drawInitialPoints: function() {
                 var radius = 5 / scaleCoeff;
                 var circleLineWidth = 5;
                 var xRed = this.model.get("current")["red"]["x"];
                 var yRed = this.model.get("current")["red"]["y"];
                 var xBlue = this.model.get("current")["blue"]["x"];
-                var yBlue = this.model.get("current")["blue"]["y"];              
-
+                var yBlue = this.model.get("current")["blue"]["y"];             
+        
                 drawCircle(this.canvas, scaleCoeff, xRed, yRed, radius, colorMap["red"], circleLineWidth);
                 drawCircle(this.canvas, scaleCoeff, xBlue, yBlue, radius, colorMap["blue"], circleLineWidth);
-
-                this.delete_event("click canvas#gameCanvas");
-            },
-
-            delete_event: function(eventName) {
-                delete this.events[eventName];
-                this.delegateEvents();
             },
 
             defineRandomInitialPoints: function() {
@@ -72,14 +68,37 @@ define(
             },
 
             initialize: function() {
-                _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
+                _.bindAll(this,'keyAction', 'renderPath');
+                this.isUserRefreshedThePage = false; 
+            },
+
+            resumeGameAfterPageReload: function() {
+                var redPoints = this.model.getOccupiedPointsFromStorageByColor("red");
+                var bluePoints = this.model.getOccupiedPointsFromStorageByColor("blue");
+
+                this.resetDrawPoints(redPoints, "red");
+                this.resetDrawPoints(bluePoints, "blue");
+                //установление прежних текущих координат
+                this.model.get("current")["red"] = redPoints[redPoints.length - 1];
+                this.model.get("current")["blue"] = bluePoints[bluePoints.length - 1];
+            },
+
+            resetDrawPoints: function(playerPoints, playerColor) {
+                var radius = 5 / scaleCoeff;
+                var circleLineWidth = 5;
+                var startX = playerPoints[0]["x"];
+                var startY = playerPoints[0]["y"];
+                var endX;
+                var endY;
                 
-                //определение значение первоначальных точек
-                this.model.set({"current" : this.defineRandomInitialPoints()});
-                
-                //записали текущие точки в контейнер
-                this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
-                this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
+                drawCircle(this.canvas, scaleCoeff, startX, startY, radius, playerColor, circleLineWidth);
+                for( var i = 0; i < playerPoints.length - 1; i++ ) {
+                    startX = playerPoints[i]["x"];
+                    startY = playerPoints[i]["y"];
+                    endX = playerPoints[i + 1]["x"];
+                    endY = playerPoints[i + 1]["y"];
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, playerLineWidth);
+                }
             },
 
             render: function() {  
@@ -156,8 +175,7 @@ define(
             },
             
             isPossibleToMove: function(state, playerColor) {
-              return this.model.get("possibilities")[playerColor][state]["x"] !== -1 && 
-                     this.model.get("possibilities")[playerColor][state]["y"] !== -1  
+                return this.model.get("possibilities")[playerColor][state]["x"] !== -1 && this.model.get("possibilities")[playerColor][state]["y"] !== -1  
             },
 
             renderPath: function(state) {
@@ -189,11 +207,28 @@ define(
                 var code = e.keyCode || e.which;
                 this.renderPath(keyCodeMap[String(code)]);
             },
-        
-            show: function () {
+            
+            getInitialPoints: function() {
+                 //определение значение первоначальных точек
+                this.model.set({"current" : this.defineRandomInitialPoints()});
+                //записали текущие точки в контейнер
+                this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
+                this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
+            },
+
+            show: function (previousUrl) {
+                this.isUserRefreshedThePage = previousUrl === window.location.href;
+                
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+
+                if (this.isUserRefreshedThePage) {
+                    this.resumeGameAfterPageReload();
+                } else {
+                    this.getInitialPoints(); 
+                    this.drawInitialPoints();
+                }
                 $(document).bind('keydown', this.keyAction);
             },
             
@@ -235,6 +270,12 @@ define(
         return new View();
     }
 );
+
+
+
+
+
+
 
 
 

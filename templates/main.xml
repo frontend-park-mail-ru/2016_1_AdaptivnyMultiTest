@@ -25,7 +25,15 @@
                     Top scores
                 </a>
             </dd>
-            <dt class="main__stripe js-main__stripe">
+            <dt class="main__stripe js-main__stripe" id="LogoutHeader">
+                Log out
+            </dt>
+            <dd class="main__field js-main__field">
+                <a class="main__btn btn" id="LogoutButton">
+                    Logout
+                </a>
+            </dd>
+            <dt class="main__stripe js-main__stripe" id="LoginHeader">
                 Login
             </dt>
             <dd class="main__field js-main__field">
@@ -53,7 +61,7 @@
                     </div>
                 </form>
             </dd>
-            <dt class="main__stripe js-main__stripe">
+            <dt class="main__stripe js-main__stripe" id="SignupHeader">
                 Sign up
             </dt>
             <dd class="main__field js-main__field">

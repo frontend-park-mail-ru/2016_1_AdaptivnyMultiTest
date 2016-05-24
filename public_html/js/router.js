@@ -10,6 +10,8 @@ define(
         var main = require('views/main');
         var singleGame = require('views/singleGame');
         
+        var urlHistory = window.sessionStorage;
+
         viewManager.addViews([
             main,
             scoreboard,
@@ -22,19 +24,24 @@ define(
                 'main': 'concreteAction', 
                 'scoreboard': 'concreteAction',
                 'game': 'gameAction',
-                'singleGame' : 'concreteAction',
+                'singleGame' : 'singleGameAction',
 
                 '*default': 'defaultAction'
             },
            
             initialize: function() {
+                var self = this;
                 Backbone.history.start();
+                this.listenTo(singleGame, "QuitTheSingleGame", function() {
+                    self.navigate("main", {trigger : true});
+                });
                 return this;
             },
 
             gameAction: function() {
                 var self = this;
-                game.isAuth().done(function() {  
+                game.isAuth().done(function() {
+                    urlHistory.setItem(urlHistory.length + 1, window.location.href);
                     game.show();
                 }).fail(function() {
                     self.navigate("main");
@@ -42,12 +49,20 @@ define(
             },
 
             concreteAction: function() {
+                urlHistory.setItem(urlHistory.length + 1, window.location.href);
                 var view = require('views/'+ Backbone.history.getFragment());
                 view.show();
             },
 
-            defaultAction: function() { 
-               main.show();
+            singleGameAction: function() {
+                urlHistory.setItem(urlHistory.length + 1, window.location.href);
+                var previousUrl = urlHistory.getItem(urlHistory.length - 1);
+                singleGame.show(previousUrl);
+            },
+
+            defaultAction: function() {
+                urlHistory.setItem(urlHistory.length + 1, window.location.href);
+                main.show();
             },
             
         });

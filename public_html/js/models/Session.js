@@ -6,6 +6,7 @@ define(['backbone'], function(Backbone) {
             id : "",
             login: "",
             password: "",
+            isLogged : false
         },
         
         urlRoot : "api/session",

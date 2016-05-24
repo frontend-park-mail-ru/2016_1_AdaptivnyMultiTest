@@ -15,7 +15,8 @@ define(
 
             events: {
                  'submit form#signup': 'handleSignup',
-                 'submit form#login' : 'handleLogin'
+                 'submit form#login' : 'handleLogin',
+                 'click #LogoutButton' : 'handleLogout'
             },
 
             initialize: function() {
@@ -32,6 +33,35 @@ define(
                 this.listenTo(game, 'UnauthorizedUser', function() {
                     alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
                 });
+
+        
+                this.session.on('change:isLogged', function() {
+                    if (self.session.get("isLogged")) {
+                        self.viewForLoggedUser();
+                    } else {
+                       self.viewForUnloggedUser();
+                    }
+                });
+            },
+
+            handleLogout: function(e) {
+                e.preventDefault();
+                this.session.set({"isLogged" : false});
+                //this.viewForUnloggedUser();
+                this.session.destroy();
+            },
+
+            viewForLoggedUser: function() {
+                this.$el.find("#SignupHeader").hide();
+                this.$el.find("#LoginHeader").hide();
+                this.$el.find("#LogoutHeader").show();
+
+            },
+
+            viewForUnloggedUser: function() {
+                this.$el.find("#SignupHeader").show();
+                this.$el.find("#LoginHeader").show();
+                this.$el.find("#LogoutHeader").hide();           
             },
 
             render: function () {
@@ -72,12 +102,14 @@ define(
 
             handleLogin: function(e) {
                 e.preventDefault();
+                var self = this;
                 this.session.save(
                     {
                         "login" : this.$el.find( "#loginLogin" ).val(),
                         "password" : this.$el.find( "#loginPassword" ).val()
                     }, {
                     success : function() {
+                        self.session.set({"isLogged" : true})
                         alert('success login');
                     },
                     error : function(model, xhr, options) {
