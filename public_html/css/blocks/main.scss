@@ -1,4 +1,4 @@
-@import "lib/bootstrap/bootstrap.min.css";
+@import "http://127.0.0.1:8080/css/lib/bootstrap/bootstrap.min.css";
 
 @font-face {
     font-family: monospace;
@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("../static/snakes.jpg") ;
+    background-image: url("http://127.0.0.1:8080/static/snakes.jpg") ;
 }
 
 @import "main/main";
