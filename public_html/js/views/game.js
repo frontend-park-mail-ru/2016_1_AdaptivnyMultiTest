@@ -9,6 +9,7 @@ define(
         var wsEvents = require('api/eventDispatcher'); //**//
         var scaleCoeff;
         var playerLineWidth = 6;
+        var timeToWaitEnemy = 5000;
 
         var colorMap = {
             "red" : "#FF0000",
@@ -99,10 +100,33 @@ define(
                     }
                 });
 
-                //**//
                 this.listenTo(wsEvents, "ConnectionFailed", function() {
                     alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
                 });
+
+                this.listenTo(wsEvents, "GameStart", function() {
+                    self.removePreloader();
+                });
+
+                this.listenTo(this, "EnemyNotFound", function() {
+                    self.removePreloader();
+                });
+            },
+
+            timeCounter: function() {
+                var self = this;
+                setTimeout(function() { 
+                    console.log("START TO TRIGGER");
+                    self.trigger("EnemyNotFound");
+                }, timeToWaitEnemy);
+            },
+ 
+            addPreloader: function() {
+                $('body').removeClass('js-body_loaded');
+            },
+
+            removePreloader: function() {
+                $('body').addClass('js-body_loaded');
             },
 
             render: function () {
@@ -177,9 +201,11 @@ define(
                 this.trigger("show", this);
                 this.$el.show();
                 api.initConnection();
+                this.timeCounter();
             },
             
             hide: function () {
+                this.addPreloader();
                 $(document).unbind('keydown', this.keyAction);
                 //this.$el.unbind('keydown', this.keyAction);
                 api.close();// закрываем сокет

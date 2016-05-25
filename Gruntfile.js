@@ -2,12 +2,13 @@ module.exports = function (grunt) {
     grunt.initConfig({
         sass: {
             options: {
-                update: true
+                update: true,
+                outputStyle: 'compressed'
             },
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'public_html/css/blocks',
+                    cwd: 'templates/style/',
                     src: ['*.scss'],
                     dest: 'public_html/css',
                     ext: '.css'
@@ -105,8 +106,17 @@ module.exports = function (grunt) {
                 }
             }
         },
-        compass: {
-            
+        
+
+        uncss: {
+            dist: {
+                files: [
+                    { src: 'public_html/index.html', dest: 'public_html/css/tidy.css' }
+                ]
+            }
+        },
+
+        /*compass: {
                 dist: {
                     options: {
                         sassDir: 'public_html/css/blocks',
@@ -116,7 +126,7 @@ module.exports = function (grunt) {
                     }
                 }
             
-        }
+        }*/
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -129,7 +139,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-compass');
+    //grunt.loadNpmTasks('grunt-contrib-compass');
+
+    grunt.loadNpmTasks('grunt-uncss');
 
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
@@ -140,8 +152,10 @@ module.exports = function (grunt) {
         'build',
             [
                 'fest', 'requirejs:build',
-                'concat:build', 'uglify:build', 
-                'compass:dist'
+                'concat:build', 'uglify:build'/*, 
+                'compass:dist'*/
             ]
     );
+
+    grunt.registerTask('unUseCss', ['uncss']);
 };

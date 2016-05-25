@@ -68,7 +68,7 @@ define(
                           "blue" : data.firstBlue,
                           "red" : data.firstRed,
                           "color" : data.color
-                        });
+                });
             },
            
             sendCoord: function(x, y) {

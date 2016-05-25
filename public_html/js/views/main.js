@@ -124,6 +124,7 @@ define(
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+                this.$el.find("#LogoutHeader").hide();
             },
 
             hide: function () {

@@ -23,6 +23,7 @@
     "grunt-fest": "^0.1.6",
     "grunt-sass": "^1.2.0",
     "grunt-shell": "^1.1.2",
+    "grunt-uncss": "^0.5.0",
     "load-grunt-tasks": "^3.5.0"
   },
   "scripts": {

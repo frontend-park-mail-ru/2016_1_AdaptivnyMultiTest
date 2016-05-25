@@ -1,4 +1,7 @@
  <fest:template xmlns:fest="http://fest.mail.ru">
+
+
+
     <div class="main">
         <dl class="main__menu js-main__menu">
             <dt class="main__stripe js-main__stripe">
@@ -99,102 +102,6 @@
             </dd>
         </dl>
     </div>
+       
 </fest:template> 
 
-<!-- <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="main">
-        <dl class="js-main__menu">
-            <dt class="js-main__stripe" id="multiGameHeader">
-                Multi Game
-            </dt>
-            <dd class="js-main__field" id="multiGameButton">
-                <a class="main__btn js-btn" href="#game">
-                    Start
-                </a>
-            </dd>
-
-            <dt class="js-main__stripe">
-                Single Game
-            </dt>
-            <dd class="js-main__field">
-                <a class="main__btn js-btn" href="#singleGame">
-                    Start
-                </a>
-            </dd>
-    
-            <dt class="js-main__stripe">
-                Scoreboard
-            </dt>
-            <dd class="js-main__field">
-                <a class="main__btn js-btn" href="#scoreboard" >
-                    Top scores
-                </a>
-            </dd>
-            <dt class="js-main__stripe">
-                Login
-            </dt>
-            <dd class="js-main__field">
-                <form class="main__form">
-                    <div class="input-field">
-                        <label class="bs-form__label" for="username">
-                            Login
-                        </label>
-                        <div>
-                            <input class="bs-form__input form-control" type="text" name="username" id="loginLogin" placeholder="Your login"/>
-                        </div>
-                    </div>
-                    <div class="input-field">
-                        <label class="bs-form__label" for="password">
-                            Password
-                        </label>
-                        <div>
-                            <input class="bs-form__input  form-control" type="password" name="password" id="loginPassword" placeholder="Your password"/>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="main__btn js-btn" type="submit" id="login">
-                            Login!
-                        </button>
-                    </div>
-                </form>
-            </dd>
-            <dt class="js-main__stripe">
-                Sign up
-            </dt>
-            <dd class="js-main__field">
-                <form class="main__form">
-                    <div class="input-field">
-                        <label class="bs-form__label" for="email">
-                            Email
-                        </label>
-                        <div>
-                            <input class="bs-form__input form-control" type="text" name="signupEmail" id="signupEmail" placeholder="Your email"/>
-                        </div>
-                    </div>
-                    <div class="input-fiewld">
-                        <label class="bs-form__label" for="username">
-                            Login
-                        </label>
-                        <div>
-                            <input class="bs-form__input form-control" type="text" name="signupLogin" id="signupLogin" placeholder="Your login"/>
-                        </div>
-                    </div>
-                    <div class="input-field">
-                        <label class="bs-form__label" for="password">
-                            Password
-                        </label>
-                        <div>
-                            <input class="bs-form__input form-control" type="password" name="signupPassword" id="signupPassword" placeholder="Your password"/>
-                        </div>
-                          </div>
-                    <div>
-                        <button class="js-btn" type="submit" id="signup">
-                            Sign up!
-                        </button>
-                    </div>
-                </form>
-            </dd>
-        </dl>
-    </div>
-</fest:template> 
- -->
