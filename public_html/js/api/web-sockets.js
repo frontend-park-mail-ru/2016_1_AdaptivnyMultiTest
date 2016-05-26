@@ -4,9 +4,9 @@ define(
         var apiStatus = require("api/gameStatus");
         var wsEvents = require('api/eventDispatcher');
         
-        var URL_ORIGIN = window.location.origin.slice(7);
-        console.log(URL_ORIGIN);
-        
+        var PREFIX = window.location.port ? ":" : "";  
+        var URL_ORIGIN = window.location.hostname + PREFIX + window.location.port;
+    
         return( function() {       
             return {
                 initConnection : function() {
