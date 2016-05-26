@@ -3,7 +3,7 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 update: true,
-                outputStyle: 'compressed'
+                //outputStyle: 'compressed'
             },
             dist: {
                 files: [{
