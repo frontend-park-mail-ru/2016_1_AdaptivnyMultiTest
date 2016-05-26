@@ -15055,10 +15055,14 @@ define(
         return new View();
     }
 );
+<<<<<<< HEAD
 
 
 
 define('tmpl/main',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main\"><dl class=\"main__menu js-main__menu\"><dt class=\"main__stripe js-main__stripe\">Multi Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#game\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Single Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#singleGame\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Scoreboard</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#scoreboard\">Top scores</a></dd><dt class=\"main__stripe js-main__stripe\" id=\"LogoutHeader\">Log out</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" id=\"LogoutButton\">Logout</a></dd><dt class=\"main__stripe js-main__stripe\" id=\"LoginHeader\">Login</dt><dd class=\"main__field js-main__field\"><form class=\"main__form\" id=\"login\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control\" type=\"text\" name=\"username\" id=\"loginLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input  form-control\" type=\"password\" name=\"password\" id=\"loginPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"main__btn btn\" type=\"submit\" id=\"login\">Login!</button></div></form></dd><dt class=\"main__stripe js-main__stripe\" id=\"SignupHeader\">Sign up</dt><dd class=\"main__field js-main__field\"><form class=\"main__form\" id=\"signup\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"email\">Email</label><div><input class=\"input-field__input form-control\" type=\"text\" name=\"signupEmail\" id=\"signupEmail\" placeholder=\"Your email\"/></div></div><div class=\"input-fiewld\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control\" type=\"text\" name=\"signupLogin\" id=\"signupLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control\" type=\"password\" name=\"signupPassword\" id=\"signupPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"btn\" type=\"submit\" id=\"signup\">Sign up!</button></div></form></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+=======
+define('tmpl/main',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main\"><dl class=\"main__menu js-main__menu\"><dt class=\"main__stripe js-main__stripe\">Multi Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#game\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Single Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#singleGame\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Scoreboard</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#scoreboard\">Top scores</a></dd><dt class=\"main__stripe js-main__stripe js-logout-header\">Log out</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn js-main__btn_logout\">Logout</a></dd><dt class=\"main__stripe js-main__stripe js-login-header\">Login</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_login\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_login_login\" type=\"text\" name=\"username\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_login_password\" type=\"password\" name=\"password\" placeholder=\"Your password\"/></div></div><div><button class=\"main__btn btn\" type=\"submit\">Login!</button></div></form></dd><dt class=\"main__stripe js-main__stripe js-signup-header\">Sign up</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_signup\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"email\">Email</label><div><input class=\"input-field__input form-control js-input_signup_email\" type=\"text\" name=\"signupEmail\" placeholder=\"Your email\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_signup_login\" type=\"text\" name=\"signupLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_signup_password\" type=\"password\" name=\"signupPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"btn\" type=\"submit\">Sign up!</button></div></form></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define('models/User',['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
@@ -15109,10 +15113,13 @@ define('models/User',['backbone'], function(Backbone) {
 
     return Model;
 });
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define('models/Session',['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
@@ -15155,9 +15162,15 @@ define('models/Session',['backbone'], function(Backbone) {
             return errors.length > 0 ? errors : false;
         }
     });
+<<<<<<< HEAD
     return Model;
 });
 
+=======
+
+    return Model;
+});
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define('tmpl/game',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"preloader\"><div class=\"preloader__stripe\"><div class=\"preloader__round\"><img class=\"preloader__logo\" src=\"static\/snake_logo.png\"/></div></div><h2 class=\"preloader__text\">Поиск соперника</h2><div class=\"preloader__left-curtain\"></div><div class=\"preloader__right-curtain\"></div></div><div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" href=\"#main\">Quit</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'api/eventDispatcher',['require','backbone'],function (require) {
@@ -15186,6 +15199,7 @@ define(
                     wsEvents.trigger(statusMap[data.status], data);
                 }   
             }
+<<<<<<< HEAD
         })(); //оборачиваем в function, чтобы скрыть внутреннюю реализацию и не допустить конфликта
         //в глобальной видимости переменных
 });
@@ -15207,6 +15221,21 @@ define(
         console.log(URL_ORIGIN);
         
         return( function() {       
+=======
+        })(); 
+    }
+);
+define(
+    'api/web-sockets',['require','api/gameStatus','api/eventDispatcher'],function (require) {
+        'use strict';
+        var apiStatus = require("api/gameStatus");
+        var wsEvents = require('api/eventDispatcher');
+        
+        var PREFIX = window.location.port ? ":" : "";  
+        var URL_ORIGIN = window.location.hostname + PREFIX + window.location.port;
+    
+        return( function() {
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             return {
                 initConnection : function() {
                     var webSocket = new WebSocket('ws://' + URL_ORIGIN + '/api/gameplay');
@@ -15252,12 +15281,17 @@ define(
                 }
             }
         })();
+<<<<<<< HEAD
 });
 
 
 
 
 
+=======
+    }
+);
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'models/Game/GameSession',['require','backbone','api/web-sockets','api/gameStatus','api/eventDispatcher'],function (require) {
         'use strict';
@@ -15310,9 +15344,12 @@ define(
                 isEnemyExit : false                 
             },
 
+<<<<<<< HEAD
             //при создании нового объекта модели во вьюхе, создаться 
             //сокет соединение и начнется прослушка событии статуса отправляемых
             //с сервера данных
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             initialize: function() {
                 this.listenTo(wsEvents, "GameStart", this.getInitDataForGame);
                 this.listenTo(wsEvents, "MakeMove", this.getPossibleMove);
@@ -15324,10 +15361,17 @@ define(
             getInitDataForGame: function(data) {
                 console.log("GameStart!");
                 this.set({"myName" : data.myName, 
+<<<<<<< HEAD
                           "enemyName" : data.enemyName,
                           "blue" : data.firstBlue,
                           "red" : data.firstRed,
                           "color" : data.color
+=======
+                    "enemyName" : data.enemyName,
+                    "blue" : data.firstBlue,
+                    "red" : data.firstRed,
+                    "color" : data.color
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 });
             },
            
@@ -15339,11 +15383,19 @@ define(
             getPossibleMove: function (data) {
                 console.log("move");
                 this.set({
+<<<<<<< HEAD
                           "left" : data.left,
                           "right" : data.right,
                           "top" : data.top,
                           "bottom" : data.bottom,
                           "enemyMove" : data.enemyMove
+=======
+                    "left" : data.left,
+                    "right" : data.right,
+                    "top" : data.top,
+                    "bottom" : data.bottom,
+                    "enemyMove" : data.enemyMove
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 });
                 this.trigger("turnOnKeyboard");
             },
@@ -15365,6 +15417,7 @@ define(
         });
 
         return Model;  
+<<<<<<< HEAD
 });
 
 
@@ -15374,6 +15427,10 @@ define(
 
 
 
+=======
+    }
+);
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'views/game',['require','backbone','tmpl/game','models/Game/GameSession','models/Session','api/web-sockets','api/eventDispatcher'],function (require) {
         'use strict';
@@ -15411,7 +15468,10 @@ define(
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
             
+<<<<<<< HEAD
             //рисуем первые точки
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             handleDrawInitialPoints: function(e) {
                 e.preventDefault();
                 var radius = 5 / scaleCoeff;
@@ -15447,6 +15507,10 @@ define(
                         }
                     }
                 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 return deferred.promise();
             },            
 
@@ -15457,12 +15521,18 @@ define(
                 this.listenTo(this.model, 'turnOnKeyboard', function() {
                     self.drawEnemyPath();
                     $(document).bind('keydown', self.keyAction);
+<<<<<<< HEAD
                     //this.$el.bind('keydown', this.keyAction);
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
                     $(document).unbind('keydown', self.keyAction);
+<<<<<<< HEAD
                     //this.$el.unbind('keydown', this.keyAction);
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
@@ -15520,14 +15590,20 @@ define(
                 scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
                 this.canvas = canvasTag.getContext("2d");
 
+<<<<<<< HEAD
                 //строим красные границы - левая и верхняя стороны
                 //строим синие границы - нижняя и правая сторона
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
              
+<<<<<<< HEAD
                 //сетка
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -15563,7 +15639,10 @@ define(
                     drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
                     this.model.get(color)["x"] = this.model.get(state)["x"];
                     this.model.get(color)["y"] = this.model.get(state)["y"];
+<<<<<<< HEAD
                     //отправляем на сервер новые координаты текущей точки
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
                 } else {
                     alert("Вы не можете так идти!");
@@ -15587,8 +15666,12 @@ define(
             hide: function () {
                 this.addPreloader();
                 $(document).unbind('keydown', this.keyAction);
+<<<<<<< HEAD
                 //this.$el.unbind('keydown', this.keyAction);
                 api.close();// закрываем сокет
+=======
+                api.close();
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 this.$el.hide();
             }
         });
@@ -15613,6 +15696,7 @@ define(
         return new View();
     }
 );
+<<<<<<< HEAD
 
 
 
@@ -15622,6 +15706,8 @@ define(
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'views/main',['require','backbone','tmpl/main','models/User','models/Session','views/game'],function (require) {
         'use strict';
@@ -15638,9 +15724,15 @@ define(
             session : new session(),
 
             events: {
+<<<<<<< HEAD
                  'submit form#signup': 'handleSignup',
                  'submit form#login' : 'handleLogin',
                  'click #LogoutButton' : 'handleLogout'
+=======
+                 'submit form.js-main__form_signup': 'handleSignup',
+                 'submit form.js-main__form_login' : 'handleLogin',
+                 'click a.js-main__btn_logout' : 'handleLogout'
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             },
 
             initialize: function() {
@@ -15675,16 +15767,28 @@ define(
             },
 
             viewForLoggedUser: function() {
+<<<<<<< HEAD
                 this.$el.find("#SignupHeader").hide();
                 this.$el.find("#LoginHeader").hide();
                 this.$el.find("#LogoutHeader").show();
+=======
+                this.$(".js-signup-header").addClass("main__stripe_hidden");
+                this.$(".js-login-header").addClass("main__stripe_hidden");
+                this.$(".js-logout-header").removeClass("main__stripe_hidden");
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 
             },
 
             viewForUnloggedUser: function() {
+<<<<<<< HEAD
                 this.$el.find("#SignupHeader").show();
                 this.$el.find("#LoginHeader").show();
                 this.$el.find("#LogoutHeader").hide();           
+=======
+                this.$(".js-signup-header").removeClass("main__stripe_hidden");
+                this.$(".js-login-header").removeClass("main__stripe_hidden");
+                this.$(".js-logout-header").addClass("main__stripe_hidden");           
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             },
 
             render: function () {
@@ -15708,9 +15812,15 @@ define(
                 e.preventDefault();
                 this.user.save(
                     {
+<<<<<<< HEAD
                         "login" : this.$el.find( "#signupLogin" ).val(),
                         "email" : this.$el.find( "#signupEmail" ).val(),
                         "password" : this.$el.find( "#signupPassword" ).val()
+=======
+                        "login" : this.$( ".js-input_signup_login" ).val(),
+                        "email" : this.$( ".js-input_signup_email" ).val(),
+                        "password" : this.$( ".js-input_signup_password" ).val()
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                     }, {
                     success : function() {
                         alert('success signup');
@@ -15728,8 +15838,13 @@ define(
                 var self = this;
                 this.session.save(
                     {
+<<<<<<< HEAD
                         "login" : this.$el.find( "#loginLogin" ).val(),
                         "password" : this.$el.find( "#loginPassword" ).val()
+=======
+                        "login" : this.$(".js-input_login_login").val(),
+                        "password" : this.$(".js-input_login_password").val()
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                     }, {
                     success : function() {
                         self.session.set({"isLogged" : true});
@@ -15747,7 +15862,11 @@ define(
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+<<<<<<< HEAD
                 this.$el.find("#LogoutHeader").hide();
+=======
+                this.$(".js-logout-header").addClass("main__stripe_hidden");
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             },
 
             hide: function () {
@@ -15758,10 +15877,13 @@ define(
         return new View();
     }
 );
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define('tmpl/scoreboard',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"help\"></div><div class=\"main\"><dl class=\"main__menu\"><dt class=\"main__stripe js-main__stripe\">ScoreBoard</dt><dd class=\"main__field\"><ul class=\"scoreboard\">");var i,v,__fest_to0,__fest_iterator0;try{__fest_iterator0=json || [];__fest_to0=__fest_iterator0.length;}catch(e){__fest_iterator0=[];__fest_to0=0;__fest_log_error(e.message);}for(i=0;i<__fest_to0;i++){v=__fest_iterator0[i];__fest_buf+=("<li class=\"scoreboard__row\"><span class=\"scoreboard__user-login\">");try{__fest_buf+=(v.login)}catch(e){__fest_log_error(e.message + "15");}__fest_buf+=("</span><em class=\"scoreboard__user-score\">");try{__fest_buf+=(__fest_escapeHTML(v.score))}catch(e){__fest_log_error(e.message + "20");}__fest_buf+=("</em></li><hr class=\"scoreboard__border-line\"/>");}__fest_buf+=("</ul><a href=\"#main\" class=\"main-game__btn btn\">Back</a></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'models/Score',['require','backbone'],function (require) {
@@ -15778,10 +15900,15 @@ define(
         });
         
         return Model;  
+<<<<<<< HEAD
 });
 
 
 
+=======
+    }
+);
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'collections/Scores',['require','backbone','models/Score'],function (require) {
         'use srtict';
@@ -15800,10 +15927,13 @@ define(
 
         return Collection;
 });
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'views/scoreboard',['require','backbone','tmpl/scoreboard','collections/Scores'],function (require) {
         'use strict';
@@ -15840,10 +15970,13 @@ define(
         return new View();
     }
 );
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define('tmpl/singleGame',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" id=\"Quit\">Quit</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'models/Game/SingleGame',['require','backbone'],function (require) {
@@ -15854,7 +15987,11 @@ define(
             defaults: {
                 gameFieldSize : 7,
 
+<<<<<<< HEAD
                 playerColor : "red", //цвет игрока (красный игрок начинает игру первым)
+=======
+                playerColor : "red",
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 
                 current: {
                     red : {
@@ -15869,7 +16006,10 @@ define(
 
                 possibilities : {
                     red : {
+<<<<<<< HEAD
                         //possible move of red player
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                         left : {
                             x : null,
                             y : null
@@ -15889,7 +16029,10 @@ define(
                     },
 
                     blue : {
+<<<<<<< HEAD
                         //possible move of blue player
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                         left : {
                             x : null,
                             y : null
@@ -15917,7 +16060,10 @@ define(
             },
 
             fillBorderPoints: function() {
+<<<<<<< HEAD
                 //заполнение точек границ
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 for( var i = 0; i <= this.get("gameFieldSize"); i++ ) {
                     this.gameFieldBorderPoints["red"].push({"x" : i, "y" : this.get("gameFieldSize")});
                     this.gameFieldBorderPoints["blue"].push({"x" : i, "y" : 0});
@@ -15978,7 +16124,11 @@ define(
                 var isPossibleMoveOccupied = this.isElemInLocalStorage(this.occupiedPoints, next);
                 var isForbiddenBorderPoint = this.isElemInArray(this.getBorder(), next);  
                 return isInTheGameFieldX && isInTheGameFieldY && 
+<<<<<<< HEAD
                        isPossibleMoveOccupied !== true && isForbiddenBorderPoint !== true;
+=======
+                    isPossibleMoveOccupied !== true && isForbiddenBorderPoint !== true;
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
             },
  
             getPossibleMove: function(current) {
@@ -15996,10 +16146,17 @@ define(
             getOccupiedPointsFromStorageByColor: function(playerColor) {
                 var points = [];
                 var i = playerColor === "red" ? 0 : 1;
+<<<<<<< HEAD
 
                 for (; i < this.occupiedPoints.length; i = i + 2) {
                     points.push(JSON.parse(this.occupiedPoints.getItem(i)));
                 }
+=======
+                for (; i < this.occupiedPoints.length; i = i + 2) {
+                    points.push(JSON.parse(this.occupiedPoints.getItem(i)));
+                }
+                
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 return points;
             }
         });
@@ -16032,9 +16189,14 @@ define(
         };
 
         return Model;  
+<<<<<<< HEAD
 });
 
 
+=======
+    }
+);
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'views/singleGame',['require','backbone','tmpl/singleGame','models/Game/SingleGame'],function (require) {
         'use strict';
@@ -16084,7 +16246,10 @@ define(
             },
 
             defineRandomInitialPoints: function() {
+<<<<<<< HEAD
                 //select from max size rectangle which not contains the borders
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 var gameFieldSize = this.model.get("gameFieldSize");
                 var firstRed = {
                     "x" : getRandomIntValueInRange(1, gameFieldSize - 1), 
@@ -16115,7 +16280,10 @@ define(
 
                 this.resetDrawPoints(redPoints, "red");
                 this.resetDrawPoints(bluePoints, "blue");
+<<<<<<< HEAD
                 //установление прежних текущих координат
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 this.model.get("current")["red"] = redPoints[redPoints.length - 1];
                 this.model.get("current")["blue"] = bluePoints[bluePoints.length - 1];
             },
@@ -16148,14 +16316,20 @@ define(
                 scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
                 this.canvas = canvasTag.getContext("2d");
                 
+<<<<<<< HEAD
                 //строим красные границы - левая и верхняя стороны
                 //строим синие границы - нижняя и правая сторона
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
              
+<<<<<<< HEAD
                 //сетка
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -16197,7 +16371,10 @@ define(
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
                     this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
+<<<<<<< HEAD
                 //включаем клаву для человека
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 $(document).bind('keydown', this.keyAction);
             },
 
@@ -16228,7 +16405,10 @@ define(
                         drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
                         this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
+<<<<<<< HEAD
                         //отключаем клаву для человека
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                         $(document).unbind('keydown', this.keyAction);
                         this.drawEnemyPath();
                     } else {
@@ -16246,9 +16426,13 @@ define(
             },
             
             getInitialPoints: function() {
+<<<<<<< HEAD
                  //определение значение первоначальных точек
                 this.model.set({"current" : this.defineRandomInitialPoints()});
                 //записали текущие точки в контейнер
+=======
+                this.model.set({"current" : this.defineRandomInitialPoints()});
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
                 this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
             },
@@ -16271,7 +16455,10 @@ define(
             
             hide: function () {
                 $(document).unbind('keydown', this.keyAction);
+<<<<<<< HEAD
                 //this.$el.unbind('keydown', this.keyAction);
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
                 this.$el.hide();
             }
         });
@@ -16307,6 +16494,7 @@ define(
         return new View();
     }
 );
+<<<<<<< HEAD
 
 
 
@@ -16322,12 +16510,17 @@ define(
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define(
     'router',['require','backbone','views/viewManager','views/main','views/scoreboard','views/game','views/main','views/singleGame'],function (require) {
         'use strict';
         var Backbone = require('backbone');
         var viewManager = require('views/viewManager');
+<<<<<<< HEAD
         
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
         var main = require('views/main');
         var scoreboard = require('views/scoreboard');
         var game = require('views/game');
@@ -16393,12 +16586,15 @@ define(
         return new Router();
     }
 );
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 require.config({ 
     baseUrl: "js",
     paths: {
@@ -16427,6 +16623,7 @@ require.config({
 });
 
 require([ 'bootstrap','router'/*, 'app'*/]);
+<<<<<<< HEAD
 
 
 // require.config({ 
@@ -16470,5 +16667,7 @@ require([ 'bootstrap','router'/*, 'app'*/]);
 
 
 
+=======
+>>>>>>> 8f24fb0f121f161132941a3b0305ca7b722f46de
 define("main", function(){});
 

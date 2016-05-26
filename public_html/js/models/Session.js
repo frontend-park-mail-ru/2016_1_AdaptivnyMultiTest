@@ -40,5 +40,6 @@ define(['backbone'], function(Backbone) {
             return errors.length > 0 ? errors : false;
         }
     });
+
     return Model;
 });

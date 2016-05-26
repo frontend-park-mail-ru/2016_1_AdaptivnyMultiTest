@@ -47,7 +47,6 @@ define(
             },
 
             defineRandomInitialPoints: function() {
-                //select from max size rectangle which not contains the borders
                 var gameFieldSize = this.model.get("gameFieldSize");
                 var firstRed = {
                     "x" : getRandomIntValueInRange(1, gameFieldSize - 1), 
@@ -78,7 +77,6 @@ define(
 
                 this.resetDrawPoints(redPoints, "red");
                 this.resetDrawPoints(bluePoints, "blue");
-                //установление прежних текущих координат
                 this.model.get("current")["red"] = redPoints[redPoints.length - 1];
                 this.model.get("current")["blue"] = bluePoints[bluePoints.length - 1];
             },
@@ -110,15 +108,12 @@ define(
                 
                 scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
                 this.canvas = canvasTag.getContext("2d");
-                
-                //строим красные границы - левая и верхняя стороны
-                //строим синие границы - нижняя и правая сторона
+
                 drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
              
-                //сетка
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -160,7 +155,6 @@ define(
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
                     this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
-                //включаем клаву для человека
                 $(document).bind('keydown', this.keyAction);
             },
 
@@ -191,7 +185,7 @@ define(
                         drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
                         this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
-                        //отключаем клаву для человека
+
                         $(document).unbind('keydown', this.keyAction);
                         this.drawEnemyPath();
                     } else {
@@ -209,9 +203,7 @@ define(
             },
             
             getInitialPoints: function() {
-                 //определение значение первоначальных точек
                 this.model.set({"current" : this.defineRandomInitialPoints()});
-                //записали текущие точки в контейнер
                 this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
                 this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
             },
@@ -234,7 +226,6 @@ define(
             
             hide: function () {
                 $(document).unbind('keydown', this.keyAction);
-                //this.$el.unbind('keydown', this.keyAction);
                 this.$el.hide();
             }
         });
@@ -270,17 +261,4 @@ define(
         return new View();
     }
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
 

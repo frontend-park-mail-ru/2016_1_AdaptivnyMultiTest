@@ -1,7 +1,4 @@
  <fest:template xmlns:fest="http://fest.mail.ru">
-
-
-
     <div class="main">
         <dl class="main__menu js-main__menu">
             <dt class="main__stripe js-main__stripe">
@@ -28,25 +25,25 @@
                     Top scores
                 </a>
             </dd>
-            <dt class="main__stripe js-main__stripe" id="LogoutHeader">
+            <dt class="main__stripe js-main__stripe js-logout-header">
                 Log out
             </dt>
             <dd class="main__field js-main__field">
-                <a class="main__btn btn" id="LogoutButton">
+                <a class="main__btn btn js-main__btn_logout">
                     Logout
                 </a>
             </dd>
-            <dt class="main__stripe js-main__stripe" id="LoginHeader">
+            <dt class="main__stripe js-main__stripe js-login-header">
                 Login
             </dt>
             <dd class="main__field js-main__field">
-                <form class="main__form" id="login">
+                <form class="main__form js-main__form_login">
                     <div class="input-field">
                         <label class="input-field__label" for="username">
                             Login
                         </label>
                         <div>
-                            <input class="input-field__input form-control" type="text" name="username" id="loginLogin" placeholder="Your login"/>
+                            <input class="input-field__input form-control js-input_login_login" type="text" name="username" placeholder="Your login"/>
                         </div>
                     </div>
                     <div class="input-field">
@@ -54,35 +51,35 @@
                             Password
                         </label>
                         <div>
-                            <input class="input-field__input  form-control" type="password" name="password" id="loginPassword" placeholder="Your password"/>
+                            <input class="input-field__input form-control js-input_login_password" type="password" name="password" placeholder="Your password"/>
                         </div>
                     </div>
                     <div>
-                        <button class="main__btn btn" type="submit" id="login">
+                        <button class="main__btn btn" type="submit">
                             Login!
                         </button>
                     </div>
                 </form>
             </dd>
-            <dt class="main__stripe js-main__stripe" id="SignupHeader">
+            <dt class="main__stripe js-main__stripe js-signup-header">
                 Sign up
             </dt>
             <dd class="main__field js-main__field">
-                <form class="main__form" id="signup">
+                <form class="main__form js-main__form_signup">
                     <div class="input-field">
                         <label class="input-field__label" for="email">
                             Email
                         </label>
                         <div>
-                            <input class="input-field__input form-control" type="text" name="signupEmail" id="signupEmail" placeholder="Your email"/>
+                            <input class="input-field__input form-control js-input_signup_email" type="text" name="signupEmail"  placeholder="Your email"/>
                         </div>
                     </div>
-                    <div class="input-fiewld">
+                    <div class="input-field">
                         <label class="input-field__label" for="username">
                             Login
                         </label>
                         <div>
-                            <input class="input-field__input form-control" type="text" name="signupLogin" id="signupLogin" placeholder="Your login"/>
+                            <input class="input-field__input form-control js-input_signup_login" type="text" name="signupLogin" placeholder="Your login"/>
                         </div>
                     </div>
                     <div class="input-field">
@@ -90,11 +87,11 @@
                             Password
                         </label>
                         <div>
-                            <input class="input-field__input form-control" type="password" name="signupPassword" id="signupPassword" placeholder="Your password"/>
+                            <input class="input-field__input form-control js-input_signup_password" type="password" name="signupPassword" placeholder="Your password"/>
                         </div>
                     </div>
                     <div>
-                        <button class="btn" type="submit" id="signup">
+                        <button class="btn" type="submit">
                             Sign up!
                         </button>
                     </div>
@@ -102,6 +99,5 @@
             </dd>
         </dl>
     </div>
-       
 </fest:template> 
 

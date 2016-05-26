@@ -13,6 +13,5 @@ define(
         });
         
         return Model;  
-});
-
-
+    }
+);

@@ -14,9 +14,9 @@ define(
             session : new session(),
 
             events: {
-                 'submit form#signup': 'handleSignup',
-                 'submit form#login' : 'handleLogin',
-                 'click #LogoutButton' : 'handleLogout'
+                 'submit form.js-main__form_signup': 'handleSignup',
+                 'submit form.js-main__form_login' : 'handleLogin',
+                 'click a.js-main__btn_logout' : 'handleLogout'
             },
 
             initialize: function() {
@@ -51,16 +51,15 @@ define(
             },
 
             viewForLoggedUser: function() {
-                this.$el.find("#SignupHeader").hide();
-                this.$el.find("#LoginHeader").hide();
-                this.$el.find("#LogoutHeader").show();
-
+                this.$(".js-signup-header").addClass("main__stripe_hidden");
+                this.$(".js-login-header").addClass("main__stripe_hidden");
+                this.$(".js-logout-header").removeClass("main__stripe_hidden");
             },
 
             viewForUnloggedUser: function() {
-                this.$el.find("#SignupHeader").show();
-                this.$el.find("#LoginHeader").show();
-                this.$el.find("#LogoutHeader").hide();           
+                this.$(".js-signup-header").removeClass("main__stripe_hidden");
+                this.$(".js-login-header").removeClass("main__stripe_hidden");
+                this.$(".js-logout-header").addClass("main__stripe_hidden");           
             },
 
             render: function () {
@@ -84,9 +83,9 @@ define(
                 e.preventDefault();
                 this.user.save(
                     {
-                        "login" : this.$el.find( "#signupLogin" ).val(),
-                        "email" : this.$el.find( "#signupEmail" ).val(),
-                        "password" : this.$el.find( "#signupPassword" ).val()
+                        "login" : this.$( ".js-input_signup_login" ).val(),
+                        "email" : this.$( ".js-input_signup_email" ).val(),
+                        "password" : this.$( ".js-input_signup_password" ).val()
                     }, {
                     success : function() {
                         alert('success signup');
@@ -104,8 +103,8 @@ define(
                 var self = this;
                 this.session.save(
                     {
-                        "login" : this.$el.find( "#loginLogin" ).val(),
-                        "password" : this.$el.find( "#loginPassword" ).val()
+                        "login" : this.$(".js-input_login_login").val(),
+                        "password" : this.$(".js-input_login_password").val()
                     }, {
                     success : function() {
                         self.session.set({"isLogged" : true});
@@ -123,7 +122,7 @@ define(
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
-                this.$el.find("#LogoutHeader").hide();
+                this.$(".js-logout-header").addClass("main__stripe_hidden");
             },
 
             hide: function () {
@@ -134,6 +133,4 @@ define(
         return new View();
     }
 );
-
-
 

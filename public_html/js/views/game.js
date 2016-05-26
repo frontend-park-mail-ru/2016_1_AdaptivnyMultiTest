@@ -34,8 +34,7 @@ define(
             events : {
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
-            
-            //рисуем первые точки
+        
             handleDrawInitialPoints: function(e) {
                 e.preventDefault();
                 var radius = 5 / scaleCoeff;
@@ -71,6 +70,7 @@ define(
                         }
                     }
                 });
+
                 return deferred.promise();
             },            
 
@@ -81,12 +81,10 @@ define(
                 this.listenTo(this.model, 'turnOnKeyboard', function() {
                     self.drawEnemyPath();
                     $(document).bind('keydown', self.keyAction);
-                    //this.$el.bind('keydown', this.keyAction);
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
                     $(document).unbind('keydown', self.keyAction);
-                    //this.$el.unbind('keydown', this.keyAction);
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
@@ -144,14 +142,11 @@ define(
                 scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
                 this.canvas = canvasTag.getContext("2d");
 
-                //строим красные границы - левая и верхняя стороны
-                //строим синие границы - нижняя и правая сторона
                 drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
              
-                //сетка
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -187,7 +182,6 @@ define(
                     drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
                     this.model.get(color)["x"] = this.model.get(state)["x"];
                     this.model.get(color)["y"] = this.model.get(state)["y"];
-                    //отправляем на сервер новые координаты текущей точки
                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
                 } else {
                     alert("Вы не можете так идти!");
@@ -211,8 +205,7 @@ define(
             hide: function () {
                 this.addPreloader();
                 $(document).unbind('keydown', this.keyAction);
-                //this.$el.unbind('keydown', this.keyAction);
-                api.close();// закрываем сокет
+                api.close();
                 this.$el.hide();
             }
         });
@@ -237,11 +230,4 @@ define(
         return new View();
     }
 );
-
-
-
-
-
-
-
 

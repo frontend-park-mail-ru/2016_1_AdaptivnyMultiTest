@@ -3,7 +3,6 @@ module.exports = function (grunt) {
         sass: {
             options: {
                 update: true,
-                //outputStyle: 'compressed'
             },
             dist: {
                 files: [{
@@ -21,7 +20,6 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                //command: 'node server.js',
                 command: 'java -jar 2016-02-Adaptive-MultiTest-1.0.jar  8080'
             }
         },
@@ -125,10 +123,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    //grunt.loadNpmTasks('grunt-contrib-compass');
 
+    //grunt.loadNpmTasks('grunt-contrib-compass');
     //grunt.loadNpmTasks('grunt-uncss');
     //grunt.loadNpmTasks('grunt-contrib-imagemin');
+
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('test', ['qunit:all']);

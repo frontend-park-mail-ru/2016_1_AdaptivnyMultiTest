@@ -13,9 +13,6 @@ define(
                 return -score.get('score');
             }
         });
-
         return Collection;
 });
-
-
 

@@ -17,5 +17,3 @@ define(function (require) {
         QUnit.ok(currentView.$el.css('display') === 'block' && game.$el.css('display') === 'none');
     });
 });
-
-

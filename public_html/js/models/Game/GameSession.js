@@ -50,9 +50,6 @@ define(
                 isEnemyExit : false                 
             },
 
-            //при создании нового объекта модели во вьюхе, создаться 
-            //сокет соединение и начнется прослушка событии статуса отправляемых
-            //с сервера данных
             initialize: function() {
                 this.listenTo(wsEvents, "GameStart", this.getInitDataForGame);
                 this.listenTo(wsEvents, "MakeMove", this.getPossibleMove);
@@ -64,10 +61,10 @@ define(
             getInitDataForGame: function(data) {
                 console.log("GameStart!");
                 this.set({"myName" : data.myName, 
-                          "enemyName" : data.enemyName,
-                          "blue" : data.firstBlue,
-                          "red" : data.firstRed,
-                          "color" : data.color
+                    "enemyName" : data.enemyName,
+                    "blue" : data.firstBlue,
+                    "red" : data.firstRed,
+                    "color" : data.color
                 });
             },
            
@@ -79,11 +76,11 @@ define(
             getPossibleMove: function (data) {
                 console.log("move");
                 this.set({
-                          "left" : data.left,
-                          "right" : data.right,
-                          "top" : data.top,
-                          "bottom" : data.bottom,
-                          "enemyMove" : data.enemyMove
+                    "left" : data.left,
+                    "right" : data.right,
+                    "top" : data.top,
+                    "bottom" : data.bottom,
+                    "enemyMove" : data.enemyMove
                 });
                 this.trigger("turnOnKeyboard");
             },
@@ -105,11 +102,6 @@ define(
         });
 
         return Model;  
-});
-
-
-
-
-
-
+    }
+);
 

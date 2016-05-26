@@ -1,5 +1,5 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
-	     <div class="preloader">
+    <div class="preloader">
         <div class="preloader__stripe">
             <div class="preloader__round">
                 <img class="preloader__logo" src="static/snake_logo.png"/>

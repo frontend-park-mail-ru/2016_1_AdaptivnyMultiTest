@@ -1,13 +1,13 @@
 define(
     function (require) {
-        'use strict';    
+        'use strict';
         var apiStatus = require("api/gameStatus");
         var wsEvents = require('api/eventDispatcher');
         
         var PREFIX = window.location.port ? ":" : "";  
         var URL_ORIGIN = window.location.hostname + PREFIX + window.location.port;
     
-        return( function() {       
+        return( function() {
             return {
                 initConnection : function() {
                     var webSocket = new WebSocket('ws://' + URL_ORIGIN + '/api/gameplay');
@@ -53,8 +53,6 @@ define(
                 }
             }
         })();
-});
-
-
-
+    }
+);
 

@@ -7,7 +7,7 @@ define(
             defaults: {
                 gameFieldSize : 7,
 
-                playerColor : "red", //цвет игрока (красный игрок начинает игру первым)
+                playerColor : "red",
 
                 current: {
                     red : {
@@ -22,7 +22,6 @@ define(
 
                 possibilities : {
                     red : {
-                        //possible move of red player
                         left : {
                             x : null,
                             y : null
@@ -42,7 +41,6 @@ define(
                     },
 
                     blue : {
-                        //possible move of blue player
                         left : {
                             x : null,
                             y : null
@@ -70,7 +68,6 @@ define(
             },
 
             fillBorderPoints: function() {
-                //заполнение точек границ
                 for( var i = 0; i <= this.get("gameFieldSize"); i++ ) {
                     this.gameFieldBorderPoints["red"].push({"x" : i, "y" : this.get("gameFieldSize")});
                     this.gameFieldBorderPoints["blue"].push({"x" : i, "y" : 0});
@@ -131,7 +128,7 @@ define(
                 var isPossibleMoveOccupied = this.isElemInLocalStorage(this.occupiedPoints, next);
                 var isForbiddenBorderPoint = this.isElemInArray(this.getBorder(), next);  
                 return isInTheGameFieldX && isInTheGameFieldY && 
-                       isPossibleMoveOccupied !== true && isForbiddenBorderPoint !== true;
+                    isPossibleMoveOccupied !== true && isForbiddenBorderPoint !== true;
             },
  
             getPossibleMove: function(current) {
@@ -149,7 +146,6 @@ define(
             getOccupiedPointsFromStorageByColor: function(playerColor) {
                 var points = [];
                 var i = playerColor === "red" ? 0 : 1;
-
                 for (; i < this.occupiedPoints.length; i = i + 2) {
                     points.push(JSON.parse(this.occupiedPoints.getItem(i)));
                 }
@@ -185,5 +181,6 @@ define(
         };
 
         return Model;  
-});
+    }
+);
 
