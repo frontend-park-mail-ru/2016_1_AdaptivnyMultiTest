@@ -25,6 +25,4 @@ require.config({
     }
 });
 
-require([ 'bootstrap','router', 'app']);
-
-
+require([ 'bootstrap','router'/*, 'app'*/]);

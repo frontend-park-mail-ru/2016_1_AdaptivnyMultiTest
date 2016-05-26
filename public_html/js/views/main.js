@@ -1,5 +1,6 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/main');
         var user = require('models/User');
@@ -8,14 +9,14 @@ define(
 
         var View = Backbone.View.extend({
             template: tmpl,
-            id: "main",
-                
+      
             user : new user(),
             session : new session(),
 
             events: {
-                 'submit button#signup': 'handleSignup',
-                 'submit button#login' : 'handleLogin'
+                 'submit form.js-main__form_signup': 'handleSignup',
+                 'submit form.js-main__form_login' : 'handleLogin',
+                 'click a.js-main__btn_logout' : 'handleLogout'
             },
 
             initialize: function() {
@@ -29,13 +30,37 @@ define(
                     alert(error);
                 });
 
-                this.listenTo(game, 'Unauthorized user', function() {
+                this.listenTo(game, 'UnauthorizedUser', function() {
                     alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
                 });
 
-                $(document).on("suggestionToPlay", function (evt) {
-                    alert(evt.message);
+        
+                this.session.on('change:isLogged', function() {
+                    if (self.session.get("isLogged")) {
+                        self.viewForLoggedUser();
+                    } else {
+                       self.viewForUnloggedUser();
+                    }
                 });
+            },
+
+            handleLogout: function(e) {
+                e.preventDefault();
+                this.session.set({"isLogged" : false});
+                this.session.destroy();
+            },
+
+            viewForLoggedUser: function() {
+                this.$(".js-signup-header").addClass("main__stripe_hidden");
+                this.$(".js-login-header").addClass("main__stripe_hidden");
+                this.$(".js-logout-header").removeClass("main__stripe_hidden");
+
+            },
+
+            viewForUnloggedUser: function() {
+                this.$(".js-signup-header").removeClass("main__stripe_hidden");
+                this.$(".js-login-header").removeClass("main__stripe_hidden");
+                this.$(".js-logout-header").addClass("main__stripe_hidden");           
             },
 
             render: function () {
@@ -59,31 +84,37 @@ define(
                 e.preventDefault();
                 this.user.save(
                     {
-                        "login" : this.$el.find( "#signupLogin" ).val(),
-                        "email" : this.$el.find( "#signupEmail" ).val(),
-                        "password" : this.$el.find( "#signupPassword" ).val()
+                        "login" : this.$( ".js-input_signup_login" ).val(),
+                        "email" : this.$( ".js-input_signup_email" ).val(),
+                        "password" : this.$( ".js-input_signup_password" ).val()
                     }, {
                     success : function() {
                         alert('success signup');
                     },
-                    error : function() {
-                        alert('this user already exists');
+                    error : function(model, xhr, options) {
+                        if (xhr.status === 403) {
+                            alert('this user already exists');
+                        }
                     }
                 });
             },
 
             handleLogin: function(e) {
                 e.preventDefault();
+                var self = this;
                 this.session.save(
                     {
-                        "login" : this.$el.find( "#loginLogin" ).val(),
-                        "password" : this.$el.find( "#loginPassword" ).val()
+                        "login" : this.$(".js-input_login_login").val(),
+                        "password" : this.$(".js-input_login_password").val()
                     }, {
                     success : function() {
+                        self.session.set({"isLogged" : true});
                         alert('success login');
                     },
-                    error : function() {
-                        alert("this user doesn't exists");
+                    error : function(model, xhr, options) {
+                        if (xhr.status === 400) {
+                            alert("this user doesn't exists");
+                        }
                     }
                 });
             },
@@ -92,6 +123,7 @@ define(
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+                this.$(".js-logout-header").addClass("main__stripe_hidden");
             },
 
             hide: function () {
@@ -102,6 +134,3 @@ define(
         return new View();
     }
 );
-
-
-

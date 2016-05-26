@@ -2,12 +2,12 @@ module.exports = function (grunt) {
     grunt.initConfig({
         sass: {
             options: {
-                update: true
+                update: true,
             },
             dist: {
                 files: [{
                     expand: true,
-                    cwd: 'public_html/css/blocks',
+                    cwd: 'templates/style/',
                     src: ['*.scss'],
                     dest: 'public_html/css',
                     ext: '.css'
@@ -20,7 +20,6 @@ module.exports = function (grunt) {
                 stderr: true
             },
             server: {
-                command: 'node server.js',
                 command: 'java -jar 2016-02-Adaptive-MultiTest-1.0.jar  8080'
             }
         },
@@ -73,6 +72,44 @@ module.exports = function (grunt) {
         },
         qunit: {
             all: ['./public_html/tests/index.html']
+        },
+
+        requirejs: {
+            build: {
+                options: {
+                    almond: true,
+                    baseUrl: "public_html/js",
+                    mainConfigFile: "public_html/js/main.js",
+                    name: "main",
+                    optimize: "none",
+                    out: "public_html/js/build/main.js"
+                }
+            }
+        },
+        concat: {
+            build: {
+                separator: ';\n',
+                src: [
+                      'public_html/js/lib/almond.js',
+                      'public_html/js/build/main.js'
+                ],
+                dest: 'public_html/js/build.js'
+            }
+        },
+        uglify: {
+            build: {
+                files: {
+                    'public_html/js/build.min.js': 
+                            ['public_html/js/build.js']
+                }
+            }
+        },
+        cssmin: {
+            dist: {
+                files: [
+                    { src: 'public_html/css/main.css', dest: 'public_html/css/build/main-min.css' }
+                ]
+            }
         }
     });
 
@@ -82,8 +119,22 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-fest');
     grunt.loadNpmTasks('grunt-sass');
-    
+
+    grunt.loadNpmTasks('grunt-contrib-requirejs');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
     grunt.registerTask('compile', ['sass']);
+    
+    grunt.registerTask(
+        'build',
+            [
+                'fest', 'requirejs:build',
+                'concat:build', 'uglify:build', 
+                'cssmin:dist'
+            ]
+    );
 };

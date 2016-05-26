@@ -3,7 +3,6 @@ define(
         var Backbone = require('backbone');
         var Scores =  require("collections/Scores");
     
-        //определяем модуль
         QUnit.module("collections/Scores", { 
             setup: function () {
                 var testData = new Scores();
@@ -15,12 +14,8 @@ define(
                 ]);
                 this.list = testData;
             },
-            teardown: function () {
-                //здесь описыватся callback, который запуститься после выполнения теста
-            }
         });
 
-        //выполнение теста
         QUnit.test("test ordering of player's scores in static massive", function () {
             var expected = ['Мудрец1','Мудрец2','Мудрец3','Мудрец4'];
             var actual = _.pluck(this.list.toJSON(), 'login');
@@ -28,5 +23,3 @@ define(
         });
     }
 );
-
-
