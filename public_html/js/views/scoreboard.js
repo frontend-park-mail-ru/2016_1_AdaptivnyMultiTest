@@ -1,11 +1,11 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
         var tmpl = require('tmpl/scoreboard');
         var scores = require('collections/Scores');
 
         var View = Backbone.View.extend({
-            id: "scoreboard",
 
             collection: new scores(),
             template: tmpl,
@@ -34,6 +34,3 @@ define(
         return new View();
     }
 );
-
-
-

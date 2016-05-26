@@ -3,11 +3,16 @@
     <head>
         <meta charset="utf-8" />
         <title>Game of Brains</title>
-        <link rel="stylesheet" href="/css/lib/bootstrap/bootstrap.css">
+        <link rel="stylesheet" href="/css/lib/bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="/css/main.css">
     </head>
 
     <body>
-        <script data-main="js/main" src="js/lib/require.js"></script>
+        <script src="js/build.min.js"></script>
+        <script>
+            require(['main'], function(){
+                console.log('loaded from one script file');
+            });
+        </script>
     </body>
 </html>

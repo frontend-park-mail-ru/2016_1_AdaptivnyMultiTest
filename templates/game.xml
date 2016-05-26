@@ -1,9 +1,20 @@
 <fest:template xmlns:fest="http://fest.mail.ru">
+    <div class="preloader">
+        <div class="preloader__stripe">
+            <div class="preloader__round">
+                <img class="preloader__logo" src="static/snake_logo.png"/>
+            </div>
+        </div>
+        <h2 class="preloader__text">Поиск соперника</h2>
+        <div class="preloader__left-curtain"> </div>
+        <div class="preloader__right-curtain"> </div>
+    </div>
+    
     <div class="main-game">
         <div class="main-game__main-area main main_game">
-            <canvas class="main-game__canvas" id="gameCanvas" width="490px" height="490px"></canvas>
+            <canvas class="main-game__canvas" id="gameCanvas" width='490' height='490'></canvas>
         </div>
-        <a class="main-game__btn btn js-btn" href="#main">
+        <a class="main-game__btn btn  js-btn" href="#main">
             Quit
         </a>
     </div>

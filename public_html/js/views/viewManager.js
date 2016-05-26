@@ -1,27 +1,31 @@
 define(
     function (require) {
+        'use strict';
         var Backbone = require('backbone');
+        var currentView = null;
         var View = Backbone.View.extend({
-            returnCurrentView: null,
-
             addViews: function(views) {
-                var self = this;
-                _.each(views, function(view) {
-                    $(document.body).append(view.el);
-                    self.listenTo(view, 'show', function(currentView) {
-                        idCurrentView = currentView.el.id;
-                        _.each(views, function(view) {
-                            if( idCurrentView != view.el.id ) {
-                                view.hide();
-                            } else {
-                                self.returnCurrentView = view;
-                            }  
-                        })
-                    });
-                })
+                for (var i = 0; i < views.length; i++ ) {
+                    $(document.body).append(views[i].el);
+                    views[i].hide();
+                    this.bindShowEvent(views[i]);
+                }
+            },
+            
+            bindShowEvent: function(view) {
+                this.listenTo(view, 'show', function(newCurrentView) {
+                     changeCurrentView(newCurrentView);
+                });
             },
         });
+
+        function changeCurrentView(newCurrentView) {
+            if (currentView !== null) {
+                currentView.hide();
+            }
+            currentView = newCurrentView;   
+        }
+
         return new View();
     }
 );
-
