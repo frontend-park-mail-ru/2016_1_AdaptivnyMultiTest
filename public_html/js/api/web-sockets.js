@@ -2,18 +2,21 @@ define(
     function (require) {
         'use strict';    
         var apiStatus = require("api/gameStatus");
-        var wsEvents = require('api/eventDispatcher');//**//
+        var wsEvents = require('api/eventDispatcher');
+        
+        var URL_ORIGIN = window.location.origin.slice(7);
+        console.log(URL_ORIGIN);
+        
         return( function() {       
             return {
                 initConnection : function() {
-                    var webSocket = new WebSocket('ws://127.0.0.1:8080/api/gameplay');
+                    var webSocket = new WebSocket('ws://' + URL_ORIGIN + '/api/gameplay');
                     this.socket = webSocket;
                     this.bindEvents();
                 },
 
                 bindEvents: function() {
                     this.currentStatus = apiStatus;
-                    console.log(apiStatus);
                     this.socket.onopen = this.onOpen;
                     this.socket.onmessage = this.currentStatus.onMessage; 
                     this.socket.onclose = this.onClose;
@@ -27,7 +30,7 @@ define(
                 onClose: function() {
                     console.log("Socket is closed");
                 },
-                //**//
+                
                 onError:function() {
                     wsEvents.trigger("ConnectionFailed");
                     console.log("Socket has some problems");
@@ -46,7 +49,7 @@ define(
                         this.socket.close();
                     } catch (error) {
                         console.log(error.message);
-                    } 
+                    }; 
                 }
             }
         })();

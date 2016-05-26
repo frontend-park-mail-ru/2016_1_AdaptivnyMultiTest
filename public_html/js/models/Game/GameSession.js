@@ -83,9 +83,8 @@ define(
                           "right" : data.right,
                           "top" : data.top,
                           "bottom" : data.bottom,
-                          "enemyMove" : data.enemyMove});
-
-                //console.log("model move", JSON.stringify(this));
+                          "enemyMove" : data.enemyMove
+                });
                 this.trigger("turnOnKeyboard");
             },
 

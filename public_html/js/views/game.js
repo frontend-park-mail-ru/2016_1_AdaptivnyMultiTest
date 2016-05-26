@@ -6,10 +6,11 @@ define(
         var gameSession = require('models/Game/GameSession');
         var session = require('models/Session'); 
         var api = require('api/web-sockets');
-        var wsEvents = require('api/eventDispatcher'); //**//
+        var wsEvents = require('api/eventDispatcher'); 
         var scaleCoeff;
         var playerLineWidth = 6;
         var timeToWaitEnemy = 5000;
+        var isEnemyFound = false;
 
         var colorMap = {
             "red" : "#FF0000",
@@ -105,19 +106,22 @@ define(
                 });
 
                 this.listenTo(wsEvents, "GameStart", function() {
+                    isEnemyFound = true;
                     self.removePreloader();
                 });
 
                 this.listenTo(this, "EnemyNotFound", function() {
                     self.removePreloader();
+                    alert("Соперник не найден");
                 });
             },
 
             timeCounter: function() {
                 var self = this;
                 setTimeout(function() { 
-                    console.log("START TO TRIGGER");
-                    self.trigger("EnemyNotFound");
+                    if (!isEnemyFound) {
+                        self.trigger("EnemyNotFound");
+                    }
                 }, timeToWaitEnemy);
             },
  

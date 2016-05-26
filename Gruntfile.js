@@ -106,27 +106,13 @@ module.exports = function (grunt) {
                 }
             }
         },
-        
-
-        uncss: {
+        cssmin: {
             dist: {
                 files: [
-                    { src: 'public_html/index.html', dest: 'public_html/css/tidy.css' }
+                    { src: 'public_html/css/main.css', dest: 'public_html/css/build/main-min.css' }
                 ]
             }
-        },
-
-        /*compass: {
-                dist: {
-                    options: {
-                        sassDir: 'public_html/css/blocks',
-                        cssDir: 'public_html/css/build',
-                        //environment: 'development',
-                        outputStyle: 'compressed'
-                    }
-                }
-            
-        }*/
+        }
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -141,21 +127,20 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     //grunt.loadNpmTasks('grunt-contrib-compass');
 
-    grunt.loadNpmTasks('grunt-uncss');
+    //grunt.loadNpmTasks('grunt-uncss');
+    //grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
     grunt.registerTask('compile', ['sass']);
-
     
     grunt.registerTask(
         'build',
             [
                 'fest', 'requirejs:build',
-                'concat:build', 'uglify:build'/*, 
-                'compass:dist'*/
+                'concat:build', 'uglify:build', 
+                'cssmin:dist'
             ]
     );
-
-    grunt.registerTask('unUseCss', ['uncss']);
 };

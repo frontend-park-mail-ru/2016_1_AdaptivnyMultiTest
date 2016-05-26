@@ -47,7 +47,6 @@ define(
             handleLogout: function(e) {
                 e.preventDefault();
                 this.session.set({"isLogged" : false});
-                //this.viewForUnloggedUser();
                 this.session.destroy();
             },
 
@@ -109,7 +108,7 @@ define(
                         "password" : this.$el.find( "#loginPassword" ).val()
                     }, {
                     success : function() {
-                        self.session.set({"isLogged" : true})
+                        self.session.set({"isLogged" : true});
                         alert('success login');
                     },
                     error : function(model, xhr, options) {
