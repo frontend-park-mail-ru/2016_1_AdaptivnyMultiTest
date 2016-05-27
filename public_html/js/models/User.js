@@ -28,28 +28,22 @@ define(['backbone'], function(Backbone) {
                 errors["loginError"] = "Please, input your login";
             } else if (/[^a-zA-Z0-9]/.test(attrs.login)) {
                 errors["loginError"] = 'Your login must consist of only letters and digits';
-            } else {
-                errors["loginError"] = '';
-            }
+            } 
             
             
             if (!attrs.email) {
                 errors["emailError"] = "Please, input your email";
             } else if (!attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i)) {
                 errors["emailError"] = "Please, input a valid email";
-            } else {
-                errors["emailError"] = "";
-            }
+            } 
 
             if (!attrs.password) {
                 errors["passwordError"] = "Please, input your password";
             } else if (attrs.password.length < 5) {
                 errors["passwordError"] = 'Your password must have more than 5 characters';
-            } else {
-                errors["passwordError"] = '';
-            }
+            } 
         
-            return errors;
+            return _.isEmpty(errors) ? false : errors;
         }
     });
     return Model;

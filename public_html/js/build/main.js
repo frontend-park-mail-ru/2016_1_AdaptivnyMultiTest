@@ -62,28 +62,22 @@ define('models/User',['backbone'], function(Backbone) {
                 errors["loginError"] = "Please, input your login";
             } else if (/[^a-zA-Z0-9]/.test(attrs.login)) {
                 errors["loginError"] = 'Your login must consist of only letters and digits';
-            } else {
-                errors["loginError"] = '';
-            }
+            } 
             
             
             if (!attrs.email) {
                 errors["emailError"] = "Please, input your email";
             } else if (!attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i)) {
                 errors["emailError"] = "Please, input a valid email";
-            } else {
-                errors["emailError"] = "";
-            }
+            } 
 
             if (!attrs.password) {
                 errors["passwordError"] = "Please, input your password";
             } else if (attrs.password.length < 5) {
                 errors["passwordError"] = 'Your password must have more than 5 characters';
-            } else {
-                errors["passwordError"] = '';
-            }
+            } 
         
-            return errors;
+            return _.isEmpty(errors) ? false : errors;
         }
     });
     return Model;
@@ -103,6 +97,7 @@ define('models/Session',['backbone'], function(Backbone) {
         urlRoot : "api/session",
         
         sync: function (method, model, options) {
+            console.log("IN THE SYNC", method);
             if (method === "create") {
                 method = "update";
             }
@@ -119,19 +114,14 @@ define('models/Session',['backbone'], function(Backbone) {
                 errors['loginError'] = "Please, input your login";
             } else if (/[^a-zA-Z0-9]/.test(attrs.login)) {
                 errors['loginError'] = 'Your login must consist of only letters and digits';
-            } else {
-                errors['loginError'] = '';
-            }
+            } 
 
             if (!attrs.password) {
                 errors['passwordError'] = "Please, input your password";
             } else if (attrs.password.length < 5) {
                 errors['passwordError'] = 'Your password must have more than 5 characters';
-            } else {
-                errors['passwordError'] = '';
-            }
-            
-            return errors;
+            } 
+            return _.isEmpty(errors) ? false : errors;
         }
     });
 
@@ -585,14 +575,7 @@ define(
             initialize: function() {
                 self = this;
                 this.user.on('invalid', function (model, error) {
-                    // console.log(error["passwordError"]);
-                    // console.log(error["loginError"]);
-            
-                    //if (!errors["emailError"]) {
-                    //     console.log("ошибки в email нет")
-                    // } else {
-                    //     console.log(error["emailError"]);
-                    // }
+                   console.log(error["emailError"]);
                 });
 
                 this.session.on('invalid', function (model, error) {
@@ -671,7 +654,6 @@ define(
             handleLogin: function(e) {
                 e.preventDefault();
                 var self = this;
-                console.log("IN THE LOGIN");
                 this.session.save(
                     {
                         "login" : this.$(".js-input_login_login").val(),
