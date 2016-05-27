@@ -1,22 +1,10 @@
 require.config({ 
     baseUrl: "js",
     paths: {
-        jquery: [
-                "https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min", 
-                "lib/jquery"
-        ],
-        underscore: [
-                "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min", 
-                "lib/underscore"
-        ],
-        backbone: [
-                "https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min",
-                "lib/backbone"
-        ],
-        bootstrap: [
-                "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min",
-                "lib/bootstrap"
-        ]
+        jquery: "lib/jquery",
+        underscore: "lib/underscore",
+        backbone: "lib/backbone",
+        bootstrap: "lib/bootstrap"
     },
     shim: {
         'backbone': {

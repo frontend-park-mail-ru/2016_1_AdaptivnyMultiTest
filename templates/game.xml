@@ -1,8 +1,16 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <!--Тестирование, что json принимаем-->
+    <!-- <fest:value>
+        json.me 
+    </fest:value> -->
+   <!--  <fest:value>
+        json.enemy
+    </fest:value>
+ -->
     <div class="preloader">
         <div class="preloader__stripe">
             <div class="preloader__round">
-                <img class="preloader__logo" src="static/snake_logo.png"/>
+                <img class="preloader__logo" src="static/compressed/snake_logo.png"/>
             </div>
         </div>
         <h2 class="preloader__text">Поиск соперника</h2>

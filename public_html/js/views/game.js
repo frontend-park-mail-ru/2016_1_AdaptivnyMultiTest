@@ -11,6 +11,7 @@ define(
         var playerLineWidth = 6;
         var timeToWaitEnemy = 5000;
         var isEnemyFound = false;
+        var isPlayerPressedKey = false;
 
         var colorMap = {
             "red" : "#FF0000",
@@ -60,7 +61,7 @@ define(
                 });
 
                 return deferred.promise();
-            },            
+            },         
 
             initialize: function() {
                 _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
@@ -72,6 +73,7 @@ define(
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
+                    isPlayerPressedKey = false;
                     $(document).unbind('keydown', self.keyAction);
                 });
 
@@ -94,18 +96,17 @@ define(
                 this.listenTo(wsEvents, "GameStart", function() {
                     isEnemyFound = true;
                     self.removePreloader();
-                    self.handleDrawInitialPoints(); 
+                    self.handleDrawInitialPoints();
                 });
             },
 
             timeCounter: function() {
-                console.log(isEnemyFound);
                 var self = this;
                 setTimeout(function() { 
                     if (!isEnemyFound) {
                         self.removePreloader();
                         alert("Соперник не найден");
-                    }
+                    } 
                 }, timeToWaitEnemy);
             },
  
@@ -117,9 +118,9 @@ define(
                 $('body').addClass('js-body_loaded');
             },
 
-            render: function () {
-
+            render: function (isWaiting) {
                 this.$el.html(this.template());
+                    
                 var borderLineWidth = 5;
                 var meshesLineWidth = 1;
                 var canvasTag = this.$el.find("#gameCanvas")[0];
@@ -132,7 +133,7 @@ define(
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
-             
+                     
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -177,14 +178,18 @@ define(
             
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                this.renderPath(keyCodeMap[String(code)])
+                if (!isPlayerPressedKey) {
+                    this.renderPath(keyCodeMap[String(code)]);
+                    isPlayerPressedKey = true;
+                } 
             },
+
         
             show: function () {
+                api.initConnection();
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
-                api.initConnection();
                 this.timeCounter();
             },
             
@@ -217,4 +222,3 @@ define(
         return new View();
     }
 );
-

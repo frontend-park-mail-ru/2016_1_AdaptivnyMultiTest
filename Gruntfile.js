@@ -77,19 +77,12 @@ module.exports = function (grunt) {
         requirejs: {
             build: {
                 options: {
-                    //almond: true,
+                    almond: true,
                     baseUrl: "public_html/js",
                     mainConfigFile: "public_html/js/main.js",
                     name: "main",
                     optimize: "none",
                     out: "public_html/js/build/main.js",
-
-                    paths: {
-                        jquery: "empty:",
-                        underscore: "empty:",
-                        backbone: "empty:",
-                        bootstrap: "empty:"
-                    }
                 }
             }
         },
@@ -97,7 +90,7 @@ module.exports = function (grunt) {
             build: {
                 separator: ';\n',
                 src: [
-                      'public_html/js/lib/require.js',
+                      'public_html/js/lib/almond.js',
                       'public_html/js/build/main.js'
                 ],
                 dest: 'public_html/js/build.js'
@@ -148,7 +141,17 @@ module.exports = function (grunt) {
                 }
               ]
             }
-        }
+        },
+
+        concat_css: {
+            dist: {
+                options: {},
+                files: {
+                  'public_html/css/build/main_concat.css': ['public_html/css/build/tidyBootstrap-min.css', 
+                                                            'public_html/css/build/main-min.css'],
+                },
+            }
+  },
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -162,11 +165,11 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
 
-    //grunt.loadNpmTasks('grunt-contrib-compass');
-    //grunt.loadNpmTasks('grunt-uncss');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+    grunt.loadNpmTasks('grunt-concat-css');
 
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
@@ -178,7 +181,7 @@ module.exports = function (grunt) {
             [
                 'fest', 'requirejs:build',
                 'concat:build', 'uglify:build', 
-                'cssmin:dist'
+                'cssmin:dist', 'concat_css:dist'
             ]
     );
 };

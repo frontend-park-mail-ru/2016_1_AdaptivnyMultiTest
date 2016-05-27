@@ -11,7 +11,7 @@
                     <fest:for iterate="json" index="i" value="v">
                         <li class="scoreboard__row">
                             <span class="scoreboard__user-login">
-                                <fest:value output="text">
+                                <fest:value>
                                     v.login
                                 </fest:value>
                             </span>
