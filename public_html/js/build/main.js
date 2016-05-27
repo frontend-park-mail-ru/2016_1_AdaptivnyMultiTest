@@ -86,6 +86,7 @@ define('models/User',['backbone'], function(Backbone) {
 define('models/Session',['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
+
     var Model = Backbone.Model.extend({
         defaults: {
             id : "",
@@ -95,9 +96,42 @@ define('models/Session',['backbone'], function(Backbone) {
         },
         
         urlRoot : "api/session",
+
+        initialize: function() {
+            this.userSession = window.sessionStorage;
+        },
         
+        putInSessionStorage: function(sessionIdUser, userName) {
+            this.userSession.setItem(sessionIdUser, userName);
+        },
+
+        getAllSessionStorage: function() {
+            return this.userSession;
+        },
+
+        getSessionStorageById: function(sessionIdUser) {
+            return this.userSession.getItem(sessionIdUser);
+        },
+
+        removeSessionStorage: function(sessionIdUser) {
+            this.userSession.removeItem(sessionIdUser);
+        },
+
+        checkUserLogged: function() {
+            var deferred = $.Deferred();
+            var self = this;
+            this.fetch({
+                success : function() {
+                    deferred.resolve();
+                }, error : function(model, xhr, options) {    
+                    deferred.reject();
+                }
+            });
+            return deferred.promise();
+        },
+
+
         sync: function (method, model, options) {
-            console.log("IN THE SYNC", method);
             if (method === "create") {
                 method = "update";
             }
@@ -598,7 +632,9 @@ define(
             handleLogout: function(e) {
                 e.preventDefault();
                 this.session.set({"isLogged" : false});
+                this.session.removeSessionStorage(this.session.get("id"));
                 this.session.destroy();
+                this.viewForUnloggedUser();
             },
 
             viewForLoggedUser: function() {
@@ -657,8 +693,9 @@ define(
                         "login" : this.$(".js-input_login_login").val(),
                         "password" : this.$(".js-input_login_password").val()
                     }, {
-                    success : function() {
+                    success : function(model, response, options) {
                         self.session.set({"isLogged" : true});
+                        self.session.putInSessionStorage(model.get("id"), model.get("login"));
                         alert('success login');
                     },
                     error : function(model, xhr, options) {
@@ -671,10 +708,16 @@ define(
             },
 
             show: function () {
+                var self = this;
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
                 this.$(".js-logout-header").addClass("main__stripe_hidden");
+                this.session.checkUserLogged().done(function() {
+                    self.viewForLoggedUser();
+                }).fail(function(){
+                    self.viewForUnloggedUser();
+                });
             },
 
             hide: function () {

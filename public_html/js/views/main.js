@@ -47,7 +47,9 @@ define(
             handleLogout: function(e) {
                 e.preventDefault();
                 this.session.set({"isLogged" : false});
+                this.session.removeSessionStorage(this.session.get("id"));
                 this.session.destroy();
+                this.viewForUnloggedUser();
             },
 
             viewForLoggedUser: function() {
@@ -106,8 +108,9 @@ define(
                         "login" : this.$(".js-input_login_login").val(),
                         "password" : this.$(".js-input_login_password").val()
                     }, {
-                    success : function() {
+                    success : function(model, response, options) {
                         self.session.set({"isLogged" : true});
+                        self.session.putInSessionStorage(model.get("id"), model.get("login"));
                         alert('success login');
                     },
                     error : function(model, xhr, options) {
@@ -120,10 +123,16 @@ define(
             },
 
             show: function () {
+                var self = this;
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
                 this.$(".js-logout-header").addClass("main__stripe_hidden");
+                this.session.checkUserLogged().done(function() {
+                    self.viewForLoggedUser();
+                }).fail(function(){
+                    self.viewForUnloggedUser();
+                });
             },
 
             hide: function () {

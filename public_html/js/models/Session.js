@@ -1,6 +1,7 @@
 define(['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
+
     var Model = Backbone.Model.extend({
         defaults: {
             id : "",
@@ -10,9 +11,42 @@ define(['backbone'], function(Backbone) {
         },
         
         urlRoot : "api/session",
+
+        initialize: function() {
+            this.userSession = window.sessionStorage;
+        },
         
+        putInSessionStorage: function(sessionIdUser, userName) {
+            this.userSession.setItem(sessionIdUser, userName);
+        },
+
+        getAllSessionStorage: function() {
+            return this.userSession;
+        },
+
+        getSessionStorageById: function(sessionIdUser) {
+            return this.userSession.getItem(sessionIdUser);
+        },
+
+        removeSessionStorage: function(sessionIdUser) {
+            this.userSession.removeItem(sessionIdUser);
+        },
+
+        checkUserLogged: function() {
+            var deferred = $.Deferred();
+            var self = this;
+            this.fetch({
+                success : function() {
+                    deferred.resolve();
+                }, error : function(model, xhr, options) {    
+                    deferred.reject();
+                }
+            });
+            return deferred.promise();
+        },
+
+
         sync: function (method, model, options) {
-            console.log("IN THE SYNC", method);
             if (method === "create") {
                 method = "update";
             }
