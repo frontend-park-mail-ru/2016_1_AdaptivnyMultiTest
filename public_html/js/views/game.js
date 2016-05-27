@@ -94,20 +94,17 @@ define(
                 this.listenTo(wsEvents, "GameStart", function() {
                     isEnemyFound = true;
                     self.removePreloader();
-                    self.handleDrawInitialPoints(); //HEY!
-                });
-
-                this.listenTo(this, "EnemyNotFound", function() {
-                    self.removePreloader();
-                    alert("Соперник не найден");
+                    self.handleDrawInitialPoints(); 
                 });
             },
 
             timeCounter: function() {
+                console.log(isEnemyFound);
                 var self = this;
                 setTimeout(function() { 
                     if (!isEnemyFound) {
-                        self.trigger("EnemyNotFound");
+                        self.removePreloader();
+                        alert("Соперник не найден");
                     }
                 }, timeToWaitEnemy);
             },
@@ -193,6 +190,7 @@ define(
             
             hide: function () {
                 this.addPreloader();
+                isEnemyFound = false;
                 $(document).unbind('keydown', this.keyAction);
                 api.close();
                 this.$el.hide();
