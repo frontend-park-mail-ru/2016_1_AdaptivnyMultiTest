@@ -21,13 +21,20 @@ define(
 
             initialize: function() {
                 self = this;
-                
                 this.user.on('invalid', function (model, error) {
-                    alert(error);
+                    // console.log(error["passwordError"]);
+                    // console.log(error["loginError"]);
+            
+                    //if (!errors["emailError"]) {
+                    //     console.log("ошибки в email нет")
+                    // } else {
+                    //     console.log(error["emailError"]);
+                    // }
                 });
 
                 this.session.on('invalid', function (model, error) {
-                    alert(error);
+                    console.log(error["passwordError"]);
+                    console.log(error["loginError"]);
                 });
 
                 this.listenTo(game, 'UnauthorizedUser', function() {
@@ -101,6 +108,7 @@ define(
             handleLogin: function(e) {
                 e.preventDefault();
                 var self = this;
+                console.log("IN THE LOGIN");
                 this.session.save(
                     {
                         "login" : this.$(".js-input_login_login").val(),
@@ -114,6 +122,7 @@ define(
                         if (xhr.status === 400) {
                             alert("this user doesn't exists");
                         }
+                        console.log("ANOTHER ERROR");
                     }
                 });
             },

@@ -77,12 +77,19 @@ module.exports = function (grunt) {
         requirejs: {
             build: {
                 options: {
-                    almond: true,
+                    //almond: true,
                     baseUrl: "public_html/js",
                     mainConfigFile: "public_html/js/main.js",
                     name: "main",
                     optimize: "none",
-                    out: "public_html/js/build/main.js"
+                    out: "public_html/js/build/main.js",
+
+                    paths: {
+                        jquery: "empty:",
+                        underscore: "empty:",
+                        backbone: "empty:",
+                        bootstrap: "empty:"
+                    }
                 }
             }
         },
@@ -90,7 +97,7 @@ module.exports = function (grunt) {
             build: {
                 separator: ';\n',
                 src: [
-                      'public_html/js/lib/almond.js',
+                      'public_html/js/lib/require.js',
                       'public_html/js/build/main.js'
                 ],
                 dest: 'public_html/js/build.js'
@@ -107,8 +114,39 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {
                 files: [
-                    { src: 'public_html/css/main.css', dest: 'public_html/css/build/main-min.css' }
+                    { src: 'public_html/css/main.css', dest: 'public_html/css/build/main-min.css' },
+                    { src: 'public_html/css/tidyBootstrap.css', dest: 'public_html/css/build/tidyBootstrap-min.css' }
                 ]
+            }
+        },
+        imagemin: {
+            png: {
+              options: {
+                optimizationLevel: 7
+              },
+              files: [
+                {
+                  expand: true,
+                  cwd: 'public_html/static/',
+                  src: ['**/*.png'],
+                  dest: 'public_html/static/compressed/',
+                  ext: '.png'
+                }
+              ]
+            },
+            jpg: {
+              options: {
+                progressive: true
+              },
+              files: [
+                {
+                  expand: true,
+                  cwd: 'public_html/static/',
+                  src: ['**/*.jpg'],
+                  dest: 'public_html/static/compressed/',
+                  ext: '.jpg'
+                }
+              ]
             }
         }
     });
@@ -126,14 +164,15 @@ module.exports = function (grunt) {
 
     //grunt.loadNpmTasks('grunt-contrib-compass');
     //grunt.loadNpmTasks('grunt-uncss');
-    //grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
     grunt.registerTask('compile', ['sass']);
-    
+    grunt.registerTask('imageMin', ['imagemin'])
+
     grunt.registerTask(
         'build',
             [

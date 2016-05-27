@@ -30,13 +30,8 @@ define(
 
             model : new gameSession(),
             session : new session(),
-
-            events : {
-                'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
-            },
-        
+ 
             handleDrawInitialPoints: function(e) {
-                e.preventDefault();
                 var radius = 5 / scaleCoeff;
                 var circleLineWidth = 5;
                 var xRed = this.model.get("red")["x"];
@@ -46,13 +41,6 @@ define(
 
                 drawCircle(this.canvas, scaleCoeff, xRed, yRed, radius, colorMap["red"], circleLineWidth);
                 drawCircle(this.canvas, scaleCoeff, xBlue, yBlue, radius, colorMap["blue"], circleLineWidth);
-
-                this.delete_event("click canvas#gameCanvas");
-            },
-
-            delete_event: function(eventName) {
-                delete this.events[eventName];
-                this.delegateEvents();
             },
 
             isAuth : function() {
@@ -106,6 +94,7 @@ define(
                 this.listenTo(wsEvents, "GameStart", function() {
                     isEnemyFound = true;
                     self.removePreloader();
+                    self.handleDrawInitialPoints(); //HEY!
                 });
 
                 this.listenTo(this, "EnemyNotFound", function() {
