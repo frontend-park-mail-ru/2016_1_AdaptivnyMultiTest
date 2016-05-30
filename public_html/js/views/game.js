@@ -90,7 +90,7 @@ define(
                 });
 
                 this.listenTo(wsEvents, "ConnectionFailed", function() {
-                    alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
+                    $('.js-modal-no-response-from-server').modal('show');
                 });
 
                 this.listenTo(wsEvents, "GameStart", function() {
@@ -105,7 +105,7 @@ define(
                 setTimeout(function() { 
                     if (!isEnemyFound) {
                         self.removePreloader();
-                        alert("Соперник не найден");
+                        $('.js-modal-no-enemy').modal('show');
                     } 
                 }, timeToWaitEnemy);
             },
@@ -184,7 +184,6 @@ define(
                 } 
             },
 
-        
             show: function () {
                 api.initConnection();
                 this.render();
@@ -197,6 +196,8 @@ define(
                 this.addPreloader();
                 isEnemyFound = false;
                 $(document).unbind('keydown', this.keyAction);
+                this.$('.js-modal-no-enemy').modal('hide');
+                this.$('.js-modal-no-response-from-server').modal('hide');
                 api.close();
                 this.$el.hide();
             }

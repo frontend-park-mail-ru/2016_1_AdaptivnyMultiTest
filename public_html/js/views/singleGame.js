@@ -120,7 +120,6 @@ define(
                 }
             },
     
-
             determinePossibleEnemyState: function() {
                 var states = ["left", "top", "right", "bottom"];
                 var possibleStates = [];
@@ -196,7 +195,6 @@ define(
                 }
             },
 
-            
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
                 this.renderPath(keyCodeMap[String(code)]);

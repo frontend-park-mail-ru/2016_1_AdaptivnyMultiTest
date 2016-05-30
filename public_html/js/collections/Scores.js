@@ -14,5 +14,6 @@ define(
             }
         });
         return Collection;
-});
+    }
+);
 

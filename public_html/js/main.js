@@ -21,10 +21,3 @@ require.config({
 });
 
 require([ 'bootstrap','router'/*, 'app'*/]);
-
-
-
-
-
-
-

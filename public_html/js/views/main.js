@@ -31,7 +31,8 @@ define(
                 });
 
                 this.listenTo(game, 'UnauthorizedUser', function() {
-                    alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
+                    console.log("11");
+                    $('.js-modal-no-login-for-game').modal('show');
                 });
 
         
@@ -111,7 +112,10 @@ define(
                     success : function(model, response, options) {
                         self.session.set({"isLogged" : true});
                         self.session.putInSessionStorage(model.get("id"), model.get("login"));
-                        alert('success login');
+                        self.$('.js-modal-success-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-success-login').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 400) {
@@ -138,9 +142,11 @@ define(
             hide: function () {
                 this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
+                this.$('.js-modal-no-login-for-game').modal('hide');
+                this.$('.js-modal-success-login').modal('hide');
             }
         });
+
         return new View();
     }
 );
-
