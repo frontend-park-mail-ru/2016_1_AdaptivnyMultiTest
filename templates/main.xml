@@ -1,36 +1,4 @@
  <fest:template xmlns:fest="http://fest.mail.ru">
-    <div class="bs-modal modal fade js-modal-no-login-for-game" role="dialog" aria-hidden="true">
-        <div class="bs-modal__area modal-dialog">
-            <div class="bs-modal__content modal-content">
-                <div class="bs-modal__header modal-header">
-                    <button type="button" class="bs-modal__btn-close close" data-dismiss="modal">x</button>
-                    <h4 class="bs-modal__title modal-title">Авторизуйтесь!</h4>
-                </div>
-
-                <div class="bs-modal__text modal-body">
-                    <p>Чтобы играть с другими людьми Вам необходимо авторизоваться. И создайте учетную запись, если еще не сделали этого. Гостям доступна одиночная игра.</p>
-                </div>
-                <div class="bs-modal__footer modal-footer">
-                    <a class="bs-modal__btn btn btn-default" href="#singleGame">Сыграть одиночую игру</a>
-                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bs-modal modal fade js-modal-success-login" role="dialog" aria-hidden="true">
-        <div class="bs-modal__area modal-dialog">
-            <div class="bs-modal__content modal-content">
-                <div class="bs-modal__text modal-body">
-                    <h2>Вы успешно авторизовались</h2>
-                </div>
-                <div class="bs-modal__footer modal-footer">
-                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     <div class="main">
         <dl class="main__menu js-main__menu">
             <dt class="main__stripe js-main__stripe">
