@@ -5,7 +5,6 @@ define(
         var tmpl = require('tmpl/singleGame');
         var singleGameSession = require('models/Game/SingleGame');
         var scaleCoeff;
-        var playerLineWidth = 6;
     
         var colorMap = {
             "red" : "#FF0000",
@@ -24,6 +23,8 @@ define(
             template: tmpl,
        
             model : new singleGameSession(),
+
+            playerLineWidth : 6,
 
             events : {
                 'click #Quit' : 'handleQuit'
@@ -95,7 +96,7 @@ define(
                     startY = playerPoints[i]["y"];
                     endX = playerPoints[i + 1]["x"];
                     endY = playerPoints[i + 1]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, this.playerLineWidth);
                 }
             },
 
@@ -150,7 +151,7 @@ define(
                     var startY = this.model.get("current")["blue"]["y"];
                     var endX = this.model.get("possibilities")["blue"][state]["x"];
                     var endY = this.model.get("possibilities")["blue"][state]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], this.playerLineWidth);
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
                     this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
@@ -181,7 +182,7 @@ define(
                         var startY = this.model.get("current")["red"]["y"];
                         var endX = this.model.get("possibilities")["red"][state]["x"];
                         var endY = this.model.get("possibilities")["red"][state]["y"];
-                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
+                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], this.playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
                         this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
 
