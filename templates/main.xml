@@ -30,7 +30,46 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="bs-modal modal fade js-modal-invalid-login" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__text modal-body">
+                    <h2>Неверные входные данные</h2>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-modal modal fade js-modal-success-signup" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__text modal-body">
+                    <h2>Вы успешно зарегестрировались</h2>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-modal modal fade js-modal-invalid-signup" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__text modal-body">
+                    <h2>Такой пользователь уже существует</h2>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="main">
         <dl class="main__menu js-main__menu">
             <dt class="main__stripe js-main__stripe">

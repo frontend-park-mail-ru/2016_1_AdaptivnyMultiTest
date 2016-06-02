@@ -5,7 +5,6 @@ define(
         var tmpl = require('tmpl/singleGame');
         var singleGameSession = require('models/Game/SingleGame');
         var scaleCoeff;
-        var playerLineWidth = 6;
     
         var colorMap = {
             "red" : "#FF0000",
@@ -25,6 +24,7 @@ define(
        
             model : new singleGameSession(),
 
+            playerLineWidth : 6,
             events : {
                 'click #Quit' : 'handleQuit'
             },
@@ -95,7 +95,7 @@ define(
                     startY = playerPoints[i]["y"];
                     endX = playerPoints[i + 1]["x"];
                     endY = playerPoints[i + 1]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, this.playerLineWidth);
                 }
             },
 
@@ -144,13 +144,13 @@ define(
                 var state = this.determinePossibleEnemyState();
 
                 if( state === null ) {
-                    alert("Вы выиграли!");
+                    $('.js-modal-player-won').modal('show');
                 } else {
                     var startX = this.model.get("current")["blue"]["x"];
                     var startY = this.model.get("current")["blue"]["y"];
                     var endX = this.model.get("possibilities")["blue"][state]["x"];
                     var endY = this.model.get("possibilities")["blue"][state]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], this.playerLineWidth);
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
                     this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
@@ -181,17 +181,17 @@ define(
                         var startY = this.model.get("current")["red"]["y"];
                         var endX = this.model.get("possibilities")["red"][state]["x"];
                         var endY = this.model.get("possibilities")["red"][state]["y"];
-                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
+                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], this.playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
                         this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
 
                         $(document).unbind('keydown', this.keyAction);
                         this.drawEnemyPath();
                     } else {
-                        alert("Вы не можете так идти!");
+                        $('.js-modal-wrong-way').modal('show');
                     }
                 } else {
-                    alert("Вы проиграли");
+                    $('.js-modal-player-loose').modal('show');
                 }
             },
 

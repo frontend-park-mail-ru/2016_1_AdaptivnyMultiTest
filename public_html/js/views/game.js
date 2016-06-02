@@ -8,11 +8,7 @@ define(
         var api = require('api/web-sockets');
         var wsEvents = require('api/eventDispatcher'); 
         var scaleCoeff;
-        var playerLineWidth = 6;
-        var timeToWaitEnemy = 5000;
-        var isEnemyFound = false;
-        var isPlayerPressedKey = false;
-
+        
         var colorMap = {
             "red" : "#FF0000",
             "blue" : "#004DFF",
@@ -31,8 +27,17 @@ define(
 
             model : new gameSession(),
             session : new session(),
- 
+            
+            playerLineWidth : 6,
+            timeToWaitEnemy : 5000,
+            isEnemyFound : false,            
+            
+            events : {
+                'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
+            },
+           
             handleDrawInitialPoints: function(e) {
+                e.preventDefault();
                 var radius = 5 / scaleCoeff;
                 var circleLineWidth = 5;
                 var xRed = this.model.get("red")["x"];
@@ -42,6 +47,13 @@ define(
 
                 drawCircle(this.canvas, scaleCoeff, xRed, yRed, radius, colorMap["red"], circleLineWidth);
                 drawCircle(this.canvas, scaleCoeff, xBlue, yBlue, radius, colorMap["blue"], circleLineWidth);
+
+                this.delete_event("click canvas#gameCanvas");
+            },
+
+            delete_event: function(eventName) {
+                delete this.events[eventName];
+                this.delegateEvents();
             },
 
             isAuth : function() {
@@ -61,7 +73,7 @@ define(
                 });
 
                 return deferred.promise();
-            },         
+            },            
 
             initialize: function() {
                 _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
@@ -73,19 +85,18 @@ define(
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
-                    isPlayerPressedKey = false;
                     $(document).unbind('keydown', self.keyAction);
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
-                    alert("Ваш противник вышел из игры");
+                    $('.js-modal-enemy-exit').modal('show');
                 });
 
                 this.listenTo(this.model, "Winner was determined", function() {
                     if (self.model.get("win")) {
-                        alert("Вы выиграли!");
+                        $('.js-modal-player-won').modal('show');
                     } else {
-                        alert("Вы проиграли!");
+                        $('.js-modal-player-loose').modal('show');
                     }
                 });
 
@@ -94,9 +105,12 @@ define(
                 });
 
                 this.listenTo(wsEvents, "GameStart", function() {
-                    isEnemyFound = true;
+                    self.isEnemyFound = true;
                     self.removePreloader();
-                    self.handleDrawInitialPoints();
+                });
+
+                this.listenTo(this, "EnemyNotFound", function() {
+                    self.removePreloader();
                 });
             },
 
@@ -107,7 +121,7 @@ define(
                         self.removePreloader();
                         $('.js-modal-no-enemy').modal('show');
                     } 
-                }, timeToWaitEnemy);
+                }, self.timeToWaitEnemy);
             },
  
             addPreloader: function() {
@@ -118,9 +132,9 @@ define(
                 $('body').addClass('js-body_loaded');
             },
 
-            render: function (isWaiting) {
+            render: function () {
+
                 this.$el.html(this.template());
-                    
                 var borderLineWidth = 5;
                 var meshesLineWidth = 1;
                 var canvasTag = this.$el.find("#gameCanvas")[0];
@@ -133,7 +147,7 @@ define(
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
-                     
+             
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -148,7 +162,7 @@ define(
                 var endX = this.model.get("enemyMove")["x"];
                 var endY = this.model.get("enemyMove")["y"];
 
-                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], playerLineWidth);
+                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], this.playerLineWidth);
                 
                 this.model.get(enemyCurrent)["x"] = this.model.get("enemyMove")["x"];
                 this.model.get(enemyCurrent)["y"] = this.model.get("enemyMove")["y"]; 
@@ -166,35 +180,31 @@ define(
                     var startY = this.model.get(color)["y"];
                     var endX = this.model.get(state)["x"];
                     var endY = this.model.get(state)["y"]
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], this.playerLineWidth)
                     this.model.get(color)["x"] = this.model.get(state)["x"];
                     this.model.get(color)["y"] = this.model.get(state)["y"];
                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
                 } else {
-                    alert("Вы не можете так идти!");
+                    $('.js-modal-wrong-way').modal('show');
                 }
             },
 
             
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                if (!isPlayerPressedKey) {
-                    this.renderPath(keyCodeMap[String(code)]);
-                    isPlayerPressedKey = true;
-                } 
+                this.renderPath(keyCodeMap[String(code)])
             },
-
+        
             show: function () {
-                api.initConnection();
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
+                api.initConnection();
                 this.timeCounter();
             },
             
             hide: function () {
                 this.addPreloader();
-                isEnemyFound = false;
                 $(document).unbind('keydown', this.keyAction);
                 api.close();
                 this.$el.hide();

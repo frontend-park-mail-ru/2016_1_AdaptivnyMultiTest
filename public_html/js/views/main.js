@@ -90,11 +90,17 @@ define(
                         "password" : this.$( ".js-input_signup_password" ).val()
                     }, {
                     success : function() {
-                        alert('success signup');
+                        this.$('.js-modal-success-signup').modal('show');
+                        setTimeout(function () {
+                            this.$('.js-modal-success-signup').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 403) {
-                            alert('this user already exists');
+                            this.$('.js-modal-invalid-signup').modal('show');
+                        setTimeout(function () {
+                            this.$('.js-modal-invalid-signup').modal('hide');
+                        }, 2000);
                         }
                     }
                 });
@@ -118,7 +124,10 @@ define(
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 400) {
-                            alert("this user doesn't exists");
+                            self.$('.js-modal-invalid-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-invalid-login').modal('hide');
+                        }, 2000);
                         }
                         console.log("ANOTHER ERROR");
                     }
