@@ -16075,7 +16075,6 @@ define(
                 });
 
                 this.listenTo(game, 'UnauthorizedUser', function() {
-                    console.log("11");
                     $('.js-modal-no-login-for-game').modal('show');
                 });
 
