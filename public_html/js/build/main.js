@@ -15057,7 +15057,7 @@ define(
 );
 
 
-define('tmpl/main',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main\"><dl class=\"main__menu js-main__menu\"><dt class=\"main__stripe js-main__stripe\">Multi Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#game\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Single Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#singleGame\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Scoreboard</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#scoreboard\">Top scores</a></dd><dt class=\"main__stripe js-main__stripe js-logout-header\">Log out</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn js-main__btn_logout\">Logout</a></dd><dt class=\"main__stripe js-main__stripe js-login-header\">Login</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_login\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_login_login\" type=\"text\" name=\"username\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_login_password\" type=\"password\" name=\"password\" placeholder=\"Your password\"/></div></div><div><button class=\"main__btn btn\" type=\"submit\">Login!</button></div></form></dd><dt class=\"main__stripe js-main__stripe js-signup-header\">Sign up</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_signup\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"email\">Email</label><div><input class=\"input-field__input form-control js-input_signup_email\" type=\"text\" name=\"signupEmail\" placeholder=\"Your email\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_signup_login\" type=\"text\" name=\"signupLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_signup_password\" type=\"password\" name=\"signupPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"btn\" type=\"submit\">Sign up!</button></div></form></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('tmpl/main',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"bs-modal modal fade js-modal-no-login-for-game\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Авторизуйтесь!</h4></div><div class=\"bs-modal__text modal-body\"><p>Чтобы играть с другими людьми Вам необходимо авторизоваться. И создайте учетную запись, если еще не сделали этого. Гостям доступна одиночная игра.</p></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#singleGame\">Сыграть одиночую игру</a><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"bs-modal modal fade js-modal-success-login\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы успешно авторизовались</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"main\"><dl class=\"main__menu js-main__menu\"><dt class=\"main__stripe js-main__stripe\">Multi Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#game\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Single Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#singleGame\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Scoreboard</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#scoreboard\">Top scores</a></dd><dt class=\"main__stripe js-main__stripe js-logout-header\">Log out</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn js-main__btn_logout\">Logout</a></dd><dt class=\"main__stripe js-main__stripe js-login-header\">Login</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_login\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_login_login\" type=\"text\" name=\"username\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_login_password\" type=\"password\" name=\"password\" placeholder=\"Your password\"/></div></div><div><button class=\"main__btn btn\" type=\"submit\">Login!</button></div></form></dd><dt class=\"main__stripe js-main__stripe js-signup-header\">Sign up</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_signup\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"email\">Email</label><div><input class=\"input-field__input form-control js-input_signup_email\" type=\"text\" name=\"signupEmail\" placeholder=\"Your email\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_signup_login\" type=\"text\" name=\"signupLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_signup_password\" type=\"password\" name=\"signupPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"btn\" type=\"submit\">Sign up!</button></div></form></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('models/User',['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
@@ -15188,7 +15188,7 @@ define('models/Session',['backbone'], function(Backbone) {
     return Model;
 });
 
-define('tmpl/game',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"preloader\"><div class=\"preloader__stripe\"><div class=\"preloader__round\"><img class=\"preloader__logo\" src=\"static\/snake_logo.png\"/></div></div><h2 class=\"preloader__text\">Поиск соперника</h2><div class=\"preloader__left-curtain\"></div><div class=\"preloader__right-curtain\"></div></div><div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" href=\"#main\">Quit</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('tmpl/game',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"preloader\"><div class=\"preloader__stripe\"><div class=\"preloader__round\"><img class=\"preloader__logo\" src=\"static\/compressed\/snake_logo.png\"/></div></div><h2 class=\"preloader__text\">Поиск соперника</h2><div class=\"preloader__left-curtain\"></div><div class=\"preloader__right-curtain\"></div></div><div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" href=\"#main\">Quit</a></div><div class=\"bs-modal modal fade js-modal-no-enemy\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Соперник не найден</h4></div><div class=\"bs-modal__text modal-body\"><p>К сожалению сейчас нет свободных игроков. Загляните попозже или сыграйте в одиночную игру</p></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-no-response-from-server\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Сервер не отвечает</h4></div><div class=\"bs-modal__text modal-body\"><p>По каким-то причинам сервер сейчас недоступен. Проверьте соединение с интернетом, сыграйте в одиночную игру и подождите пока мы решим проблему</p></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#singleGame\">Одиночная игра</a><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">В главное меню</a></div></div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'api/eventDispatcher',['require','backbone'],function (require) {
         'use strict';
@@ -15399,7 +15399,11 @@ define(
         var api = require('api/web-sockets');
         var wsEvents = require('api/eventDispatcher'); 
         var scaleCoeff;
-        
+        var playerLineWidth = 6;
+        var timeToWaitEnemy = 5000;
+        var isEnemyFound = false;
+        var isPlayerPressedKey = false;
+
         var colorMap = {
             "red" : "#FF0000",
             "blue" : "#004DFF",
@@ -15418,17 +15422,8 @@ define(
 
             model : new gameSession(),
             session : new session(),
-            
-            playerLineWidth : 6,
-            timeToWaitEnemy : 5000,
-            isEnemyFound : false,            
-            
-            events : {
-                'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
-            },
-           
+ 
             handleDrawInitialPoints: function(e) {
-                e.preventDefault();
                 var radius = 5 / scaleCoeff;
                 var circleLineWidth = 5;
                 var xRed = this.model.get("red")["x"];
@@ -15438,13 +15433,6 @@ define(
 
                 drawCircle(this.canvas, scaleCoeff, xRed, yRed, radius, colorMap["red"], circleLineWidth);
                 drawCircle(this.canvas, scaleCoeff, xBlue, yBlue, radius, colorMap["blue"], circleLineWidth);
-
-                this.delete_event("click canvas#gameCanvas");
-            },
-
-            delete_event: function(eventName) {
-                delete this.events[eventName];
-                this.delegateEvents();
             },
 
             isAuth : function() {
@@ -15464,7 +15452,7 @@ define(
                 });
 
                 return deferred.promise();
-            },            
+            },         
 
             initialize: function() {
                 _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
@@ -15476,6 +15464,7 @@ define(
                 });
 
                 this.listenTo(this.model, 'turnOffKeyboard', function() {
+                    isPlayerPressedKey = false;
                     $(document).unbind('keydown', self.keyAction);
                 });
 
@@ -15492,27 +15481,24 @@ define(
                 });
 
                 this.listenTo(wsEvents, "ConnectionFailed", function() {
-                    alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
+                    $('.js-modal-no-response-from-server').modal('show');
                 });
 
                 this.listenTo(wsEvents, "GameStart", function() {
-                    self.isEnemyFound = true;
+                    isEnemyFound = true;
                     self.removePreloader();
-                });
-
-                this.listenTo(this, "EnemyNotFound", function() {
-                    self.removePreloader();
-                    alert("Соперник не найден");
+                    self.handleDrawInitialPoints();
                 });
             },
 
             timeCounter: function() {
                 var self = this;
                 setTimeout(function() { 
-                    if (!self.isEnemyFound) {
-                        self.trigger("EnemyNotFound");
-                    }
-                }, self.timeToWaitEnemy);
+                    if (!isEnemyFound) {
+                        self.removePreloader();
+                        $('.js-modal-no-enemy').modal('show');
+                    } 
+                }, timeToWaitEnemy);
             },
  
             addPreloader: function() {
@@ -15523,9 +15509,9 @@ define(
                 $('body').addClass('js-body_loaded');
             },
 
-            render: function () {
-
+            render: function (isWaiting) {
                 this.$el.html(this.template());
+                    
                 var borderLineWidth = 5;
                 var meshesLineWidth = 1;
                 var canvasTag = this.$el.find("#gameCanvas")[0];
@@ -15538,7 +15524,7 @@ define(
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
-             
+                     
                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
@@ -15553,7 +15539,7 @@ define(
                 var endX = this.model.get("enemyMove")["x"];
                 var endY = this.model.get("enemyMove")["y"];
 
-                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], this.playerLineWidth);
+                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], playerLineWidth);
                 
                 this.model.get(enemyCurrent)["x"] = this.model.get("enemyMove")["x"];
                 this.model.get(enemyCurrent)["y"] = this.model.get("enemyMove")["y"]; 
@@ -15571,7 +15557,7 @@ define(
                     var startY = this.model.get(color)["y"];
                     var endX = this.model.get(state)["x"];
                     var endY = this.model.get(state)["y"]
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], this.playerLineWidth)
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
                     this.model.get(color)["x"] = this.model.get(state)["x"];
                     this.model.get(color)["y"] = this.model.get(state)["y"];
                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
@@ -15583,20 +15569,26 @@ define(
             
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
-                this.renderPath(keyCodeMap[String(code)])
+                if (!isPlayerPressedKey) {
+                    this.renderPath(keyCodeMap[String(code)]);
+                    isPlayerPressedKey = true;
+                } 
             },
-        
+
             show: function () {
+                api.initConnection();
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
-                api.initConnection();
                 this.timeCounter();
             },
             
             hide: function () {
                 this.addPreloader();
+                isEnemyFound = false;
                 $(document).unbind('keydown', this.keyAction);
+                this.$('.js-modal-no-enemy').modal('hide');
+                this.$('.js-modal-no-response-from-server').modal('hide');
                 api.close();
                 this.$el.hide();
             }
@@ -15622,230 +15614,6 @@ define(
         return new View();
     }
 );
-
-// define(
-//     function (require) {
-//         'use strict';
-//         var Backbone = require('backbone');
-//         var tmpl = require('tmpl/game');
-//         var gameSession = require('models/Game/GameSession');
-//         var session = require('models/Session'); 
-//         var api = require('api/web-sockets');
-//         var wsEvents = require('api/eventDispatcher'); 
-//         var scaleCoeff;
-//         var playerLineWidth = 6;
-//         var timeToWaitEnemy = 5000;
-//         var isEnemyFound = false;
-//         var isPlayerPressedKey = false;
-
-//         var colorMap = {
-//             "red" : "#FF0000",
-//             "blue" : "#004DFF",
-//             "black" : "#000000"
-//         };
-
-//         var keyCodeMap = {
-//             "37" : "left",
-//             "38" : "top",
-//             "39" : "right",
-//             "40" : "bottom"
-//         };
-
-//         var View = Backbone.View.extend({
-//             template: tmpl,
-
-//             model : new gameSession(),
-//             session : new session(),
- 
-//             handleDrawInitialPoints: function(e) {
-//                 var radius = 5 / scaleCoeff;
-//                 var circleLineWidth = 5;
-//                 var xRed = this.model.get("red")["x"];
-//                 var yRed = this.model.get("red")["y"];
-//                 var xBlue = this.model.get("blue")["x"];
-//                 var yBlue = this.model.get("blue")["y"];
-
-//                 drawCircle(this.canvas, scaleCoeff, xRed, yRed, radius, colorMap["red"], circleLineWidth);
-//                 drawCircle(this.canvas, scaleCoeff, xBlue, yBlue, radius, colorMap["blue"], circleLineWidth);
-//             },
-
-//             isAuth : function() {
-//                 var deferred = $.Deferred();
-//                 var self = this;
-//                 this.session.fetch({
-//                     success : function() {
-//                         deferred.resolve();
-//                     }, error : function(model, xhr, options) {
-//                         if( xhr.status === 401 ) {
-//                             self.trigger("UnauthorizedUser");
-//                             deferred.reject();
-//                         } else {
-//                             deferred.resolve();
-//                         }
-//                     }
-//                 });
-
-//                 return deferred.promise();
-//             },         
-
-//             initialize: function() {
-//                 _.bindAll(this,'keyAction', 'renderPath', 'handleDrawInitialPoints');
-
-//                 var self = this;
-//                 this.listenTo(this.model, 'turnOnKeyboard', function() {
-//                     self.drawEnemyPath();
-//                     $(document).bind('keydown', self.keyAction);
-//                 });
-
-//                 this.listenTo(this.model, 'turnOffKeyboard', function() {
-//                     isPlayerPressedKey = false;
-//                     $(document).unbind('keydown', self.keyAction);
-//                 });
-
-//                 this.listenTo(this.model, "EnemyExit", function() {
-//                     alert("Ваш противник вышел из игры");
-//                 });
-
-//                 this.listenTo(this.model, "Winner was determined", function() {
-//                     if (self.model.get("win")) {
-//                         alert("Вы выиграли!");
-//                     } else {
-//                         alert("Вы проиграли!");
-//                     }
-//                 });
-
-//                 this.listenTo(wsEvents, "ConnectionFailed", function() {
-//                     alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
-//                 });
-
-//                 this.listenTo(wsEvents, "GameStart", function() {
-//                     isEnemyFound = true;
-//                     self.removePreloader();
-//                     self.handleDrawInitialPoints();
-//                 });
-//             },
-
-//             timeCounter: function() {
-//                 var self = this;
-//                 setTimeout(function() { 
-//                     if (!isEnemyFound) {
-//                         self.removePreloader();
-//                         alert("Соперник не найден");
-//                     } 
-//                 }, timeToWaitEnemy);
-//             },
- 
-//             addPreloader: function() {
-//                 $('body').removeClass('js-body_loaded');
-//             },
-
-//             removePreloader: function() {
-//                 $('body').addClass('js-body_loaded');
-//             },
-
-//             render: function (isWaiting) {
-//                 this.$el.html(this.template());
-                    
-//                 var borderLineWidth = 5;
-//                 var meshesLineWidth = 1;
-//                 var canvasTag = this.$el.find("#gameCanvas")[0];
-//                 var canvasSize = canvasTag.width;
-
-//                 scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
-//                 this.canvas = canvasTag.getContext("2d");
-
-//                 drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
-//                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
-//                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
-//                 drawLine(this.canvas, 1, canvasSize, 0, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
-                     
-//                 for( var i = 0; i <= this.model.get("gameFieldSize"); i++ ) {
-//                     drawLine(this.canvas, scaleCoeff, i, 0, i, canvasSize, colorMap["black"], meshesLineWidth);
-//                     drawLine(this.canvas, scaleCoeff, 0, i, canvasSize, i, colorMap["black"], meshesLineWidth);
-//                 }
-//             },
-    
-//             drawEnemyPath: function() {
-//                 var color = this.model.get("color");
-//                 var enemyCurrent = color === "red" ? "blue" : "red";
-//                 var startX = this.model.get(enemyCurrent)["x"]; 
-//                 var startY = this.model.get(enemyCurrent)["y"]; 
-//                 var endX = this.model.get("enemyMove")["x"];
-//                 var endY = this.model.get("enemyMove")["y"];
-
-//                 drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], playerLineWidth);
-                
-//                 this.model.get(enemyCurrent)["x"] = this.model.get("enemyMove")["x"];
-//                 this.model.get(enemyCurrent)["y"] = this.model.get("enemyMove")["y"]; 
-//             },
-
-//             isPossibleToMove: function(state) {
-//                 return this.model.get(state)["x"] !== -1 && 
-//                        this.model.get(state)["y"] !== -1
-//             },
-            
-//             renderPath: function(state) {
-//                 if (this.isPossibleToMove(state)) {
-//                     var color = this.model.get("color");
-//                     var startX = this.model.get(color)["x"];
-//                     var startY = this.model.get(color)["y"];
-//                     var endX = this.model.get(state)["x"];
-//                     var endY = this.model.get(state)["y"]
-//                     drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
-//                     this.model.get(color)["x"] = this.model.get(state)["x"];
-//                     this.model.get(color)["y"] = this.model.get(state)["y"];
-//                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
-//                 } else {
-//                     alert("Вы не можете так идти!");
-//                 }
-//             },
-
-            
-//             keyAction : function(e) {
-//                 var code = e.keyCode || e.which;
-//                 if (!isPlayerPressedKey) {
-//                     this.renderPath(keyCodeMap[String(code)]);
-//                     isPlayerPressedKey = true;
-//                 } 
-//             },
-
-//             show: function () {
-//                 api.initConnection();
-//                 this.render();
-//                 this.trigger("show", this);
-//                 this.$el.show();
-//                 this.timeCounter();
-//             },
-            
-//             hide: function () {
-//                 this.addPreloader();
-//                 isEnemyFound = false;
-//                 $(document).unbind('keydown', this.keyAction);
-//                 api.close();
-//                 this.$el.hide();
-//             }
-//         });
-
-//         function drawLine(canvas, scaleCoeff, xStart, yStart, xEnd, yEnd, color, lineWidth) {
-//             canvas.beginPath();
-//             canvas.lineWidth = lineWidth;
-//             canvas.strokeStyle = color;
-//             canvas.moveTo(scaleCoeff * xStart, scaleCoeff * yStart);
-//             canvas.lineTo(scaleCoeff * xEnd, scaleCoeff * yEnd);
-//             canvas.stroke();
-//         }
-
-//         function drawCircle(canvas, scaleCoeff, xCenter, yCenter, radius, color, lineWidth) {
-//             canvas.beginPath();
-//             canvas.lineWidth = lineWidth;
-//             canvas.strokeStyle = color;
-//             canvas.arc(xCenter * scaleCoeff, yCenter * scaleCoeff, radius * scaleCoeff, 0, Math.PI*2)
-//             canvas.stroke();
-//         }
-
-//         return new View();
-//     }
-// );
 define(
     'views/main',['require','backbone','tmpl/main','models/User','models/Session','views/game'],function (require) {
         'use strict';
@@ -15879,7 +15647,8 @@ define(
                 });
 
                 this.listenTo(game, 'UnauthorizedUser', function() {
-                    alert("You need log in if you'd like to play multiplayer");
+                    console.log("11");
+                    $('.js-modal-no-login-for-game').modal('show');
                 });
 
         
@@ -15959,7 +15728,10 @@ define(
                     success : function(model, response, options) {
                         self.session.set({"isLogged" : true});
                         self.session.putInSessionStorage(model.get("id"), model.get("login"));
-                        alert('success login');
+                        self.$('.js-modal-success-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-success-login').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 400) {
@@ -15986,6 +15758,8 @@ define(
             hide: function () {
                 this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
+                this.$('.js-modal-no-login-for-game').modal('hide');
+                this.$('.js-modal-success-login').modal('hide');
             }
         });
 
@@ -16265,6 +16039,7 @@ define(
         var tmpl = require('tmpl/singleGame');
         var singleGameSession = require('models/Game/SingleGame');
         var scaleCoeff;
+        var playerLineWidth = 6;
     
         var colorMap = {
             "red" : "#FF0000",
@@ -16283,8 +16058,6 @@ define(
             template: tmpl,
        
             model : new singleGameSession(),
-
-            playerLineWidth : 6,
 
             events : {
                 'click #Quit' : 'handleQuit'
@@ -16356,7 +16129,7 @@ define(
                     startY = playerPoints[i]["y"];
                     endX = playerPoints[i + 1]["x"];
                     endY = playerPoints[i + 1]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, this.playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, playerLineWidth);
                 }
             },
 
@@ -16411,7 +16184,7 @@ define(
                     var startY = this.model.get("current")["blue"]["y"];
                     var endX = this.model.get("possibilities")["blue"][state]["x"];
                     var endY = this.model.get("possibilities")["blue"][state]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], this.playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], playerLineWidth);
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
                     this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
@@ -16442,7 +16215,7 @@ define(
                         var startY = this.model.get("current")["red"]["y"];
                         var endX = this.model.get("possibilities")["red"][state]["x"];
                         var endY = this.model.get("possibilities")["red"][state]["y"];
-                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], this.playerLineWidth);
+                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
                         this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
 

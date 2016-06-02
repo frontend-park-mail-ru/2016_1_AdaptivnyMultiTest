@@ -1,8 +1,8 @@
-<fest:template xmlns:fest="http://fest.mail.ru">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
     <div class="preloader">
         <div class="preloader__stripe">
             <div class="preloader__round">
-                <img class="preloader__logo" src="static/snake_logo.png"/>
+                <img class="preloader__logo" src="static/compressed/snake_logo.png"/>
             </div>
         </div>
         <h2 class="preloader__text">Поиск соперника</h2>
@@ -18,4 +18,41 @@
             Quit
         </a>
     </div>
+    <div class="bs-modal modal fade js-modal-no-enemy" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__header modal-header">
+                    <button type="button" class="bs-modal__btn-close close" data-dismiss="modal">x</button>
+                    <h4 class="bs-modal__title modal-title">Соперник не найден</h4>
+                </div>
+
+                <div class="bs-modal__text modal-body">
+                    <p>К сожалению сейчас нет свободных игроков. Загляните попозже или сыграйте в одиночную игру</p>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                    <a class="bs-modal__btn btn btn-default" href="#main">Вернуться в главное меню</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bs-modal modal fade js-modal-no-response-from-server" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__header modal-header">
+                    <button type="button" class="bs-modal__btn-close close" data-dismiss="modal">x</button>
+                    <h4 class="bs-modal__title modal-title">Сервер не отвечает</h4>
+                </div>
+
+                <div class="bs-modal__text modal-body">
+                    <p>По каким-то причинам сервер сейчас недоступен. Проверьте соединение с интернетом, сыграйте в одиночную игру и подождите пока мы решим проблему</p>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <a class="bs-modal__btn btn btn-default" href="#singleGame">Одиночная игра</a>
+                    <a class="bs-modal__btn btn btn-default" href="#main">В главное меню</a>
+                </div>
+            </div>
+        </div>
+    </div> 
 </fest:template>
