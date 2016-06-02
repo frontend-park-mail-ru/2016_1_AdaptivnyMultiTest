@@ -15587,8 +15587,6 @@ define(
                 this.addPreloader();
                 isEnemyFound = false;
                 $(document).unbind('keydown', this.keyAction);
-                this.$('.js-modal-no-enemy').modal('hide');
-                this.$('.js-modal-no-response-from-server').modal('hide');
                 api.close();
                 this.$el.hide();
             }
@@ -15755,10 +15753,8 @@ define(
             },
 
             hide: function () {
-                this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
-                this.$('.js-modal-no-login-for-game').modal('hide');
-                this.$('.js-modal-success-login').modal('hide');
+		        this.$el.hide();
             }
         });
 

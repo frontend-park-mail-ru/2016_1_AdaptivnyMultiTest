@@ -139,10 +139,8 @@ define(
             },
 
             hide: function () {
-                this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
-                this.$('.js-modal-no-login-for-game').modal('hide');
-                this.$('.js-modal-success-login').modal('hide');
+		        this.$el.hide();
             }
         });
 

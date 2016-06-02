@@ -196,8 +196,6 @@ define(
                 this.addPreloader();
                 isEnemyFound = false;
                 $(document).unbind('keydown', this.keyAction);
-                this.$('.js-modal-no-enemy').modal('hide');
-                this.$('.js-modal-no-response-from-server').modal('hide');
                 api.close();
                 this.$el.hide();
             }
