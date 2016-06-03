@@ -3,6 +3,7 @@ define(
         'use strict';
         var Backbone = require('backbone');
         var viewManager = require('views/viewManager');
+        
         var main = require('views/main');
         var scoreboard = require('views/scoreboard');
         var game = require('views/game');

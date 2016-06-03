@@ -7,4 +7,44 @@
             Quit
         </a>
     </div>
+
+    <div class="bs-modal modal fade js-modal-player-won" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__text modal-body">
+                    <h2>Вы победили!</h2>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <a class="bs-modal__btn btn btn-default" href="#main">Вернуться в главное меню</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-modal modal fade js-modal-player-loose" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__text modal-body">
+                    <h2>Вы проиграли(</h2>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <a class="bs-modal__btn btn btn-default" href="#main">Вернуться в главное меню</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bs-modal modal fade js-modal-wrong-way" role="dialog" aria-hidden="true">
+        <div class="bs-modal__area modal-dialog">
+            <div class="bs-modal__content modal-content">
+                <div class="bs-modal__text modal-body">
+                    <h2>Вы не можете так идти</h2>
+                </div>
+                <div class="bs-modal__footer modal-footer">
+                    <button class="bs-modal__btn-close btn btn-default" type="button" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>   
 </fest:template>
+

@@ -1,6 +1,7 @@
 define(['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
+
     var Model = Backbone.Model.extend({
         defaults: {
             id : "",
@@ -10,7 +11,41 @@ define(['backbone'], function(Backbone) {
         },
         
         urlRoot : "api/session",
+
+        initialize: function() {
+            this.userSession = window.sessionStorage;
+        },
         
+        putInSessionStorage: function(sessionIdUser, userName) {
+            this.userSession.setItem(sessionIdUser, userName);
+        },
+
+        getAllSessionStorage: function() {
+            return this.userSession;
+        },
+
+        getSessionStorageById: function(sessionIdUser) {
+            return this.userSession.getItem(sessionIdUser);
+        },
+
+        removeSessionStorage: function(sessionIdUser) {
+            this.userSession.removeItem(sessionIdUser);
+        },
+
+        checkUserLogged: function() {
+            var deferred = $.Deferred();
+            var self = this;
+            this.fetch({
+                success : function() {
+                    deferred.resolve();
+                }, error : function(model, xhr, options) {    
+                    deferred.reject();
+                }
+            });
+            return deferred.promise();
+        },
+
+
         sync: function (method, model, options) {
             if (method === "create") {
                 method = "update";
@@ -23,21 +58,19 @@ define(['backbone'], function(Backbone) {
         },
 
         validate: function(attrs, options) {
-            var errors = [];
-            if (/[^a-zA-Z0-9]/.test(attrs.login)) {
-                errors.push('Your login must consist of only letters and digits');
-            }
+            var errors = {};
             if (!attrs.login) {
-                errors.push("Please, input your login");
-            }
+                errors['loginError'] = "Please, input your login";
+            } else if (/[^a-zA-Z0-9]/.test(attrs.login)) {
+                errors['loginError'] = 'Your login must consist of only letters and digits';
+            } 
+
             if (!attrs.password) {
-                errors.push("Please, input your password");
-            }
-            if (attrs.password.length < 5) {
-                errors.push('Your password must have more than 5 characters');
-            }
-            
-            return errors.length > 0 ? errors : false;
+                errors['passwordError'] = "Please, input your password";
+            } else if (attrs.password.length < 5) {
+                errors['passwordError'] = 'Your password must have more than 5 characters';
+            } 
+            return _.isEmpty(errors) ? false : errors;
         }
     });
 

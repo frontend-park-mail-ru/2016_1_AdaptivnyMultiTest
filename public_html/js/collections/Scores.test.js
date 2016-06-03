@@ -13,7 +13,7 @@ define(
                     {login: "Мудрец3", score: 2}
                 ]);
                 this.list = testData;
-            },
+            }
         });
 
         QUnit.test("test ordering of player's scores in static massive", function () {
@@ -23,3 +23,4 @@ define(
         });
     }
 );
+

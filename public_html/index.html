@@ -2,17 +2,29 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Game of Brains</title>
-        <link rel="stylesheet" href="/css/lib/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <title>SnakeXSnake</title>
+        <link rel="shortcut icon" href="/static/snake_ico.png" type="image/x-icon">
+        <link rel="stylesheet" href="/css/build/main_concat.css">
     </head>
 
     <body>
+        <div class="preloader">
+            <div class="preloader__stripe">
+                <div class="preloader__round">
+                    <img class="preloader__logo" src="static/snake_logo.png"/>
+                </div>
+            </div>
+            <h2 class="preloader__text">Загружаем страницу</h2>
+            <div class="preloader__left-curtain"> </div>
+            <div class="preloader__right-curtain"> </div>
+        </div>
         <script src="js/build.min.js"></script>
         <script>
-            require(['main'], function(){
-                console.log('loaded from one script file');
-            });
+            require(['main']);
+            window.onload = function() {
+                var pl = document.getElementsByClassName('preloader')[0];
+                pl.remove();
+            };
         </script>
     </body>
-</html>
+</html> 

@@ -3,7 +3,7 @@
   src: url(FuturicaMedium.ttf); }
 
 body {
-  background-image: url("/static/snakes.jpg"); }
+  background-image: url("/static/compressed/snakes.jpg"); }
 
 .main {
   background-color: white;

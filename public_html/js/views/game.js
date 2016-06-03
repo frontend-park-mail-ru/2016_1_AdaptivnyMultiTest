@@ -8,10 +8,7 @@ define(
         var api = require('api/web-sockets');
         var wsEvents = require('api/eventDispatcher'); 
         var scaleCoeff;
-        var playerLineWidth = 6;
-        var timeToWaitEnemy = 5000;
-        var isEnemyFound = false;
-
+        
         var colorMap = {
             "red" : "#FF0000",
             "blue" : "#004DFF",
@@ -30,11 +27,15 @@ define(
 
             model : new gameSession(),
             session : new session(),
-
+            
+            playerLineWidth : 6,
+            timeToWaitEnemy : 5000,
+            isEnemyFound : false,            
+            
             events : {
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
-            
+           
             handleDrawInitialPoints: function(e) {
                 e.preventDefault();
                 var radius = 5 / scaleCoeff;
@@ -88,29 +89,28 @@ define(
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
-                    alert("Ваш противник вышел из игры");
+                    $('.js-modal-enemy-exit').modal('show');
                 });
 
                 this.listenTo(this.model, "Winner was determined", function() {
                     if (self.model.get("win")) {
-                        alert("Вы выиграли!");
+                        $('.js-modal-player-won').modal('show');
                     } else {
-                        alert("Вы проиграли!");
+                        $('.js-modal-player-loose').modal('show');
                     }
                 });
 
                 this.listenTo(wsEvents, "ConnectionFailed", function() {
-                    alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
+                    $('.js-modal-no-response-from-server').modal('show');
                 });
 
                 this.listenTo(wsEvents, "GameStart", function() {
-                    isEnemyFound = true;
+                    self.isEnemyFound = true;
                     self.removePreloader();
                 });
 
                 this.listenTo(this, "EnemyNotFound", function() {
                     self.removePreloader();
-                    alert("Соперник не найден");
                 });
             },
 
@@ -118,9 +118,10 @@ define(
                 var self = this;
                 setTimeout(function() { 
                     if (!isEnemyFound) {
-                        self.trigger("EnemyNotFound");
-                    }
-                }, timeToWaitEnemy);
+                        self.removePreloader();
+                        $('.js-modal-no-enemy').modal('show');
+                    } 
+                }, self.timeToWaitEnemy);
             },
  
             addPreloader: function() {
@@ -161,7 +162,7 @@ define(
                 var endX = this.model.get("enemyMove")["x"];
                 var endY = this.model.get("enemyMove")["y"];
 
-                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], playerLineWidth);
+                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], this.playerLineWidth);
                 
                 this.model.get(enemyCurrent)["x"] = this.model.get("enemyMove")["x"];
                 this.model.get(enemyCurrent)["y"] = this.model.get("enemyMove")["y"]; 
@@ -179,12 +180,12 @@ define(
                     var startY = this.model.get(color)["y"];
                     var endX = this.model.get(state)["x"];
                     var endY = this.model.get(state)["y"]
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], this.playerLineWidth)
                     this.model.get(color)["x"] = this.model.get(state)["x"];
                     this.model.get(color)["y"] = this.model.get(state)["y"];
                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
                 } else {
-                    alert("Вы не можете так идти!");
+                    $('.js-modal-wrong-way').modal('show');
                 }
             },
 

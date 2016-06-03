@@ -15483,7 +15483,9 @@ define(
         return new View();
     }
 );
-define('tmpl/main',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main\"><dl class=\"main__menu js-main__menu\"><dt class=\"main__stripe js-main__stripe\">Multi Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#game\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Single Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#singleGame\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Scoreboard</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#scoreboard\">Top scores</a></dd><dt class=\"main__stripe js-main__stripe js-logout-header\">Log out</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn js-main__btn_logout\">Logout</a></dd><dt class=\"main__stripe js-main__stripe js-login-header\">Login</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_login\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_login_login\" type=\"text\" name=\"username\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_login_password\" type=\"password\" name=\"password\" placeholder=\"Your password\"/></div></div><div><button class=\"main__btn btn\" type=\"submit\">Login!</button></div></form></dd><dt class=\"main__stripe js-main__stripe js-signup-header\">Sign up</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_signup\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"email\">Email</label><div><input class=\"input-field__input form-control js-input_signup_email\" type=\"text\" name=\"signupEmail\" placeholder=\"Your email\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_signup_login\" type=\"text\" name=\"signupLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_signup_password\" type=\"password\" name=\"signupPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"btn\" type=\"submit\">Sign up!</button></div></form></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+
+
+define('tmpl/main',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"bs-modal modal fade js-modal-no-login-for-game\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Авторизуйтесь!</h4></div><div class=\"bs-modal__text modal-body\"><p>Чтобы играть с другими людьми Вам необходимо авторизоваться. И создайте учетную запись, если еще не сделали этого. Гостям доступна одиночная игра.</p></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#singleGame\">Сыграть одиночую игру</a><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"bs-modal modal fade js-modal-success-login\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы успешно авторизовались</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"bs-modal modal fade js-modal-invalid-login\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Неверные входные данные</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"bs-modal modal fade js-modal-success-signup\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы успешно зарегестрировались</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"bs-modal modal fade js-modal-invalid-signup\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Такой пользователь уже существует</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div><div class=\"main\"><dl class=\"main__menu js-main__menu\"><dt class=\"main__stripe js-main__stripe\">Multi Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#game\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Single Game</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#singleGame\">Start</a></dd><dt class=\"main__stripe js-main__stripe\">Scoreboard</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn\" href=\"#scoreboard\">Top scores</a></dd><dt class=\"main__stripe js-main__stripe js-logout-header\">Log out</dt><dd class=\"main__field js-main__field\"><a class=\"main__btn btn js-main__btn_logout\">Logout</a></dd><dt class=\"main__stripe js-main__stripe js-login-header\">Login</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_login\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_login_login\" type=\"text\" name=\"username\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_login_password\" type=\"password\" name=\"password\" placeholder=\"Your password\"/></div></div><div><button class=\"main__btn btn\" type=\"submit\">Login!</button></div></form></dd><dt class=\"main__stripe js-main__stripe js-signup-header\">Sign up</dt><dd class=\"main__field js-main__field\"><form class=\"main__form js-main__form_signup\"><div class=\"input-field\"><label class=\"input-field__label\" for=\"email\">Email</label><div><input class=\"input-field__input form-control js-input_signup_email\" type=\"text\" name=\"signupEmail\" placeholder=\"Your email\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"username\">Login</label><div><input class=\"input-field__input form-control js-input_signup_login\" type=\"text\" name=\"signupLogin\" placeholder=\"Your login\"/></div></div><div class=\"input-field\"><label class=\"input-field__label\" for=\"password\">Password</label><div><input class=\"input-field__input form-control js-input_signup_password\" type=\"password\" name=\"signupPassword\" placeholder=\"Your password\"/></div></div><div><button class=\"btn\" type=\"submit\">Sign up!</button></div></form></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('models/User',['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
@@ -15508,35 +15510,37 @@ define('models/User',['backbone'], function(Backbone) {
         },
     
         validate: function(attrs, options) {
-            var errors = [];
-            if (/[^a-zA-Z0-9]/.test(attrs.login)) {
-                errors.push('Your login must consist of only letters and digits');
-            }
-            if (!attrs.login) {
-                errors.push("Please, input your login");
-            }
-            if (!attrs.email) {
-                errors.push("Please, input your email");
-            }
-            if (!attrs.password) {
-                errors.push("Please, input your password");
-            }
-            if (attrs.password.length < 5) {
-                errors.push('Your password must have more than 5 characters');
-            }
-            if (!attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i)) {
-                errors.push("Please, input a valid email");
-            }
+            var errors = {};
 
-            return errors.length > 0 ? errors : false;
+            if (!attrs.login) {
+                errors["loginError"] = "Please, input your login";
+            } else if (/[^a-zA-Z0-9]/.test(attrs.login)) {
+                errors["loginError"] = 'Your login must consist of only letters and digits';
+            } 
+            
+            
+            if (!attrs.email) {
+                errors["emailError"] = "Please, input your email";
+            } else if (!attrs.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{1,}\.[a-z]{2,}$/i)) {
+                errors["emailError"] = "Please, input a valid email";
+            } 
+
+            if (!attrs.password) {
+                errors["passwordError"] = "Please, input your password";
+            } else if (attrs.password.length < 5) {
+                errors["passwordError"] = 'Your password must have more than 5 characters';
+            } 
+        
+            return _.isEmpty(errors) ? false : errors;
         }
     });
-
     return Model;
 });
+
 define('models/Session',['backbone'], function(Backbone) {
     'use strict';
     var Backbone = require('backbone');
+
     var Model = Backbone.Model.extend({
         defaults: {
             id : "",
@@ -15546,7 +15550,41 @@ define('models/Session',['backbone'], function(Backbone) {
         },
         
         urlRoot : "api/session",
+
+        initialize: function() {
+            this.userSession = window.sessionStorage;
+        },
         
+        putInSessionStorage: function(sessionIdUser, userName) {
+            this.userSession.setItem(sessionIdUser, userName);
+        },
+
+        getAllSessionStorage: function() {
+            return this.userSession;
+        },
+
+        getSessionStorageById: function(sessionIdUser) {
+            return this.userSession.getItem(sessionIdUser);
+        },
+
+        removeSessionStorage: function(sessionIdUser) {
+            this.userSession.removeItem(sessionIdUser);
+        },
+
+        checkUserLogged: function() {
+            var deferred = $.Deferred();
+            var self = this;
+            this.fetch({
+                success : function() {
+                    deferred.resolve();
+                }, error : function(model, xhr, options) {    
+                    deferred.reject();
+                }
+            });
+            return deferred.promise();
+        },
+
+
         sync: function (method, model, options) {
             if (method === "create") {
                 method = "update";
@@ -15559,33 +15597,33 @@ define('models/Session',['backbone'], function(Backbone) {
         },
 
         validate: function(attrs, options) {
-            var errors = [];
-            if (/[^a-zA-Z0-9]/.test(attrs.login)) {
-                errors.push('Your login must consist of only letters and digits');
-            }
+            var errors = {};
             if (!attrs.login) {
-                errors.push("Please, input your login");
-            }
+                errors['loginError'] = "Please, input your login";
+            } else if (/[^a-zA-Z0-9]/.test(attrs.login)) {
+                errors['loginError'] = 'Your login must consist of only letters and digits';
+            } 
+
             if (!attrs.password) {
-                errors.push("Please, input your password");
-            }
-            if (attrs.password.length < 5) {
-                errors.push('Your password must have more than 5 characters');
-            }
-            
-            return errors.length > 0 ? errors : false;
+                errors['passwordError'] = "Please, input your password";
+            } else if (attrs.password.length < 5) {
+                errors['passwordError'] = 'Your password must have more than 5 characters';
+            } 
+            return _.isEmpty(errors) ? false : errors;
         }
     });
 
     return Model;
 });
-define('tmpl/game',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"preloader\"><div class=\"preloader__stripe\"><div class=\"preloader__round\"><img class=\"preloader__logo\" src=\"static\/snake_logo.png\"/></div></div><h2 class=\"preloader__text\">Поиск соперника</h2><div class=\"preloader__left-curtain\"></div><div class=\"preloader__right-curtain\"></div></div><div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" href=\"#main\">Quit</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+
+define('tmpl/game',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"preloader\"><div class=\"preloader__stripe\"><div class=\"preloader__round\"><img class=\"preloader__logo\" src=\"static\/compressed\/snake_logo.png\"/></div></div><h2 class=\"preloader__text\">Поиск соперника</h2><div class=\"preloader__left-curtain\"></div><div class=\"preloader__right-curtain\"></div></div><div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" href=\"#main\">Quit</a></div><div class=\"bs-modal modal fade js-modal-no-enemy\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Соперник не найден</h4></div><div class=\"bs-modal__text modal-body\"><p>К сожалению сейчас нет свободных игроков. Загляните попозже или сыграйте в одиночную игру</p></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-no-response-from-server\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Сервер не отвечает</h4></div><div class=\"bs-modal__text modal-body\"><p>По каким-то причинам сервер сейчас недоступен. Проверьте соединение с интернетом, сыграйте в одиночную игру и подождите пока мы решим проблему</p></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#singleGame\">Одиночная игра</a><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">В главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-enemy-exit\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__header modal-header\"><button type=\"button\" class=\"bs-modal__btn-close close\" data-dismiss=\"modal\">x</button><h4 class=\"bs-modal__title modal-title\">Противник покинул игру</h4></div><div class=\"bs-modal__text modal-body\"><p>По какой-то причине Ваш соперник вышел из игры. Вы победили!</p></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-player-won\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы победили!</h2></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-player-loose\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы проиграли(</h2></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-wrong-way\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы не можете так идти</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'api/eventDispatcher',['require','backbone'],function (require) {
         'use strict';
         var Backbone = require('backbone');
         return _.clone(Backbone.Events);
-});
+	}
+);
 
 define(
     'api/gameStatus',['require','backbone','api/eventDispatcher'],function (require) {
@@ -15610,6 +15648,8 @@ define(
         })(); 
     }
 );
+
+
 define(
     'api/web-sockets',['require','api/gameStatus','api/eventDispatcher'],function (require) {
         'use strict';
@@ -15667,6 +15707,8 @@ define(
         })();
     }
 );
+
+
 define(
     'models/Game/GameSession',['require','backbone','api/web-sockets','api/gameStatus','api/eventDispatcher'],function (require) {
         'use strict';
@@ -15773,6 +15815,8 @@ define(
         return Model;  
     }
 );
+
+
 define(
     'views/game',['require','backbone','tmpl/game','models/Game/GameSession','models/Session','api/web-sockets','api/eventDispatcher'],function (require) {
         'use strict';
@@ -15783,10 +15827,7 @@ define(
         var api = require('api/web-sockets');
         var wsEvents = require('api/eventDispatcher'); 
         var scaleCoeff;
-        var playerLineWidth = 6;
-        var timeToWaitEnemy = 5000;
-        var isEnemyFound = false;
-
+        
         var colorMap = {
             "red" : "#FF0000",
             "blue" : "#004DFF",
@@ -15805,11 +15846,15 @@ define(
 
             model : new gameSession(),
             session : new session(),
-
+            
+            playerLineWidth : 6,
+            timeToWaitEnemy : 5000,
+            isEnemyFound : false,            
+            
             events : {
                 'click canvas#gameCanvas' : 'handleDrawInitialPoints' 
             },
-            
+           
             handleDrawInitialPoints: function(e) {
                 e.preventDefault();
                 var radius = 5 / scaleCoeff;
@@ -15863,29 +15908,28 @@ define(
                 });
 
                 this.listenTo(this.model, "EnemyExit", function() {
-                    alert("Ваш противник вышел из игры");
+                    $('.js-modal-enemy-exit').modal('show');
                 });
 
                 this.listenTo(this.model, "Winner was determined", function() {
                     if (self.model.get("win")) {
-                        alert("Вы выиграли!");
+                        $('.js-modal-player-won').modal('show');
                     } else {
-                        alert("Вы проиграли!");
+                        $('.js-modal-player-loose').modal('show');
                     }
                 });
 
                 this.listenTo(wsEvents, "ConnectionFailed", function() {
-                    alert("К сожалению связь с сервером не установлена. Вы можете сыграть в одиночную игру");
+                    $('.js-modal-no-response-from-server').modal('show');
                 });
 
                 this.listenTo(wsEvents, "GameStart", function() {
-                    isEnemyFound = true;
+                    self.isEnemyFound = true;
                     self.removePreloader();
                 });
 
                 this.listenTo(this, "EnemyNotFound", function() {
                     self.removePreloader();
-                    alert("Соперник не найден");
                 });
             },
 
@@ -15893,9 +15937,10 @@ define(
                 var self = this;
                 setTimeout(function() { 
                     if (!isEnemyFound) {
-                        self.trigger("EnemyNotFound");
-                    }
-                }, timeToWaitEnemy);
+                        self.removePreloader();
+                        $('.js-modal-no-enemy').modal('show');
+                    } 
+                }, self.timeToWaitEnemy);
             },
  
             addPreloader: function() {
@@ -15936,7 +15981,7 @@ define(
                 var endX = this.model.get("enemyMove")["x"];
                 var endY = this.model.get("enemyMove")["y"];
 
-                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], playerLineWidth);
+                drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[enemyCurrent], this.playerLineWidth);
                 
                 this.model.get(enemyCurrent)["x"] = this.model.get("enemyMove")["x"];
                 this.model.get(enemyCurrent)["y"] = this.model.get("enemyMove")["y"]; 
@@ -15954,12 +15999,12 @@ define(
                     var startY = this.model.get(color)["y"];
                     var endX = this.model.get(state)["x"];
                     var endY = this.model.get(state)["y"]
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], playerLineWidth)
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap[color], this.playerLineWidth)
                     this.model.get(color)["x"] = this.model.get(state)["x"];
                     this.model.get(color)["y"] = this.model.get(state)["y"];
                     this.model.sendCoord(this.model.get(color)["x"], this.model.get(color)["y"]);
                 } else {
-                    alert("Вы не можете так идти!");
+                    $('.js-modal-wrong-way').modal('show');
                 }
             },
 
@@ -16028,17 +16073,17 @@ define(
 
             initialize: function() {
                 self = this;
-                
                 this.user.on('invalid', function (model, error) {
-                    alert(error);
+                   console.log(error["emailError"]);
                 });
 
                 this.session.on('invalid', function (model, error) {
-                    alert(error);
+                    console.log(error["passwordError"]);
+                    console.log(error["loginError"]);
                 });
 
                 this.listenTo(game, 'UnauthorizedUser', function() {
-                    alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
+                    $('.js-modal-no-login-for-game').modal('show');
                 });
 
         
@@ -16054,14 +16099,15 @@ define(
             handleLogout: function(e) {
                 e.preventDefault();
                 this.session.set({"isLogged" : false});
+                this.session.removeSessionStorage(this.session.get("id"));
                 this.session.destroy();
+                this.viewForUnloggedUser();
             },
 
             viewForLoggedUser: function() {
                 this.$(".js-signup-header").addClass("main__stripe_hidden");
                 this.$(".js-login-header").addClass("main__stripe_hidden");
                 this.$(".js-logout-header").removeClass("main__stripe_hidden");
-
             },
 
             viewForUnloggedUser: function() {
@@ -16096,11 +16142,17 @@ define(
                         "password" : this.$( ".js-input_signup_password" ).val()
                     }, {
                     success : function() {
-                        alert('success signup');
+                        this.$('.js-modal-success-signup').modal('show');
+                        setTimeout(function () {
+                            this.$('.js-modal-success-signup').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 403) {
-                            alert('this user already exists');
+                            this.$('.js-modal-invalid-signup').modal('show');
+                        setTimeout(function () {
+                            this.$('.js-modal-invalid-signup').modal('hide');
+                        }, 2000);
                         }
                     }
                 });
@@ -16114,34 +16166,50 @@ define(
                         "login" : this.$(".js-input_login_login").val(),
                         "password" : this.$(".js-input_login_password").val()
                     }, {
-                    success : function() {
+                    success : function(model, response, options) {
                         self.session.set({"isLogged" : true});
-                        alert('success login');
+                        self.session.putInSessionStorage(model.get("id"), model.get("login"));
+                        self.$('.js-modal-success-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-success-login').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 400) {
-                            alert("this user doesn't exists");
+                            self.$('.js-modal-invalid-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-invalid-login').modal('hide');
+                        }, 2000);
                         }
+                        console.log("ANOTHER ERROR");
                     }
                 });
             },
 
             show: function () {
+                var self = this;
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
                 this.$(".js-logout-header").addClass("main__stripe_hidden");
+                this.session.checkUserLogged().done(function() {
+                    self.viewForLoggedUser();
+                }).fail(function(){
+                    self.viewForUnloggedUser();
+                });
             },
 
             hide: function () {
-                this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
+		        this.$el.hide();
             }
         });
+
         return new View();
     }
 );
-define('tmpl/scoreboard',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"help\"></div><div class=\"main\"><dl class=\"main__menu\"><dt class=\"main__stripe js-main__stripe\">ScoreBoard</dt><dd class=\"main__field\"><ul class=\"scoreboard\">");var i,v,__fest_to0,__fest_iterator0;try{__fest_iterator0=json || [];__fest_to0=__fest_iterator0.length;}catch(e){__fest_iterator0=[];__fest_to0=0;__fest_log_error(e.message);}for(i=0;i<__fest_to0;i++){v=__fest_iterator0[i];__fest_buf+=("<li class=\"scoreboard__row\"><span class=\"scoreboard__user-login\">");try{__fest_buf+=(v.login)}catch(e){__fest_log_error(e.message + "15");}__fest_buf+=("</span><em class=\"scoreboard__user-score\">");try{__fest_buf+=(__fest_escapeHTML(v.score))}catch(e){__fest_log_error(e.message + "20");}__fest_buf+=("</em></li><hr class=\"scoreboard__border-line\"/>");}__fest_buf+=("</ul><a href=\"#main\" class=\"main-game__btn btn\">Back</a></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+
+define('tmpl/scoreboard',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"help\"></div><div class=\"main\"><dl class=\"main__menu\"><dt class=\"main__stripe js-main__stripe\">ScoreBoard</dt><dd class=\"main__field\"><ul class=\"scoreboard\">");var i,v,__fest_to0,__fest_iterator0;try{__fest_iterator0=json || [];__fest_to0=__fest_iterator0.length;}catch(e){__fest_iterator0=[];__fest_to0=0;__fest_log_error(e.message);}for(i=0;i<__fest_to0;i++){v=__fest_iterator0[i];__fest_buf+=("<li class=\"scoreboard__row\"><span class=\"scoreboard__user-login\">");try{__fest_buf+=(__fest_escapeHTML(v.login))}catch(e){__fest_log_error(e.message + "15");}__fest_buf+=("</span><em class=\"scoreboard__user-score\">");try{__fest_buf+=(__fest_escapeHTML(v.score))}catch(e){__fest_log_error(e.message + "20");}__fest_buf+=("</em></li><hr class=\"scoreboard__border-line\"/>");}__fest_buf+=("</ul><a href=\"#main\" class=\"main-game__btn btn\">Back</a></dd></dl></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'models/Score',['require','backbone'],function (require) {
         'use strict';
@@ -16159,6 +16227,7 @@ define(
         return Model;  
     }
 );
+
 define(
     'collections/Scores',['require','backbone','models/Score'],function (require) {
         'use srtict';
@@ -16174,9 +16243,11 @@ define(
                 return -score.get('score');
             }
         });
-
         return Collection;
-});
+    }
+);
+
+
 define(
     'views/scoreboard',['require','backbone','tmpl/scoreboard','collections/Scores'],function (require) {
         'use strict';
@@ -16213,7 +16284,9 @@ define(
         return new View();
     }
 );
-define('tmpl/singleGame',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" id=\"Quit\">Quit</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+
+
+define('tmpl/singleGame',[],function () { return function (__fest_context){"use strict";var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}__fest_buf+=("<div class=\"main-game\"><div class=\"main-game__main-area main main_game\"><canvas class=\"main-game__canvas\" id=\"gameCanvas\" width=\"490\" height=\"490\"></canvas></div><a class=\"main-game__btn btn  js-btn\" id=\"Quit\">Quit</a></div><div class=\"bs-modal modal fade js-modal-player-won\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы победили!</h2></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-player-loose\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы проиграли(</h2></div><div class=\"bs-modal__footer modal-footer\"><a class=\"bs-modal__btn btn btn-default\" href=\"#main\">Вернуться в главное меню</a></div></div></div></div><div class=\"bs-modal modal fade js-modal-wrong-way\" role=\"dialog\" aria-hidden=\"true\"><div class=\"bs-modal__area modal-dialog\"><div class=\"bs-modal__content modal-content\"><div class=\"bs-modal__text modal-body\"><h2>Вы не можете так идти</h2></div><div class=\"bs-modal__footer modal-footer\"><button class=\"bs-modal__btn-close btn btn-default\" type=\"button\" data-dismiss=\"modal\">Закрыть</button></div></div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define(
     'models/Game/SingleGame',['require','backbone'],function (require) {
         'use strict';
@@ -16365,7 +16438,6 @@ define(
                 for (; i < this.occupiedPoints.length; i = i + 2) {
                     points.push(JSON.parse(this.occupiedPoints.getItem(i)));
                 }
-                
                 return points;
             }
         });
@@ -16400,6 +16472,8 @@ define(
         return Model;  
     }
 );
+
+
 define(
     'views/singleGame',['require','backbone','tmpl/singleGame','models/Game/SingleGame'],function (require) {
         'use strict';
@@ -16407,7 +16481,6 @@ define(
         var tmpl = require('tmpl/singleGame');
         var singleGameSession = require('models/Game/SingleGame');
         var scaleCoeff;
-        var playerLineWidth = 6;
     
         var colorMap = {
             "red" : "#FF0000",
@@ -16427,6 +16500,7 @@ define(
        
             model : new singleGameSession(),
 
+            playerLineWidth : 6,
             events : {
                 'click #Quit' : 'handleQuit'
             },
@@ -16497,7 +16571,7 @@ define(
                     startY = playerPoints[i]["y"];
                     endX = playerPoints[i + 1]["x"];
                     endY = playerPoints[i + 1]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, playerColor, this.playerLineWidth);
                 }
             },
 
@@ -16510,7 +16584,7 @@ define(
                 
                 scaleCoeff =  canvasSize / this.model.get("gameFieldSize");
                 this.canvas = canvasTag.getContext("2d");
-                
+
                 drawLine(this.canvas, 1, 0, 0, canvasSize, 0, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 0, 0, canvasSize, colorMap["red"], borderLineWidth);
                 drawLine(this.canvas, 1, 0, 490, canvasSize, canvasSize, colorMap["blue"], borderLineWidth);
@@ -16522,7 +16596,6 @@ define(
                 }
             },
     
-
             determinePossibleEnemyState: function() {
                 var states = ["left", "top", "right", "bottom"];
                 var possibleStates = [];
@@ -16547,13 +16620,13 @@ define(
                 var state = this.determinePossibleEnemyState();
 
                 if( state === null ) {
-                    alert("Вы выиграли!");
+                    $('.js-modal-player-won').modal('show');
                 } else {
                     var startX = this.model.get("current")["blue"]["x"];
                     var startY = this.model.get("current")["blue"]["y"];
                     var endX = this.model.get("possibilities")["blue"][state]["x"];
                     var endY = this.model.get("possibilities")["blue"][state]["y"];
-                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], playerLineWidth);
+                    drawLine(this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["blue"], this.playerLineWidth);
                     this.model.get("current")["blue"] = this.model.get("possibilities")["blue"][state];
                     this.model.pushInContainerOcuppiedPoints(this.model.get("current")["blue"]);
                 }
@@ -16584,20 +16657,20 @@ define(
                         var startY = this.model.get("current")["red"]["y"];
                         var endX = this.model.get("possibilities")["red"][state]["x"];
                         var endY = this.model.get("possibilities")["red"][state]["y"];
-                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], playerLineWidth);
+                        drawLine( this.canvas, scaleCoeff, startX, startY, endX, endY, colorMap["red"], this.playerLineWidth);
                         this.model.get("current")["red"] = this.model.get("possibilities")["red"][state];
                         this.model.pushInContainerOcuppiedPoints(this.model.get("current")["red"]);
+
                         $(document).unbind('keydown', this.keyAction);
                         this.drawEnemyPath();
                     } else {
-                        alert("Вы не можете так идти!");
+                        $('.js-modal-wrong-way').modal('show');
                     }
                 } else {
-                    alert("Вы проиграли");
+                    $('.js-modal-player-loose').modal('show');
                 }
             },
 
-            
             keyAction : function(e) {
                 var code = e.keyCode || e.which;
                 this.renderPath(keyCodeMap[String(code)]);
@@ -16662,11 +16735,14 @@ define(
         return new View();
     }
 );
+
+
 define(
     'router',['require','backbone','views/viewManager','views/main','views/scoreboard','views/game','views/main','views/singleGame'],function (require) {
         'use strict';
         var Backbone = require('backbone');
         var viewManager = require('views/viewManager');
+        
         var main = require('views/main');
         var scoreboard = require('views/scoreboard');
         var game = require('views/game');
@@ -16738,7 +16814,6 @@ require.config({
         jquery: "lib/jquery",
         underscore: "lib/underscore",
         backbone: "lib/backbone",
-        backbone_validation: "lib/backbone-validation",
         bootstrap: "lib/bootstrap"
     },
     shim: {
@@ -16749,10 +16824,6 @@ require.config({
         'underscore': {
             exports: '_'
         },
-        'backbone_validation' : {
-            deps: ['backbone'],
-            exports: "BackboneValidation"
-        },
         "bootstrap" : { 
             deps :['jquery'] 
         }
@@ -16760,5 +16831,6 @@ require.config({
 });
 
 require([ 'bootstrap','router'/*, 'app'*/]);
+
 define("main", function(){});
 

@@ -4,7 +4,6 @@ require.config({
         jquery: "lib/jquery",
         underscore: "lib/underscore",
         backbone: "lib/backbone",
-        backbone_validation: "lib/backbone-validation",
         bootstrap: "lib/bootstrap"
     },
     shim: {
@@ -14,10 +13,6 @@ require.config({
         },
         'underscore': {
             exports: '_'
-        },
-        'backbone_validation' : {
-            deps: ['backbone'],
-            exports: "BackboneValidation"
         },
         "bootstrap" : { 
             deps :['jquery'] 

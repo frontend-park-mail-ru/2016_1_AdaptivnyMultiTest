@@ -21,17 +21,17 @@ define(
 
             initialize: function() {
                 self = this;
-                
                 this.user.on('invalid', function (model, error) {
-                    alert(error);
+                   console.log(error["emailError"]);
                 });
 
                 this.session.on('invalid', function (model, error) {
-                    alert(error);
+                    console.log(error["passwordError"]);
+                    console.log(error["loginError"]);
                 });
 
                 this.listenTo(game, 'UnauthorizedUser', function() {
-                    alert("You need log in if you'd like to play multiplayer"); //будет заменен на всплывающее окно с сообщением
+                    $('.js-modal-no-login-for-game').modal('show');
                 });
 
         
@@ -47,14 +47,15 @@ define(
             handleLogout: function(e) {
                 e.preventDefault();
                 this.session.set({"isLogged" : false});
+                this.session.removeSessionStorage(this.session.get("id"));
                 this.session.destroy();
+                this.viewForUnloggedUser();
             },
 
             viewForLoggedUser: function() {
                 this.$(".js-signup-header").addClass("main__stripe_hidden");
                 this.$(".js-login-header").addClass("main__stripe_hidden");
                 this.$(".js-logout-header").removeClass("main__stripe_hidden");
-
             },
 
             viewForUnloggedUser: function() {
@@ -89,11 +90,17 @@ define(
                         "password" : this.$( ".js-input_signup_password" ).val()
                     }, {
                     success : function() {
-                        alert('success signup');
+                        this.$('.js-modal-success-signup').modal('show');
+                        setTimeout(function () {
+                            this.$('.js-modal-success-signup').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 403) {
-                            alert('this user already exists');
+                            this.$('.js-modal-invalid-signup').modal('show');
+                        setTimeout(function () {
+                            this.$('.js-modal-invalid-signup').modal('hide');
+                        }, 2000);
                         }
                     }
                 });
@@ -107,30 +114,45 @@ define(
                         "login" : this.$(".js-input_login_login").val(),
                         "password" : this.$(".js-input_login_password").val()
                     }, {
-                    success : function() {
+                    success : function(model, response, options) {
                         self.session.set({"isLogged" : true});
-                        alert('success login');
+                        self.session.putInSessionStorage(model.get("id"), model.get("login"));
+                        self.$('.js-modal-success-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-success-login').modal('hide');
+                        }, 2000);
                     },
                     error : function(model, xhr, options) {
                         if (xhr.status === 400) {
-                            alert("this user doesn't exists");
+                            self.$('.js-modal-invalid-login').modal('show');
+                        setTimeout(function () {
+                            self.$('.js-modal-invalid-login').modal('hide');
+                        }, 2000);
                         }
+                        console.log("ANOTHER ERROR");
                     }
                 });
             },
 
             show: function () {
+                var self = this;
                 this.render();
                 this.trigger("show", this);
                 this.$el.show();
                 this.$(".js-logout-header").addClass("main__stripe_hidden");
+                this.session.checkUserLogged().done(function() {
+                    self.viewForLoggedUser();
+                }).fail(function(){
+                    self.viewForUnloggedUser();
+                });
             },
 
             hide: function () {
-                this.$el.hide();
                 this.$(".js-main__menu").off("mouseenter");
+		        this.$el.hide();
             }
         });
+
         return new View();
     }
 );

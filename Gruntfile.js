@@ -82,7 +82,7 @@ module.exports = function (grunt) {
                     mainConfigFile: "public_html/js/main.js",
                     name: "main",
                     optimize: "none",
-                    out: "public_html/js/build/main.js"
+                    out: "public_html/js/build/main.js",
                 }
             }
         },
@@ -107,10 +107,51 @@ module.exports = function (grunt) {
         cssmin: {
             dist: {
                 files: [
-                    { src: 'public_html/css/main.css', dest: 'public_html/css/build/main-min.css' }
+                    { src: 'public_html/css/main.css', dest: 'public_html/css/build/main-min.css' },
+                    { src: 'public_html/css/tidyBootstrap.css', dest: 'public_html/css/build/tidyBootstrap-min.css' }
                 ]
             }
-        }
+        },
+        imagemin: {
+            png: {
+              options: {
+                optimizationLevel: 7
+              },
+              files: [
+                {
+                  expand: true,
+                  cwd: 'public_html/static/',
+                  src: ['**/*.png'],
+                  dest: 'public_html/static/compressed/',
+                  ext: '.png'
+                }
+              ]
+            },
+            jpg: {
+              options: {
+                progressive: true
+              },
+              files: [
+                {
+                  expand: true,
+                  cwd: 'public_html/static/',
+                  src: ['**/*.jpg'],
+                  dest: 'public_html/static/compressed/',
+                  ext: '.jpg'
+                }
+              ]
+            }
+        },
+
+        concat_css: {
+            dist: {
+                options: {},
+                files: {
+                  'public_html/css/build/main_concat.css': ['public_html/css/build/tidyBootstrap-min.css', 
+                                                            'public_html/css/build/main-min.css'],
+                },
+            }
+  },
     });
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -123,18 +164,24 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+
+    grunt.loadNpmTasks('grunt-concat-css');
 
     grunt.registerTask('test', ['qunit:all']);
     grunt.registerTask('default', ['concurrent']);
     grunt.registerTask('compile', ['sass']);
-    
+    grunt.registerTask('imageMin', ['imagemin'])
+
     grunt.registerTask(
         'build',
             [
                 'fest', 'requirejs:build',
                 'concat:build', 'uglify:build', 
-                'cssmin:dist'
+                'cssmin:dist', 'concat_css:dist'
             ]
     );
 };

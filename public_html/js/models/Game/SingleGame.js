@@ -149,7 +149,6 @@ define(
                 for (; i < this.occupiedPoints.length; i = i + 2) {
                     points.push(JSON.parse(this.occupiedPoints.getItem(i)));
                 }
-                
                 return points;
             }
         });
@@ -184,3 +183,4 @@ define(
         return Model;  
     }
 );
+
